@@ -57,23 +57,23 @@
 <script>
 'use strict';
 const GOOGLE_URL = 'https://docs.google.com/spreadsheets/d/1zoLN2ccadO_0KDBnnTOKrle8xcD_yKEnHKuFdoIDk3o/gviz/tq?tqx=responseHandler:hienThiDuLieu&headers=0&range=A7:Z&tq=select%20B%2CC%2CD%2CF%2CG%2CI%2CK%2CN%2CO%2CP%2CQ';
-const $=id=>document.getElementById(id), state={headers:[],rows:[],filtered:[],status:'all',sort:-1,desc:false,page:1,limit:25,visible:[],filterCols:[],loaded:false,selectedVehicles:new Set()};
+const $=id=>document.getElementById(id), state={headers:[],rows:[],filtered:[],status:'all',sort:-1,desc:false,page:1,limit:25,visible:[],filterCols:[],loaded:false,selectedVehicles:new Set(),statusColumn:-1,progressColumn:-1,validationError:false};
 const str=v=>v===null||v===undefined?'':String(v);
 const norm=s=>str(s).normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/đ/g,'d').replace(/Đ/g,'D').toLowerCase().trim();
 const cellValue=cell=>cell==null?'':str(cell.f!=null&&cell.f!==''?cell.f:cell.v);
 // Phân nhóm tình trạng hàng theo cột "Tình trạng xe", độc lập với tiến độ khách.
-const category=v=>{const s=norm(v);return (s.includes('ton san kho')||s.includes('ton tai kho'))?'kho':(s.includes('ton po')||s.includes('po'))?'po':'other'};
+const category=v=>{const s=norm(v);return (s.includes('ton san kho')||s.includes('ton tai kho'))?'kho':(s.includes('ton po')||s.startsWith('po ')||s==='po')?'po':'other'};
 // Tiến Độ xe là nguồn duy nhất quyết định xe đã có khách hay chưa.
-const progressIndex=()=>state.headers.findIndex(h=>/^tien do xe$/.test(norm(h))||norm(h).includes('tien do xe'));
-const hasCustomer=r=>{const i=progressIndex();if(i<0)return false;const s=norm(r[i]);return /(^|\W)(da co khach|co khach hang|co khach)(\W|$)/.test(s)&&!/(chua co khach|khong co khach|chua co khach hang)/.test(s)};
-const inventoryType=r=>hasCustomer(r)?'khach':category(r[8]);
-const isInventory=r=>!hasCustomer(r)&&['kho','po'].includes(category(r[8]));
-const matchesGroup=(r,key)=>key==='all'||(key==='inventory'&&isInventory(r))||(key==='khach'&&hasCustomer(r))||(key==='kho'&&!hasCustomer(r)&&category(r[8])==='kho')||(key==='po'&&!hasCustomer(r)&&category(r[8])==='po')||(key==='other'&&!hasCustomer(r)&&category(r[8])==='other');
+const progressIndex=()=>state.progressColumn;
+const hasCustomer=r=>{const i=progressIndex();if(i<0)return false;const s=norm(r[i]);return /(da co khach|co khach hang|co khach)/.test(s)&&!/(chua co khach|khong co khach|chua co khach hang)/.test(s)};
+const inventoryType=r=>hasCustomer(r)?'khach':category(r[state.statusColumn]);
+const isInventory=r=>!hasCustomer(r)&&['kho','po'].includes(category(r[state.statusColumn]));
+const matchesGroup=(r,key)=>key==='all'||(key==='inventory'&&isInventory(r))||(key==='khach'&&hasCustomer(r))||(key==='kho'&&!hasCustomer(r)&&category(r[state.statusColumn])==='kho')||(key==='po'&&!hasCustomer(r)&&category(r[state.statusColumn])==='po')||(key==='other'&&!hasCustomer(r)&&category(r[state.statusColumn])==='other');
 const countStatus=key=>state.rows.filter(r=>matchesGroup(r,key)).length;
 const el=(tag,text,cls)=>{const n=document.createElement(tag);if(text!==undefined)n.textContent=text;if(cls)n.className=cls;return n;};
 function setOptions(select,vals,label){const old=select.value;select.replaceChildren(new Option(label,''));[...new Set(vals.filter(Boolean))].sort((a,b)=>a.localeCompare(b,'vi',{numeric:true})).forEach(v=>select.add(new Option(v,v)));if([...select.options].some(o=>o.value===old))select.value=old;}
 function bestColumn(regex,excluded=[]){return state.headers.findIndex((h,i)=>!excluded.includes(i)&&regex.test(norm(h)));}
-function initFilters(){let c1=bestColumn(/loai xe|dong xe|model|ten xe|hang xe/);if(c1<0)c1=0;let c2=bestColumn(/phien ban|mau|version|variant|color/, [c1,8]);if(c2<0)c2=state.headers.findIndex((_,i)=>i!==c1&&i!==8);state.filterCols=[c1,c2];{const idx=state.filterCols[1];$('filterLabel2').textContent=state.headers[idx]||'Phiên bản';setOptions($('filter2'),state.rows.map(r=>r[idx]),'Tất cả '+(state.headers[idx]||''));}setOptions($('statusFilter'),state.rows.map(r=>r[8]),'Tất cả tình trạng');buildColumns();buildChips();buildVehicleChecklist();}
+function initFilters(){let c1=bestColumn(/loai xe|dong xe|model|ten xe|hang xe/);if(c1<0)c1=0;let c2=bestColumn(/phien ban|mau|version|variant|color/, [c1,state.statusColumn]);if(c2<0)c2=state.headers.findIndex((_,i)=>i!==c1&&i!==state.statusColumn);state.filterCols=[c1,c2];{const idx=state.filterCols[1];$('filterLabel2').textContent=state.headers[idx]||'Phiên bản';setOptions($('filter2'),state.rows.map(r=>r[idx]),'Tất cả '+(state.headers[idx]||''));}setOptions($('statusFilter'),state.rows.map(r=>r[state.statusColumn]),'Tất cả tình trạng');buildColumns();buildChips();buildVehicleChecklist();}
 function buildVehicleChecklist(){
  const root=$('vehicleChecklist');root.replaceChildren();
  const idx=state.filterCols[0];const counts=new Map();
@@ -89,8 +89,8 @@ function buildVehicleChecklist(){
 function buildColumns(){const menu=$('columnsMenu');menu.replaceChildren();state.headers.forEach((h,i)=>{const line=el('label');const checkbox=document.createElement('input');checkbox.type='checkbox';checkbox.checked=state.visible[i]!==false;checkbox.disabled=state.visible.filter(Boolean).length===1&&checkbox.checked;checkbox.addEventListener('change',()=>{state.visible[i]=checkbox.checked;buildColumns();renderTable();});line.append(checkbox,el('span',h||('Cột '+(i+1))));menu.append(line);});}
 function buildChips(){const counts={all:state.rows.length,inventory:countStatus('inventory'),kho:countStatus('kho'),khach:countStatus('khach'),po:countStatus('po'),other:countStatus('other')};$('statAll').textContent=counts.all.toLocaleString('vi-VN');$('statKho').textContent=counts.inventory.toLocaleString('vi-VN');$('statKhach').textContent=counts.khach.toLocaleString('vi-VN');$('statPo').textContent=counts.po.toLocaleString('vi-VN');const container=$('statusChips');container.replaceChildren();[['all','Tất cả'],['inventory','Tồn kho (chưa có khách)'],['kho','Tồn sẵn kho'],['po','PO chưa có khách'],['khach','Đã có khách (Tiến Độ xe)'],['other','Khác']].forEach(([key,label])=>{if(key==='other'&&!counts.other)return;const b=el('button',`${label}  ·  ${counts[key]}`,'chip'+(state.status===key?' active':''));b.addEventListener('click',()=>chooseStatus(key));container.append(b);});document.querySelectorAll('.metric').forEach(b=>b.classList.toggle('selected',b.dataset.status===state.status));}
 function chooseStatus(key){state.status=key;state.page=1;buildChips();applyFilters();}
-function applyFilters(){if(!state.loaded)return;const q=norm($('searchInput').value),b=$('filter2').value,s=$('statusFilter').value;state.filtered=state.rows.filter(r=>(!q||r.some(v=>norm(v).includes(q)))&&(!b||r[state.filterCols[1]]===b)&&(!s||r[8]===s)&&matchesGroup(r,state.status)&&(!state.selectedVehicles.size||state.selectedVehicles.has(r[state.filterCols[0]])));if(state.sort>=0){const i=state.sort,sign=state.desc?-1:1;state.filtered.sort((a,b)=>sign*str(a[i]).localeCompare(str(b[i]),'vi',{numeric:true,sensitivity:'base'}));}state.page=Math.min(state.page,Math.max(1,Math.ceil(state.filtered.length/state.limit)));renderTable();}
-function renderTable(){const head=$('thead'),body=$('tbody');head.replaceChildren();body.replaceChildren();const tr=el('tr');state.headers.forEach((h,i)=>{if(state.visible[i]===false)return;const th=el('th'),b=el('button',(h||'Cột '+(i+1))+(state.sort===i?(state.desc?' ↓':' ↑'):' ↕'));b.title='Sắp xếp theo '+h;b.addEventListener('click',()=>{if(state.sort===i)state.desc=!state.desc;else{state.sort=i;state.desc=false;}state.page=1;applyFilters();});th.append(b);tr.append(th);});tr.append(el('th','Chi tiết'));head.append(tr);const start=(state.page-1)*state.limit;state.filtered.slice(start,start+state.limit).forEach(r=>{const row=el('tr');if(hasCustomer(r)){row.classList.add('customer-row');row.title='Xe đã có khách — theo cột Tiến Độ xe';}r.forEach((v,i)=>{if(state.visible[i]===false)return;const td=el('td');td.dataset.label=state.headers[i]||('Cột '+(i+1));td.title=v;if(i===8&&v){const klass={kho:'green',po:'blue',other:'gray'}[category(v)];td.append(el('span',v,'tag '+klass));}else td.textContent=v||'—';row.append(td);});const td=el('td');td.dataset.label='Chi tiết';const b=el('button','Xem →','detailbutton');b.addEventListener('click',()=>showDetail(r));td.append(b);row.append(td);body.append(row);});$('dataTable').classList.toggle('hidden',!state.loaded||!state.filtered.length);$('emptyState').classList.toggle('hidden',!state.loaded||!!state.filtered.length);$('loadingState').classList.add('hidden');$('totalRows').textContent=`Hiển thị ${state.filtered.length?start+1:0}–${Math.min(start+state.limit,state.filtered.length)} / ${state.filtered.length.toLocaleString('vi-VN')} xe (tổng ${state.rows.length.toLocaleString('vi-VN')})`;$('pageInfo').textContent=`${state.page} / ${Math.max(1,Math.ceil(state.filtered.length/state.limit))}`;$('prevBtn').disabled=state.page<=1;$('nextBtn').disabled=state.page>=Math.ceil(state.filtered.length/state.limit);}
+function applyFilters(){if(!state.loaded)return;const q=norm($('searchInput').value),b=$('filter2').value,s=$('statusFilter').value;state.filtered=state.rows.filter(r=>(!q||r.some(v=>norm(v).includes(q)))&&(!b||r[state.filterCols[1]]===b)&&(!s||r[state.statusColumn]===s)&&matchesGroup(r,state.status)&&(!state.selectedVehicles.size||state.selectedVehicles.has(r[state.filterCols[0]])));if(state.sort>=0){const i=state.sort,sign=state.desc?-1:1;state.filtered.sort((a,b)=>sign*str(a[i]).localeCompare(str(b[i]),'vi',{numeric:true,sensitivity:'base'}));}state.page=Math.min(state.page,Math.max(1,Math.ceil(state.filtered.length/state.limit)));renderTable();}
+function renderTable(){const head=$('thead'),body=$('tbody');head.replaceChildren();body.replaceChildren();const tr=el('tr');state.headers.forEach((h,i)=>{if(state.visible[i]===false)return;const th=el('th'),b=el('button',(h||'Cột '+(i+1))+(state.sort===i?(state.desc?' ↓':' ↑'):' ↕'));b.title='Sắp xếp theo '+h;b.addEventListener('click',()=>{if(state.sort===i)state.desc=!state.desc;else{state.sort=i;state.desc=false;}state.page=1;applyFilters();});th.append(b);tr.append(th);});tr.append(el('th','Chi tiết'));head.append(tr);const start=(state.page-1)*state.limit;state.filtered.slice(start,start+state.limit).forEach(r=>{const row=el('tr');if(hasCustomer(r)){row.classList.add('customer-row');row.title='Xe đã có khách — theo cột Tiến Độ xe';}r.forEach((v,i)=>{if(state.visible[i]===false)return;const td=el('td');td.dataset.label=state.headers[i]||('Cột '+(i+1));td.title=v;if(i===state.statusColumn&&v){const klass={kho:'green',po:'blue',other:'gray'}[category(v)];td.append(el('span',v,'tag '+klass));}else td.textContent=v||'—';row.append(td);});const td=el('td');td.dataset.label='Chi tiết';const b=el('button','Xem →','detailbutton');b.addEventListener('click',()=>showDetail(r));td.append(b);row.append(td);body.append(row);});$('dataTable').classList.toggle('hidden',!state.loaded||!state.filtered.length);$('emptyState').classList.toggle('hidden',!state.loaded||!!state.filtered.length);$('loadingState').classList.add('hidden');$('totalRows').textContent=`Hiển thị ${state.filtered.length?start+1:0}–${Math.min(start+state.limit,state.filtered.length)} / ${state.filtered.length.toLocaleString('vi-VN')} xe (tổng ${state.rows.length.toLocaleString('vi-VN')})`;$('pageInfo').textContent=`${state.page} / ${Math.max(1,Math.ceil(state.filtered.length/state.limit))}`;$('prevBtn').disabled=state.page<=1;$('nextBtn').disabled=state.page>=Math.ceil(state.filtered.length/state.limit);}
 function showDetail(r){$('detailBody').replaceChildren();state.headers.forEach((h,i)=>{const wrap=el('div');wrap.append(el('dt',h||'Cột '+(i+1)),el('dd',r[i]||'—'));$('detailBody').append(wrap);});$('modalTitle').textContent=r[0]||'Chi tiết xe';$('modalBg').classList.add('open');$('closeModal').focus();}
 function closeDetail(){$('modalBg').classList.remove('open');}
 function csvEscape(v){const s=str(v);return '"'+s.replace(/"/g,'""')+'"';}
@@ -99,9 +99,66 @@ function setError(message){$('errorBox').textContent=message;$('errorBox').class
 let pending=null,clock=null;
 function refresh(){if(pending){pending.remove();pending=null;}clearTimeout(clock);$('refreshBtn').disabled=true;$('updatedAt').textContent='Đang đồng bộ...';$('errorBox').classList.add('hidden');const script=document.createElement('script');pending=script;script.src=GOOGLE_URL+'&_t='+Date.now();script.onerror=()=>{if(pending!==script)return;finishRequest();setError('Không kết nối được Google Sheets. Kiểm tra kết nối internet và quyền chia sẻ của bảng tính.');};clock=setTimeout(()=>{if(pending!==script)return;finishRequest();setError('Hết thời gian tải Google Sheets. Vui lòng thử lại.');},18000);document.body.append(script);}
 function finishRequest(){clearTimeout(clock);$('refreshBtn').disabled=false;if(pending){pending.remove();pending=null;}}
-function hienThiDuLieu(data){finishRequest();if(data&&data.status==='error'){setError('Google Sheets trả về lỗi: '+str(data.errors?.[0]?.detailed_message||data.errors?.[0]?.message||'Không xác định'));return;}const rows=data?.table?.rows;if(!Array.isArray(rows)||!rows.length){setError('Bảng tính không có dữ liệu ở phạm vi đã cấu hình.');return;}const headers=(rows[0]?.c||[]).map(cellValue);if(headers.length>5)headers[5]='Năm Sản Xuất';if(headers.length>9)headers[9]='Ngày Tồn';if(!headers.length){setError('Không đọc được tiêu đề các cột.');return;}state.headers=headers;state.rows=rows.slice(1).filter(r=>r&&Array.isArray(r.c)&&r.c.some(c=>cellValue(c).trim())).map(r=>headers.map((_,i)=>cellValue(r.c[i])));state.visible=headers.map(()=>true);state.loaded=true;if(progressIndex()<0)setError('Không tìm thấy cột Tiến Độ xe trong dữ liệu. Không thể xác định chính xác xe đã có khách; hãy kiểm tra các cột được chọn trong Google Sheets.');state.page=1;state.status='all';state.selectedVehicles.clear();$('searchInput').value='';$('updatedAt').textContent='Cập nhật lúc '+new Date().toLocaleTimeString('vi-VN',{hour:'2-digit',minute:'2-digit'});initFilters();applyFilters();}
+function detectSchema(headers, rows){
+ const labels=headers.map(norm);
+ const findUnique=(patterns)=>{const found=labels.map((s,i)=>patterns.some(re=>re.test(s))?i:-1).filter(i=>i>=0);return found.length===1?found[0]:-1;};
+ const progress=findUnique([/^tien do xe$/, /^tien do xe\b/, /^tinh trang khach hang$/]);
+ const statusByName=findUnique([/^tinh trang xe$/, /^tinh trang ton kho$/, /^trang thai xe$/, /^tinh trang$/]);
+ // Phân tích nội dung chỉ khi tiêu đề bị thiếu; không dùng vị trí cố định như bản cũ.
+ const evidence=headers.map((_,i)=>{
+   const vs=rows.map(r=>norm(cellValue(r.c[i]))).filter(Boolean);
+   const matching=vs.filter(v=>/^(ton tai kho|ton san kho|ton po|po chua co khach|po chua ve|ton kho|da giao|dang ve kho)/.test(v));
+   return {i, count:matching.length, ratio:matching.length/Math.max(1,vs.length)};
+ }).filter(x=>x.count>=2&&x.ratio>=.35).sort((a,b)=>b.count-a.count);
+ const status=statusByName>=0?statusByName:(evidence.length===1?evidence[0].i:-1);
+ const issues=[];
+ if(status<0)issues.push('Không nhận diện chắc chắn cột Tình trạng xe.');
+ if(progress<0)issues.push('Không tìm thấy cột Tiến Độ xe theo tiêu đề.');
+ if(status===progress&&status>=0)issues.push('Hai cột Tình trạng và Tiến Độ trùng nhau.');
+ return {status,progress,issues};
+}
+function hienThiDuLieu(data){
+ finishRequest();
+ if(data&&data.status==='error'){setError('Google Sheets trả về lỗi: '+str(data.errors?.[0]?.detailed_message||data.errors?.[0]?.message||'Không xác định'));return;}
+ const rows=data?.table?.rows;
+ if(!Array.isArray(rows)||!rows.length){setError('Bảng tính không có dữ liệu ở phạm vi đã cấu hình.');return;}
+ const headers=(rows[0]?.c||[]).map(cellValue);
+ const rawRows=rows.slice(1).filter(r=>r&&Array.isArray(r.c)&&r.c.some(c=>cellValue(c).trim()));
+ if(!headers.length||!rawRows.length){setError('Không có cột hoặc dòng dữ liệu hợp lệ.');return;}
+ const schema=detectSchema(headers,rawRows);
+ if(schema.issues.length){
+   // Giữ lại bản dữ liệu hợp lệ cuối cùng, không hiển thị số 0 sai lệch.
+   state.validationError=true;
+   setError('TẠM DỪNG CẬP NHẬT: '+schema.issues.join(' ')+' Đang giữ số liệu hợp lệ lần trước (nếu có). Hãy kiểm tra tiêu đề Google Sheets.');
+   $('updatedAt').textContent='Dữ liệu nguồn cần kiểm tra';
+   return;
+ }
+ const parsed=rawRows.map(r=>headers.map((_,i)=>cellValue(r.c[i])));
+ const statuses=parsed.map(r=>norm(r[schema.status])).filter(Boolean);
+ const known=statuses.filter(v=>/ton tai kho|ton san kho|ton po|^po|ton kho/.test(v));
+ if(statuses.length&&known.length===0){state.validationError=true;setError('TẠM DỪNG CẬP NHẬT: Không nhận diện được giá trị tồn kho trong cột Tình trạng xe. Đã giữ dữ liệu hợp lệ gần nhất.');return;}
+ state.validationError=false;
+ // Tên cột hiển thị: không thay đổi ý nghĩa dữ liệu gốc.
+ const labelHeaders=[...headers];
+ if(labelHeaders.length>5)labelHeaders[5]='Năm Sản Xuất';
+ labelHeaders[schema.status]='Tình trạng xe';
+ const age=labelHeaders.findIndex((h,i)=>i!==schema.status&&/ngay ton|so ngay ton|tuoi ton/.test(norm(h)));
+ if(age<0&&labelHeaders.length>10&&schema.status!==10&&parsed.some(r=>/^\d{1,4}$/.test(r[10])))labelHeaders[10]='Ngày Tồn';
+ state.headers=labelHeaders;
+ state.rows=parsed;
+ state.statusColumn=schema.status;
+ state.progressColumn=schema.progress;
+ state.visible=labelHeaders.map((_,i)=>state.visible[i]!==false);
+ state.loaded=true;
+ state.page=1;
+ $('updatedAt').textContent='Cập nhật lúc '+new Date().toLocaleTimeString('vi-VN',{hour:'2-digit',minute:'2-digit'});
+ initFilters();applyFilters();
+}
 window.hienThiDuLieu=hienThiDuLieu;
 $('searchInput').addEventListener('input',()=>{state.page=1;applyFilters();});['filter2','statusFilter'].forEach(id=>$(id).addEventListener('change',()=>{state.page=1;applyFilters();}));$('resetBtn').addEventListener('click',()=>{$('searchInput').value='';['filter2','statusFilter'].forEach(id=>$(id).value='');state.selectedVehicles.clear();buildVehicleChecklist();chooseStatus('all');});$('pageSize').addEventListener('change',e=>{state.limit=Number(e.target.value);state.page=1;applyFilters();});$('prevBtn').addEventListener('click',()=>{state.page--;renderTable();});$('nextBtn').addEventListener('click',()=>{state.page++;renderTable();});$('refreshBtn').addEventListener('click',refresh);$('exportBtn').addEventListener('click',exportCsv);$('columnsBtn').addEventListener('click',()=>{const opened=$('columnsMenu').classList.toggle('hidden');$('columnsBtn').setAttribute('aria-expanded',String(!opened));});document.addEventListener('click',e=>{if(!e.target.closest('.togglewrap'))$('columnsMenu').classList.add('hidden');});document.querySelectorAll('.metric').forEach(b=>b.addEventListener('click',()=>chooseStatus(b.dataset.status)));$('clearVehicleFilters').addEventListener('click',()=>{state.selectedVehicles.clear();buildVehicleChecklist();state.page=1;applyFilters();});
 $('sideToggle').addEventListener('click',()=>{const box=$('vehicleChecklist'),hide=box.classList.toggle('hidden');$('sideToggle').textContent=hide?'▸':'▾';$('sideToggle').setAttribute('aria-expanded',String(!hide));$('clearVehicleFilters').classList.toggle('hidden',hide||!state.selectedVehicles.size);});
+// Tự tải dữ liệu mới mỗi 5 phút khi trang đang mở; không cần thay HTML khi Sheets cập nhật.
+setInterval(()=>{if(!document.hidden && !$('refreshBtn').disabled)refresh();},5*60*1000);
+document.addEventListener('visibilitychange',()=>{if(!document.hidden&&state.loaded)refresh();});
 $('closeModal').addEventListener('click',closeDetail);$('modalBg').addEventListener('click',e=>{if(e.target===$('modalBg'))closeDetail();});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDetail();});refresh();
 </script></body></html>
