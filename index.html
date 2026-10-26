@@ -9,17 +9,17 @@
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"><!-- taste-skill-ignore -->
 <style>
 /* ==========================================================================
-   APPLE PRO DESIGN SYSTEM (macOS Sequoia / Apple Store Executive)
-   Alabaster & Obsidian · Tactile Spring Motion · Smart Visual Filtering
+   APPLE VISION / FUTURISTIC AUTOMOTIVE COMMAND SYSTEM
+   Ultra-Clean Layout · Instant 26-Model & Color Telemetry · Fluid Spring Motion
    ========================================================================== */
 :root,
 :root[data-theme="light"] {
   --ground: #f5f5f7;
   --surface: #ffffff;
-  --surface-glass: rgba(255, 255, 255, 0.86);
-  --raised: #f5f5f7;
-  --control-bg: #ededf2;
-  --active: #e5e5ea;
+  --surface-glass: rgba(255, 255, 255, 0.88);
+  --raised: #f4f4f8;
+  --control-bg: #ebebf0;
+  --active: #e2e2e9;
   --border: #e5e5ea;
   --border-strong: #d2d2d7;
   --rule: #efeff4;
@@ -30,11 +30,11 @@
   --accent-soft: #e8f2ff;
   --primary: #1d1d1f;
   --primary-ink: #ffffff;
-  --positive: #1d8348;
+  --positive: #166534;
   --negative: #c9190b;
   --warning: #b25000;
   --chart-1: #0066cc;
-  --chart-2: #7cc0ff;
+  --chart-2: #6eb6ff;
   --chart-3: #d96b27;
   --chart-muted: #e5e5ea;
   --pill-positive-bg: #eaf6ed;
@@ -50,7 +50,7 @@
   --hl-bg: #fff3b0;
   --hl-ink: #1d1d1f;
   --shadow-card: 0 2px 10px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.02);
-  --shadow-hover: 0 8px 22px rgba(0, 0, 0, 0.06), 0 2px 6px rgba(0, 0, 0, 0.03);
+  --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.06), 0 2px 6px rgba(0, 0, 0, 0.03);
   --shadow-pop: 0 14px 34px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.05);
 
   --font-sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Inter', sans-serif;
@@ -62,31 +62,30 @@
   --fs-body: 14px;
   --fs-section: 16px;
   --fs-page: 26px;
-  --fs-kpi: 28px;
-  --fs-kpi-lead: 32px;
+  --fs-kpi: 26px;
+  --fs-stage-num: 34px;
 
   --row-height: 44px;
   --radius-control: 8px;
   --radius-card: 14px;
-  --radius-sheet: 16px;
-  --ease-apple: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-apple: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 :root[data-theme="dark"] {
-  --ground: #0b0b0c;
-  --surface: #161618;
-  --surface-glass: rgba(22, 22, 24, 0.86);
-  --raised: #222225;
-  --control-bg: #242428;
-  --active: #2c2c30;
-  --border: #262629;
-  --border-strong: #3a3a3e;
-  --rule: #1f1f22;
+  --ground: #0b0b0d;
+  --surface: #151518;
+  --surface-glass: rgba(21, 21, 24, 0.88);
+  --raised: #1e1e23;
+  --control-bg: #25252b;
+  --active: #2e2e36;
+  --border: #26262b;
+  --border-strong: #3a3a42;
+  --rule: #1f1f24;
   --text: #f5f5f7;
-  --muted: #a1a1a6;
+  --muted: #a1a1aa;
   --faint: #8e8e93;
   --accent: #2997ff;
-  --accent-soft: #132a42;
+  --accent-soft: #122840;
   --primary: #f5f5f7;
   --primary-ink: #1d1d1f;
   --positive: #30d158;
@@ -95,7 +94,7 @@
   --chart-1: #2997ff;
   --chart-2: #64b5f6;
   --chart-3: #ff9f0a;
-  --chart-muted: #323236;
+  --chart-muted: #323238;
   --pill-positive-bg: #122d1b;
   --pill-positive-ink: #4ae06e;
   --pill-negative-bg: #331414;
@@ -104,13 +103,13 @@
   --pill-warning-ink: #ffb340;
   --pill-info-bg: #11263c;
   --pill-info-ink: #64b5f6;
-  --pill-neutral-bg: #262629;
+  --pill-neutral-bg: #26262b;
   --pill-neutral-ink: #d1d1d6;
   --hl-bg: #5c4800;
   --hl-ink: #fff8d6;
-  --shadow-card: 0 2px 10px rgba(0, 0, 0, 0.25);
-  --shadow-hover: 0 8px 22px rgba(0, 0, 0, 0.4);
-  --shadow-pop: 0 16px 38px rgba(0, 0, 0, 0.6);
+  --shadow-card: 0 2px 10px rgba(0, 0, 0, 0.28);
+  --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.44);
+  --shadow-pop: 0 16px 38px rgba(0, 0, 0, 0.65);
 }
 
 *, *::before, *::after {
@@ -176,7 +175,7 @@ mark.hl {
 }
 
 /* ==========================================================================
-   APPLE SPRING MOTION KEYFRAMES
+   FLUID SPRING KEYFRAMES
    ========================================================================== */
 @keyframes fadeRise {
   from {
@@ -198,12 +197,14 @@ mark.hl {
   }
 }
 
-@keyframes barGrowY {
+@keyframes stagePulse {
   from {
-    transform: scaleY(0);
+    opacity: 0;
+    transform: translateY(6px) scale(0.99);
   }
   to {
-    transform: scaleY(1);
+    opacity: 1;
+    transform: translateY(0) scale(1);
   }
 }
 
@@ -218,17 +219,6 @@ mark.hl {
   }
 }
 
-@keyframes popIn {
-  from {
-    opacity: 0;
-    transform: translateY(-4px) scale(0.98);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
@@ -238,11 +228,11 @@ mark.hl {
 }
 
 /* ==========================================================================
-   MACOS-STYLE SIDEBAR + MAIN WORKSPACE LAYOUT
+   SIDEBAR DOCK (26 DÒNG XE CHUẨN) + MAIN WORKSPACE
    ========================================================================== */
 .layout {
   display: grid;
-  grid-template-columns: 244px minmax(0, 1fr);
+  grid-template-columns: 276px minmax(0, 1fr);
   min-height: 100svh;
   background: var(--ground);
 }
@@ -250,8 +240,8 @@ mark.hl {
 .sidebar {
   display: flex;
   flex-direction: column;
-  padding: 18px 14px 14px;
-  background: var(--ground);
+  padding: 16px 12px 12px;
+  background: var(--surface);
   border-right: 1px solid var(--border);
   color: var(--text);
   user-select: none;
@@ -266,10 +256,11 @@ mark.hl {
   align-items: center;
   justify-content: space-between;
   gap: 10px;
-  padding: 2px 8px 14px;
+  padding: 2px 6px 12px;
+  border-bottom: 1px solid var(--rule);
 }
 
-.brand-Identity {
+.brand-identity {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -279,7 +270,7 @@ mark.hl {
 .brand-mark {
   width: 32px;
   height: 32px;
-  border-radius: 9px;
+  border-radius: var(--radius-control);
   background: var(--primary);
   color: var(--primary-ink);
   display: grid;
@@ -299,7 +290,7 @@ mark.hl {
 .brand-title {
   font-family: var(--font-display);
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: -0.02em;
   color: var(--text);
   line-height: 1.2;
@@ -317,7 +308,7 @@ mark.hl {
   display: none;
   width: 28px;
   height: 28px;
-  border-radius: 7px;
+  border-radius: var(--radius-control);
   border: 1px solid var(--border-strong);
   background: var(--surface);
   color: var(--muted);
@@ -325,77 +316,14 @@ mark.hl {
   justify-content: center;
 }
 
-.side-group-title {
-  padding: 6px 10px 6px;
-  font-size: var(--fs-small);
-  font-weight: 600;
-  color: var(--muted);
-}
-
-.nav {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  margin-bottom: 10px;
-}
-
-.nav-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-  height: 36px;
-  padding: 0 10px;
-  border-radius: 8px;
-  border: 1px solid transparent;
-  background: transparent;
-  color: var(--muted);
-  font-size: var(--fs-body);
-  font-weight: 500;
-  text-align: left;
-  transition: background-color 150ms ease, color 150ms ease, border-color 150ms ease;
-}
-
-.nav-item:hover {
-  background: var(--control-bg);
-  color: var(--text);
-}
-
-.nav-item.active {
-  background: var(--surface);
-  border-color: var(--border);
-  color: var(--text);
-  font-weight: 600;
-}
-
-.nav-item-left {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  min-width: 0;
-}
-
-.nav-item svg {
-  width: 15px;
-  height: 15px;
-  color: var(--accent);
-  flex: none;
-}
-
-.nav-badge {
-  font-size: var(--fs-num);
-  font-weight: 600;
-  color: var(--muted);
-}
-
-/* Sidebar Smart Vehicle Checklist */
+/* 26-Model Catalog Dock */
 .side-filter-box {
   flex: 1;
   min-height: 0;
   display: flex;
   flex-direction: column;
   padding-top: 10px;
-  border-top: 1px solid var(--border);
+  gap: 8px;
 }
 
 .side-filter-header {
@@ -403,47 +331,56 @@ mark.hl {
   align-items: center;
   justify-content: space-between;
   gap: 8px;
-  padding: 0 8px 6px;
+  padding: 0 6px;
 }
 
 .side-filter-title {
   font-size: var(--fs-small);
   font-weight: 600;
-  color: var(--muted);
-}
-
-.side-collapse-btn {
-  width: 24px;
-  height: 24px;
-  border-radius: 6px;
-  border: 0;
-  background: transparent;
-  color: var(--muted);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.side-collapse-btn:hover {
-  background: var(--control-bg);
   color: var(--text);
 }
 
-.side-search-wrap {
-  padding: 0 6px 8px;
+.side-mode-switch {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  padding: 3px;
+  border-radius: var(--radius-control);
+  background: var(--raised);
+  border: 1px solid var(--border);
+}
+
+.side-mode-switch button {
+  height: 26px;
+  padding: 0 6px;
+  border-radius: var(--radius-control);
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--muted);
+  font-size: var(--fs-small);
+  font-weight: 500;
+  white-space: nowrap;
+  transition: background-color 160ms var(--ease-apple), color 160ms ease, border-color 160ms ease;
+}
+
+.side-mode-switch button.active {
+  background: var(--surface);
+  border-color: var(--border-strong);
+  color: var(--text);
+  font-weight: 600;
 }
 
 .side-search-wrap input {
   width: 100%;
-  height: 30px;
+  height: 32px;
   padding: 0 10px;
-  border-radius: 7px;
+  border-radius: var(--radius-control);
   border: 1px solid var(--border-strong);
-  background: var(--surface);
+  background: var(--raised);
   color: var(--text);
   font-size: var(--fs-small);
   outline: none;
-  transition: border-color 150ms ease;
+  transition: border-color 150ms ease, background-color 150ms ease;
 }
 
 .side-search-wrap input::placeholder {
@@ -452,6 +389,7 @@ mark.hl {
 
 .side-search-wrap input:focus {
   border-color: var(--accent);
+  background: var(--surface);
 }
 
 .vehicle-checklist {
@@ -460,94 +398,119 @@ mark.hl {
   display: flex;
   flex-direction: column;
   gap: 3px;
-  padding: 0 4px;
+  padding-right: 2px;
 }
 
-.vehicle-check-item {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  padding: 6px 8px;
-  border-radius: 8px;
-  border: 1px solid transparent;
-  color: var(--muted);
-  font-size: var(--fs-body);
-  cursor: pointer;
-  transition: background-color 140ms ease, color 140ms ease, border-color 140ms ease;
-}
-
-.vehicle-check-item:hover {
-  background: var(--control-bg);
-  color: var(--text);
-}
-
-.vehicle-check-item.active {
-  background: var(--surface);
-  border-color: var(--border);
-  color: var(--text);
-  font-weight: 500;
-}
-
-.vehicle-check-row {
+.vehicle-nav-btn {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 8px;
-  width: 100%;
+  min-height: 36px;
+  padding: 6px 10px;
+  border-radius: var(--radius-control);
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--text);
+  font-size: var(--fs-small);
+  font-weight: 500;
+  text-align: left;
+  transition: background-color 160ms var(--ease-apple), border-color 160ms ease, color 160ms ease, transform 160ms var(--ease-apple);
 }
 
-.vehicle-check-left {
+.vehicle-nav-btn:hover {
+  background: var(--raised);
+  transform: translateX(2px);
+}
+
+.vehicle-nav-btn.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--primary-ink);
+  font-weight: 600;
+}
+
+.vehicle-nav-btn.zero-stock:not(.active) {
+  color: var(--muted);
+  opacity: 0.72;
+}
+
+.vehicle-nav-left {
   display: flex;
   align-items: center;
   gap: 8px;
   min-width: 0;
+  flex: 1;
 }
 
-.vehicle-check-item input[type="checkbox"] {
-  width: 14px;
-  height: 14px;
-  margin: 0;
-  accent-color: var(--accent);
-  cursor: pointer;
+.vehicle-nav-idx {
+  font-family: var(--font-mono); /* taste-skill-ignore */
+  font-size: var(--fs-num);
+  color: var(--muted);
+  width: 20px;
   flex: none;
 }
 
-.vehicle-check-name {
+.vehicle-nav-btn.active .vehicle-nav-idx {
+  color: var(--primary-ink);
+  opacity: 0.8;
+}
+
+.vehicle-nav-name {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  line-height: 1.3;
 }
 
-.vehicle-check-count {
-  font-size: var(--fs-num);
-  color: var(--muted);
+.vehicle-nav-right {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   flex: none;
 }
 
-.vehicle-check-item.active .vehicle-check-count {
-  color: var(--text);
+.mini-color-dots {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.mini-color-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  border: 1px solid var(--border-strong);
+  flex: none;
+}
+
+.vehicle-nav-count {
+  font-family: var(--font-mono); /* taste-skill-ignore */
+  font-size: var(--fs-num);
   font-weight: 600;
+  padding: 1px 7px;
+  border-radius: 999px;
+  background: var(--raised);
+  color: var(--text);
+  min-width: 26px;
+  text-align: center;
 }
 
-.vehicle-mini-bar {
-  width: 100%;
-  height: 3px;
-  border-radius: 999px;
-  background: var(--control-bg);
-  overflow: hidden;
-}
-
-.vehicle-mini-fill {
-  height: 100%;
-  border-radius: 999px;
+.vehicle-nav-btn.active .vehicle-nav-count {
   background: var(--accent);
-  transition: width 300ms var(--ease-apple);
+  color: #ffffff;
+}
+
+.vehicle-nav-btn.zero-stock:not(.active) .vehicle-nav-count {
+  background: transparent;
+  color: var(--muted);
+  font-weight: 400;
 }
 
 .sidebar-foot {
-  margin-top: 10px;
-  padding: 10px 8px 0;
-  border-top: 1px solid var(--border);
+  margin-top: 8px;
+  padding: 10px 6px 0;
+  border-top: 1px solid var(--rule);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -570,7 +533,7 @@ mark.hl {
 }
 
 /* ==========================================================================
-   MAIN WORKSPACE & SPOTLIGHT SMART SEARCH BAR
+   TOPBAR & SMART SPOTLIGHT SEARCH
    ========================================================================== */
 .frame-main {
   min-width: 0;
@@ -586,8 +549,8 @@ mark.hl {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  min-height: 56px;
-  padding: 8px 28px;
+  min-height: 54px;
+  padding: 8px 24px;
   background: var(--surface-glass);
   backdrop-filter: saturate(180%) blur(20px); /* taste-skill-ignore */
   -webkit-backdrop-filter: saturate(180%) blur(20px); /* taste-skill-ignore */
@@ -636,15 +599,15 @@ mark.hl {
 
 .top-search-wrap input {
   width: 100%;
-  height: 36px;
-  padding: 0 64px 0 34px;
-  border-radius: 9px;
+  height: 34px;
+  padding: 0 60px 0 34px;
+  border-radius: var(--radius-control);
   border: 1px solid var(--border-strong);
   background: var(--surface);
   color: var(--text);
   font-size: var(--fs-body);
   outline: none;
-  transition: border-color 160ms ease, box-shadow 160ms ease;
+  transition: border-color 160ms ease;
 }
 
 .top-search-wrap input::placeholder {
@@ -657,7 +620,7 @@ mark.hl {
 
 .search-clear-btn {
   position: absolute;
-  right: 34px;
+  right: 32px;
   top: 50%;
   transform: translateY(-50%);
   width: 20px;
@@ -666,34 +629,28 @@ mark.hl {
   border: 0;
   background: var(--control-bg);
   color: var(--muted);
-  font-size: 12px;
+  font-size: 13px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 0;
 }
 
-.search-clear-btn:hover {
-  background: var(--active);
-  color: var(--text);
-}
-
 .top-search-wrap kbd {
   position: absolute;
-  right: 9px;
+  right: 8px;
   top: 50%;
   transform: translateY(-50%);
   padding: 1px 6px;
-  border-radius: 5px;
+  border-radius: var(--radius-control);
   border: 1px solid var(--border);
   background: var(--raised);
   color: var(--muted);
   font-family: var(--font-mono); /* taste-skill-ignore */
-  font-size: 11px;
+  font-size: var(--fs-num);
   pointer-events: none;
 }
 
-/* Apple Spotlight Smart Suggestions Popover */
 .smart-suggest {
   position: absolute;
   left: 0;
@@ -702,16 +659,13 @@ mark.hl {
   z-index: 40;
   background: var(--surface);
   border: 1px solid var(--border-strong);
-  border-radius: 12px;
-  padding: 10px 12px;
+  border-radius: var(--radius-card);
+  padding: 12px 14px;
   box-shadow: var(--shadow-pop); /* taste-skill-ignore */
-  animation: popIn 180ms var(--ease-apple) both;
+  animation: stagePulse 180ms var(--ease-apple) both;
 }
 
 .smart-suggest-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   font-size: var(--fs-small);
   font-weight: 600;
   color: var(--muted);
@@ -727,7 +681,6 @@ mark.hl {
 .suggest-pill {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
   height: 28px;
   padding: 0 10px;
   border-radius: 999px;
@@ -743,14 +696,6 @@ mark.hl {
   background: var(--accent-soft);
   border-color: var(--accent);
   color: var(--accent);
-}
-
-.suggest-tip {
-  margin-top: 8px;
-  padding-top: 8px;
-  border-top: 1px solid var(--rule);
-  font-size: var(--fs-small);
-  color: var(--muted);
 }
 
 .topbar-right {
@@ -810,37 +755,37 @@ mark.hl {
 }
 
 .btn.primary:hover:not(:disabled) {
-  opacity: 0.9;
+  opacity: 0.92;
   background: var(--primary);
 }
 
 /* ==========================================================================
-   MAIN CONTENT CONTAINER
+   MAIN SHEET & FUTURISTIC VEHICLE + COLOR COMMAND STAGE
    ========================================================================== */
 .sheet {
-  padding: 22px 28px 36px;
+  padding: 18px 24px 32px;
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 16px;
   max-width: 1600px;
   width: 100%;
   margin: 0 auto;
 }
 
-/* Editorial Header Bar */
 .page-header {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
   gap: 16px;
   flex-wrap: wrap;
-  animation: fadeRise 400ms var(--ease-apple) both;
+  animation: fadeRise 380ms var(--ease-apple) both;
 }
 
 .page-header-copy {
   display: flex;
-  flex-direction: column;
-  gap: 4px;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
 .page-header h1 {
@@ -855,7 +800,6 @@ mark.hl {
 .subtitle {
   font-size: var(--fs-body);
   color: var(--muted);
-  max-width: 68ch;
 }
 
 .subtitle strong {
@@ -870,12 +814,11 @@ mark.hl {
   flex-wrap: wrap;
 }
 
-/* Apple Segmented Control */
 .segmented {
   display: inline-flex;
   align-items: center;
   padding: 3px;
-  border-radius: 10px;
+  border-radius: var(--radius-control);
   background: var(--control-bg);
   border: 1px solid var(--border);
 }
@@ -883,11 +826,11 @@ mark.hl {
 .segmented button {
   height: 28px;
   padding: 0 11px;
-  border-radius: 7px;
+  border-radius: var(--radius-control);
   border: 1px solid transparent;
   background: transparent;
   color: var(--muted);
-  font-size: var(--fs-body);
+  font-size: var(--fs-small);
   font-weight: 500;
   white-space: nowrap;
   transition: background-color 180ms var(--ease-apple), color 180ms ease, border-color 180ms ease;
@@ -905,155 +848,216 @@ mark.hl {
 }
 
 /* ==========================================================================
-   APPLE BENTO KPI ROW (4 HARMONIOUS CARDS)
+   FUTURISTIC COMMAND STAGE (SELECTED MODEL TOTAL + COLOR BREAKDOWN)
    ========================================================================== */
-.metrics {
+.command-stage {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: 380px minmax(0, 1fr);
   gap: 14px;
+  align-items: stretch;
+  animation: fadeRise 440ms var(--ease-apple) 60ms both;
 }
 
-.metric {
-  position: relative;
+.stage-hub {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-card);
   padding: 18px 20px;
   box-shadow: var(--shadow-card); /* taste-skill-ignore */
-  cursor: pointer;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: transform 220ms var(--ease-apple), box-shadow 220ms var(--ease-apple), border-color 180ms ease;
-  animation: fadeRise 450ms var(--ease-apple) both;
+  gap: 14px;
 }
 
-.metric:nth-child(1) { animation-delay: 30ms; }
-.metric:nth-child(2) { animation-delay: 60ms; }
-.metric:nth-child(3) { animation-delay: 90ms; }
-.metric:nth-child(4) { animation-delay: 120ms; }
-
-.metric:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-hover); /* taste-skill-ignore */
+.stage-hub-top {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
-.metric.active-filter {
-  border-color: var(--border-strong);
-}
-
-.metric-head {
+.stage-meta-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 8px;
 }
 
-.metriclabel {
-  font-size: var(--fs-body);
-  font-weight: 500;
-  color: var(--muted);
-}
-
-.metric.active-filter .metriclabel {
-  color: var(--text);
-  font-weight: 600;
-}
-
-.metric-tag {
-  font-size: var(--fs-small);
-  font-weight: 500;
-  padding: 1px 8px;
+.stage-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 24px;
+  padding: 0 10px;
   border-radius: 999px;
-  background: var(--raised);
-  color: var(--muted);
-  white-space: nowrap;
-  flex: none;
-}
-
-.metric.active-filter .metric-tag {
-  background: var(--primary);
-  color: var(--primary-ink);
-}
-
-.metricvalue {
-  margin-top: 10px;
-  font-family: var(--font-display);
-  font-size: var(--fs-kpi);
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: var(--fs-small);
   font-weight: 600;
-  line-height: 1.1;
-  letter-spacing: -0.025em;
-  color: var(--text);
 }
 
-.metricvalue.lead {
-  font-size: var(--fs-kpi-lead);
+.stage-reset-model {
+  border: 0;
+  background: transparent;
+  color: var(--accent);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: var(--radius-control);
+}
+
+.stage-reset-model:hover {
+  background: var(--raised);
+}
+
+.stage-model-title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  line-height: 1.25;
+}
+
+.stage-hero-metric {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: var(--radius-card);
+  background: var(--raised);
+  border: 1px solid var(--border);
+}
+
+.stage-hero-left {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.stage-hero-label {
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.stage-hero-sub {
+  font-size: var(--fs-small);
+  color: var(--positive);
+  font-weight: 600;
+}
+
+.stage-hero-number {
+  font-family: var(--font-display);
+  font-size: var(--fs-stage-num);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
   color: var(--accent);
 }
 
-.metricvalue small {
+.stage-hero-number small {
   font-size: var(--fs-body);
-  font-weight: 500;
+  font-weight: 600;
   color: var(--muted);
   margin-left: 4px;
-  letter-spacing: 0;
 }
 
-.kpi-bar-track {
-  width: 100%;
-  height: 4px;
-  border-radius: 999px;
+/* 4 Compact Telemetry KPI Buttons inside the Hub */
+.telemetry-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.telemetry-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 4px;
+  cursor: pointer;
+  transition: border-color 160ms ease, background-color 160ms ease, transform 160ms var(--ease-apple);
+}
+
+.telemetry-card:hover {
   background: var(--raised);
-  overflow: hidden;
-  margin-top: 14px;
+  border-color: var(--border-strong);
+  transform: translateY(-1px);
 }
 
-.kpi-bar-fill {
-  height: 100%;
-  border-radius: 999px;
-  background: var(--accent);
-  transform-origin: left center;
-  animation: barGrowX 700ms var(--ease-apple) 120ms both;
-  transition: width 420ms var(--ease-apple);
+.telemetry-card.active {
+  background: var(--accent-soft);
+  border-color: var(--accent);
 }
 
-.metanote {
-  margin-top: 8px;
+.telemetry-label {
+  font-size: var(--fs-small);
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.telemetry-card.active .telemetry-label {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.telemetry-val-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.telemetry-val {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.telemetry-tag {
   font-size: var(--fs-small);
   color: var(--muted);
 }
 
-/* ==========================================================================
-   BENTO ANALYTICS PANEL
-   ========================================================================== */
-.chart-panel {
+/* Right Stage: Color Stock Matrix Panel */
+.stage-colors-panel {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-card);
-  padding: 18px 22px;
+  padding: 18px 20px;
   box-shadow: var(--shadow-card); /* taste-skill-ignore */
-  animation: fadeRise 500ms var(--ease-apple) 160ms both;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
+  min-width: 0;
 }
 
-.chart-head {
+.stage-colors-head {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
   flex-wrap: wrap;
-  padding-bottom: 14px;
+  padding-bottom: 10px;
   border-bottom: 1px solid var(--rule);
-  margin-bottom: 14px;
 }
 
-.chart-title-wrap {
+.stage-colors-title-wrap {
   display: flex;
   align-items: baseline;
   gap: 10px;
   flex-wrap: wrap;
 }
 
-.chart-title-wrap h2 {
+.stage-colors-title-wrap h2 {
   font-family: var(--font-display);
   font-size: var(--fs-section);
   font-weight: 600;
@@ -1061,60 +1065,199 @@ mark.hl {
   color: var(--text);
 }
 
-.chart-sub {
+.stage-colors-sub {
   font-size: var(--fs-small);
   color: var(--muted);
 }
 
-.chart-legend {
+/* Quick Horizontal Strip of In-Stock Models inside Stage */
+.quick-model-strip {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 6px;
   flex-wrap: wrap;
-  font-size: var(--fs-small);
-  color: var(--muted);
 }
 
-.legend-item {
+.quick-model-pill {
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  height: 30px;
+  padding: 0 10px;
+  border-radius: var(--radius-control);
+  border: 1px solid var(--border);
+  background: var(--raised);
+  color: var(--text);
+  font-size: var(--fs-small);
+  font-weight: 500;
+  transition: background-color 150ms var(--ease-apple), border-color 150ms ease, color 150ms ease, transform 150ms var(--ease-apple);
 }
 
-.legend-swatch {
-  width: 8px;
-  height: 8px;
-  border-radius: 2px;
+.quick-model-pill:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-1px);
+}
+
+.quick-model-pill.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--primary-ink);
+  font-weight: 600;
+}
+
+.quick-model-pill-qty {
+  font-family: var(--font-mono); /* taste-skill-ignore */
+  font-size: var(--fs-num);
+  opacity: 0.85;
+}
+
+/* Color Stock Cards Grid */
+.color-matrix-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  align-items: stretch;
+}
+
+.color-stock-card {
+  background: var(--raised);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+  cursor: pointer;
+  min-width: 0;
+  transition: transform 200ms var(--ease-apple), border-color 160ms ease, background-color 160ms ease;
+  animation: stagePulse 280ms var(--ease-apple) both;
+}
+
+.color-stock-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-strong);
+  background: var(--surface);
+}
+
+.color-stock-card.active {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.color-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.color-swatch-identity {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.paint-orb {
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  border: 1px solid var(--border-strong);
   flex: none;
 }
 
-.chart-canvas {
+.color-card-name {
+  font-size: var(--fs-body);
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.color-card-qty {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  flex: none;
+}
+
+.color-card-qty small {
+  font-size: var(--fs-small);
+  font-weight: 500;
+  color: var(--muted);
+  margin-left: 2px;
+}
+
+.color-card-bar {
   width: 100%;
-  min-height: 172px;
-  position: relative;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--control-bg);
+  overflow: hidden;
+  display: flex;
+  gap: 1px;
 }
 
-.svg-bar-h {
-  transform-box: fill-box;
+.color-bar-kho {
+  height: 100%;
+  background: var(--chart-1);
   transform-origin: left center;
-  animation: barGrowX 650ms var(--ease-apple) both;
-  transition: opacity 150ms ease;
+  animation: barGrowX 500ms var(--ease-apple) both;
 }
 
-.svg-bar-v {
-  transform-box: fill-box;
-  transform-origin: center bottom;
-  animation: barGrowY 650ms var(--ease-apple) both;
-  transition: opacity 150ms ease;
+.color-bar-po {
+  height: 100%;
+  background: var(--chart-2);
+  transform-origin: left center;
+  animation: barGrowX 500ms var(--ease-apple) both;
 }
 
-.svg-bar-group:hover .svg-bar-h,
-.svg-bar-group:hover .svg-bar-v {
-  opacity: 0.82;
+.color-bar-khach {
+  height: 100%;
+  background: var(--chart-muted);
+  transform-origin: left center;
+  animation: barGrowX 500ms var(--ease-apple) both;
+}
+
+.color-card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  font-size: var(--fs-small);
+  color: var(--muted);
+}
+
+.color-card-avail {
+  color: var(--positive);
+  font-weight: 600;
+}
+
+.zero-model-state {
+  grid-column: 1 / -1;
+  padding: 28px 20px;
+  border-radius: var(--radius-card);
+  background: var(--raised);
+  border: 1px solid var(--border);
+  text-align: center;
+  color: var(--muted);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.zero-model-state strong {
+  font-size: var(--fs-section);
+  color: var(--text);
 }
 
 /* ==========================================================================
-   UNIFIED WORKSPACE SHEET WITH SMART VISUAL FILTERS
+   UNIFIED INVENTORY WORKSPACE CARD
    ========================================================================== */
 .workspace-card {
   background: var(--surface);
@@ -1122,7 +1265,7 @@ mark.hl {
   border-radius: var(--radius-card);
   box-shadow: var(--shadow-card); /* taste-skill-ignore */
   overflow: visible;
-  animation: fadeRise 540ms var(--ease-apple) 200ms both;
+  animation: fadeRise 500ms var(--ease-apple) 120ms both;
 }
 
 .status-tabs-bar {
@@ -1148,7 +1291,7 @@ mark.hl {
   gap: 6px;
   height: 30px;
   padding: 0 11px;
-  border-radius: 8px;
+  border-radius: var(--radius-control);
   border: 0;
   background: transparent;
   color: var(--muted);
@@ -1174,83 +1317,14 @@ mark.hl {
   opacity: 0.85;
 }
 
-.chip.active .chip-count {
-  opacity: 0.95;
-}
-
-.workspace-meta-right {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
 .results-summary {
   font-size: var(--fs-small);
   color: var(--muted);
 }
 
-/* Visual Exterior Color Swatch Bar */
-.color-swatch-bar {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
-  padding: 8px 18px;
-  background: var(--surface);
-  border-bottom: 1px solid var(--rule);
-}
-
-.color-bar-label {
-  font-size: var(--fs-small);
-  font-weight: 600;
-  color: var(--muted);
-  margin-right: 2px;
-}
-
-.color-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  height: 26px;
-  padding: 0 9px;
-  border-radius: 999px;
-  border: 1px solid var(--border);
-  background: var(--raised);
-  color: var(--text);
-  font-size: var(--fs-small);
-  font-weight: 500;
-  transition: border-color 140ms ease, background-color 140ms ease, transform 140ms var(--ease-apple);
-}
-
-.color-pill:hover {
-  border-color: var(--border-strong);
-  transform: translateY(-1px);
-}
-
-.color-pill.active {
-  background: var(--primary);
-  border-color: var(--primary);
-  color: var(--primary-ink);
-  font-weight: 600;
-}
-
-.color-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 999px;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  flex: none;
-}
-
-.color-pill-count {
-  font-size: var(--fs-num);
-  opacity: 0.75;
-}
-
-/* Integrated Filter Bar */
 .filter-toolbar {
   display: grid;
-  grid-template-columns: 1.25fr 1.25fr 1fr 1fr auto auto;
+  grid-template-columns: 1.2fr 1.2fr 1.1fr 1fr auto auto;
   gap: 8px;
   align-items: center;
   padding: 10px 18px;
@@ -1324,7 +1398,7 @@ select {
   padding: 8px;
   background: var(--surface);
   border: 1px solid var(--border-strong);
-  border-radius: 12px;
+  border-radius: var(--radius-card);
   box-shadow: var(--shadow-pop); /* taste-skill-ignore */
 }
 
@@ -1334,7 +1408,7 @@ select {
   gap: 8px;
   min-height: 30px;
   padding: 4px 8px;
-  border-radius: 6px;
+  border-radius: var(--radius-control);
   font-size: var(--fs-body);
   cursor: pointer;
 }
@@ -1347,7 +1421,6 @@ select {
   accent-color: var(--accent);
 }
 
-/* Active Filter Pills Bar */
 .active-filters-bar {
   display: flex;
   align-items: center;
@@ -1380,7 +1453,7 @@ select {
   gap: 6px;
   height: 24px;
   padding: 0 8px;
-  border-radius: 6px;
+  border-radius: var(--radius-control);
   border: 1px solid var(--border-strong);
   background: var(--surface);
   color: var(--text);
@@ -1408,11 +1481,7 @@ select {
   font-size: var(--fs-small);
   font-weight: 600;
   padding: 2px 6px;
-  border-radius: 6px;
-}
-
-.clear-all-link:hover {
-  background: var(--surface);
+  border-radius: var(--radius-control);
 }
 
 .error {
@@ -1494,13 +1563,14 @@ td {
   color: var(--text);
   vertical-align: middle;
   white-space: nowrap;
-  max-width: 92px;
+  max-width: 104px;
   overflow: hidden;
   text-overflow: ellipsis;
   transition: background-color 120ms ease;
 }
 
 td:first-child,
+td.col-model,
 td.col-vin,
 td:last-child {
   max-width: none;
@@ -1508,8 +1578,8 @@ td:last-child {
 
 tbody tr {
   cursor: pointer;
-  animation: rowFade 260ms var(--ease-apple) both;
-  animation-delay: calc(var(--row-idx, 0) * 14ms);
+  animation: rowFade 240ms var(--ease-apple) both;
+  animation-delay: calc(var(--row-idx, 0) * 12ms);
 }
 
 tbody tr:last-child td {
@@ -1533,12 +1603,26 @@ tbody tr:hover td {
   color: var(--muted);
 }
 
+.cell-color-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.table-color-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border-strong);
+  flex: none;
+}
+
 .vin-chip {
   display: inline-flex;
   align-items: center;
   height: 24px;
   padding: 0 7px;
-  border-radius: 6px;
+  border-radius: var(--radius-control);
   background: var(--raised);
   border: 1px solid var(--border);
   color: var(--text);
@@ -1550,19 +1634,18 @@ tbody tr:hover td {
 
 .vin-chip:hover {
   border-color: var(--accent);
-  color: var(--accent);
   background: var(--accent-soft);
+  color: var(--accent);
 }
 
 .pill {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
   height: 22px;
   padding: 0 8px;
   border-radius: 999px;
   font-size: var(--fs-small);
-  font-weight: 600;
+  font-weight: 500;
   white-space: nowrap;
 }
 
@@ -1571,19 +1654,14 @@ tbody tr:hover td {
   color: var(--pill-positive-ink);
 }
 
-.pill.info {
-  background: var(--pill-info-bg);
-  color: var(--pill-info-ink);
-}
-
 .pill.warn {
   background: var(--pill-warning-bg);
   color: var(--pill-warning-ink);
 }
 
-.pill.neg {
-  background: var(--pill-negative-bg);
-  color: var(--pill-negative-ink);
+.pill.info {
+  background: var(--pill-info-bg);
+  color: var(--pill-info-ink);
 }
 
 .pill.neutral {
@@ -1595,7 +1673,7 @@ tbody tr:hover td {
   display: inline-flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 4px;
+  font-weight: 500;
 }
 
 .age-warn {
@@ -1610,7 +1688,7 @@ tbody tr:hover td {
   height: 26px;
   padding: 0 9px;
   border: 1px solid var(--border-strong);
-  border-radius: 6px;
+  border-radius: var(--radius-control);
   background: var(--surface);
   color: var(--text);
   font-size: var(--fs-small);
@@ -1639,7 +1717,6 @@ tbody tr:hover td {
   margin-bottom: 4px;
 }
 
-/* Integrated Card Footer */
 .bottom {
   display: flex;
   align-items: center;
@@ -1673,14 +1750,13 @@ tbody tr:hover td {
   color: var(--muted);
 }
 
-/* Toast Notification */
 .toast {
   position: fixed;
   bottom: 24px;
   right: 24px;
   z-index: 60;
   padding: 9px 14px;
-  border-radius: 10px;
+  border-radius: var(--radius-control);
   background: var(--primary);
   color: var(--primary-ink);
   font-size: var(--fs-body);
@@ -1697,11 +1773,10 @@ tbody tr:hover td {
   opacity: 1;
 }
 
-/* Modal Dialog */
 dialog.modal-dialog {
   padding: 0;
   border: 1px solid var(--border-strong);
-  border-radius: var(--radius-sheet);
+  border-radius: var(--radius-card);
   background: var(--surface);
   color: var(--text);
   width: min(700px, calc(100vw - 32px));
@@ -1740,7 +1815,7 @@ dialog.modal-dialog::backdrop {
 
 .modalhead h2 {
   font-family: var(--font-display);
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 600;
   letter-spacing: -0.015em;
 }
@@ -1793,7 +1868,13 @@ dialog.modal-dialog::backdrop {
 /* ==========================================================================
    RESPONSIVE BREAKPOINTS (1440px · 768px · 390px)
    ========================================================================== */
-@media (max-width: 1100px) {
+@media (max-width: 1180px) {
+  .command-stage {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .color-matrix-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
   .filter-toolbar {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -1806,7 +1887,7 @@ dialog.modal-dialog::backdrop {
   .sidebar {
     position: fixed;
     inset: 0 auto 0 0;
-    width: min(280px, 84vw);
+    width: min(300px, 86vw);
     height: 100svh;
     z-index: 30;
     background: var(--surface);
@@ -1832,10 +1913,7 @@ dialog.modal-dialog::backdrop {
     display: none;
   }
   .sheet {
-    padding: 18px 16px 28px;
-  }
-  .metrics {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 16px 16px 28px;
   }
   .filter-toolbar {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1872,6 +1950,9 @@ dialog.modal-dialog::backdrop {
     flex: 1;
     padding: 0 5px;
     font-size: var(--fs-small);
+  }
+  .color-matrix-grid {
+    grid-template-columns: minmax(0, 1fr);
   }
   .filter-toolbar {
     grid-template-columns: minmax(0, 1fr);
@@ -1925,10 +2006,10 @@ dialog.modal-dialog::backdrop {
 <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
 
 <div class="layout">
-  <!-- Sidebar -->
-  <aside class="sidebar" id="sidebar" aria-label="Điều hướng và bộ lọc dòng xe">
+  <!-- Left Dock: 26 Official Vehicle Models -->
+  <aside class="sidebar" id="sidebar" aria-label="Danh mục 26 dòng xe chuẩn">
     <div class="brand">
-      <div class="brand-Identity">
+      <div class="brand-identity">
         <div class="brand-mark" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M5 17h14v-5l-2-5H7L5 12v5Z"/>
@@ -1938,37 +2019,24 @@ dialog.modal-dialog::backdrop {
         </div>
         <div class="brand-copy">
           <div class="brand-title">AutoStock</div>
-          <div class="brand-sub" id="sheetMeta">Kho S45404 · VinFast</div>
+          <div class="brand-sub" id="sheetMeta">Kho S45404 · 26 Dòng xe</div>
         </div>
       </div>
       <button type="button" class="sidebar-close" id="sidebarCloseBtn" aria-label="Đóng danh mục">&times;</button>
     </div>
 
-    <div class="side-group-title">Không gian làm việc</div>
-    <nav class="nav" aria-label="Danh mục chính">
-      <button type="button" class="nav-item active" id="navOverviewBtn">
-        <span class="nav-item-left">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <rect x="3" y="3" width="7" height="7" rx="1.5"/>
-            <rect x="14" y="3" width="7" height="7" rx="1.5"/>
-            <rect x="3" y="14" width="7" height="7" rx="1.5"/>
-            <rect x="14" y="14" width="7" height="7" rx="1.5"/>
-          </svg>
-          <span>Tổng quan tồn kho</span>
-        </span>
-        <span class="nav-badge mono" id="navTotalBadge">60</span>
-      </button>
-    </nav>
-
     <div class="side-filter-box" id="sideVehicleFilterBox">
       <div class="side-filter-header">
-        <span class="side-filter-title" id="vehicleFilterTitle">Dòng xe</span>
-        <button type="button" class="side-collapse-btn" id="vehicleFilterCollapseBtn" title="Thu gọn hoặc mở rộng">▾</button>
+        <span class="side-filter-title" id="vehicleFilterTitle">Danh mục 26 dòng xe</span>
+      </div>
+      <div class="side-mode-switch" role="group" aria-label="Chế độ hiển thị danh mục dòng xe">
+        <button type="button" class="active" id="sideShowAllBtn" data-side-mode="all">Tất cả (26)</button>
+        <button type="button" id="sideShowStockBtn" data-side-mode="instock">Có xe (13)</button>
       </div>
       <div class="side-search-wrap" id="sideSearchWrap">
-        <input id="vehicleQuickSearch" type="search" placeholder="Tìm nhanh dòng xe..." autocomplete="off">
+        <input id="vehicleQuickSearch" type="search" placeholder="Tìm nhanh trong 26 dòng xe..." autocomplete="off">
       </div>
-      <div class="vehicle-checklist" id="vehicleChecklist" role="group" aria-label="Bộ lọc dòng xe"></div>
+      <div class="vehicle-checklist" id="vehicleChecklist" role="listbox" aria-label="Chọn dòng xe để xem tồn kho và màu sắc"></div>
     </div>
 
     <div class="sidebar-foot">
@@ -1983,34 +2051,30 @@ dialog.modal-dialog::backdrop {
   <div class="frame-main">
     <header class="topbar">
       <div class="topbar-left">
-        <button type="button" class="menu-toggle" id="menuToggleBtn" aria-label="Mở bộ lọc dòng xe">
+        <button type="button" class="menu-toggle" id="menuToggleBtn" aria-label="Mở danh mục 26 dòng xe">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M4 7h16M4 12h16M4 17h16"/>
           </svg>
-          <span>Dòng xe</span>
+          <span>26 Dòng xe</span>
         </button>
         <div class="top-search-wrap" id="topSearchWrap">
           <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="11" cy="11" r="7"/>
             <path d="m20 20-3.5-3.5"/>
           </svg>
-          <input id="searchInput" type="search" placeholder="Tìm thông minh (VD: vf3 đỏ kho, limo trắng, >=25)..." autocomplete="off">
+          <input id="searchInput" type="search" placeholder="Tìm thông minh (VD: vf3 plus trắng, limo green, >=25)..." autocomplete="off">
           <button type="button" class="search-clear-btn hidden" id="searchClearBtn" aria-label="Xoá từ khoá">&times;</button>
           <kbd>/</kbd>
-          <!-- Apple Spotlight Smart Suggestions -->
           <div class="smart-suggest hidden" id="smartSuggest">
-            <div class="smart-suggest-head">
-              <span>Gợi ý tìm kiếm thông minh (nhấn để lọc ngay)</span>
-            </div>
-            <div class="smart-suggest-chips" id="smartSuggestChips">
-              <button type="button" class="suggest-pill" data-smart-q="vf3 sẵn tại kho">VF3 sẵn tại kho</button>
+            <div class="smart-suggest-head">Gợi ý tìm kiếm nhanh</div>
+            <div class="smart-suggest-chips">
+              <button type="button" class="suggest-pill" data-smart-q="vf3 plus trắng">VF3 PLUS màu Trắng</button>
+              <button type="button" class="suggest-pill" data-smart-q="vf3 eco">VF3 ECO</button>
+              <button type="button" class="suggest-pill" data-smart-q="limo green">LIMO GREEN</button>
+              <button type="button" class="suggest-pill" data-smart-q="vf6 plus">VF6 PLUS</button>
+              <button type="button" class="suggest-pill" data-smart-q="ec van">EC VAN</button>
               <button type="button" class="suggest-pill" data-smart-q=">=25">Tồn ≥ 25 ngày</button>
-              <button type="button" class="suggest-pill" data-smart-q="limo trắng">Limo màu Trắng</button>
-              <button type="button" class="suggest-pill" data-smart-q="vf5 đỏ ruby">VF5 Đỏ Ruby</button>
-              <button type="button" class="suggest-pill" data-smart-q="vf6 po">VF6 đang về (PO)</button>
-              <button type="button" class="suggest-pill" data-smart-q="<=7">Xe mới về ≤ 7 ngày</button>
             </div>
-            <div class="suggest-tip">Mẹo: Gõ kết hợp nhiều từ khoá như <strong>"vf3 trắng kho"</strong> hoặc toán tử tuổi tồn <strong>"&gt;=25"</strong>, <strong>"&lt;=7"</strong>.</div>
           </div>
         </div>
       </div>
@@ -2044,11 +2108,11 @@ dialog.modal-dialog::backdrop {
     </header>
 
     <main class="sheet">
-      <!-- Clean Apple Editorial Header -->
+      <!-- Compact Executive Header -->
       <section class="page-header">
         <div class="page-header-copy">
           <h1>Quản lý tồn kho xe</h1>
-          <p class="subtitle" id="executiveSummary">Đang tổng hợp trạng thái tồn kho và đơn hàng...</p>
+          <p class="subtitle" id="executiveSummary">Đang tổng hợp trạng thái tồn kho theo 26 dòng xe...</p>
         </div>
         <div class="header-controls">
           <div class="segmented" role="group" aria-label="Lọc nhanh theo tuổi tồn kho">
@@ -2060,79 +2124,82 @@ dialog.modal-dialog::backdrop {
         </div>
       </section>
 
-      <!-- 4 Harmonious Apple Bento KPI Cards -->
-      <section class="metrics" aria-label="Chỉ số tồn kho trọng tâm">
-        <article class="metric" id="kpiCardAvailable" data-kpi-status="UNASSIGNED" title="Nhấn để lọc xe tồn khả dụng chưa ghép khách">
-          <div class="metric-head">
-            <span class="metriclabel">Tồn khả dụng (chưa khách)</span>
-            <span class="metric-tag">Ưu tiên</span>
+      <!-- FUTURISTIC COMMAND STAGE: Left = Selected Model Total & Telemetry | Right = Stock Breakdown by Color -->
+      <section class="command-stage" id="commandStage" aria-label="Bảng điều khiển dòng xe và số lượng tồn theo màu sắc">
+        <!-- Left Hub: Selected Model Total & 4 Telemetry Cards -->
+        <div class="stage-hub">
+          <div class="stage-hub-top">
+            <div class="stage-meta-row">
+              <span class="stage-badge" id="stageStatusBadge">TOÀN BỘ 26 DÒNG XE</span>
+              <button type="button" class="stage-reset-model hidden" id="stageResetModelBtn">Xem tất cả dòng xe</button>
+            </div>
+            <h2 class="stage-model-title" id="stageModelTitle">Tất cả dòng xe trong kho</h2>
           </div>
-          <div class="metricvalue lead"><span id="statAvailable">0</span><small>xe</small></div>
-          <div class="kpi-bar-track"><div class="kpi-bar-fill" id="barAvailable" style="width: 70%"></div></div>
-          <div class="metanote" id="statAvailableNote">Sẵn sàng ghép khách ngay</div>
-        </article>
 
-        <article class="metric active-filter" id="kpiCardTotal" data-kpi-status="ALL" title="Nhấn để xem toàn bộ danh sách xe">
-          <div class="metric-head">
-            <span class="metriclabel">Tổng số xe theo dõi</span>
-            <span class="metric-tag">100%</span>
+          <div class="stage-hero-metric">
+            <div class="stage-hero-left">
+              <span class="stage-hero-label">Tổng số lượng xe</span>
+              <span class="stage-hero-sub" id="stageAvailSub">42 xe khả dụng chưa khách</span>
+            </div>
+            <div class="stage-hero-number"><span id="stageTotalNum">60</span><small>xe</small></div>
           </div>
-          <div class="metricvalue"><span id="statTotal">0</span><small>xe</small></div>
-          <div class="kpi-bar-track"><div class="kpi-bar-fill" id="barTotal" style="width: 100%; background: var(--text)"></div></div>
-          <div class="metanote" id="statTotalNote">Toàn bộ kho & đơn hàng PO</div>
-        </article>
 
-        <article class="metric" id="kpiCardAssigned" data-kpi-status="HAS_CUSTOMER" title="Nhấn để lọc xe đã ghép khách">
-          <div class="metric-head">
-            <span class="metriclabel">Xe đã ghép khách</span>
-            <span class="metric-tag">Đã cọc</span>
-          </div>
-          <div class="metricvalue"><span id="statAssigned">0</span><small>xe</small></div>
-          <div class="kpi-bar-track"><div class="kpi-bar-fill" id="barAssigned" style="width: 30%; background: var(--positive)"></div></div>
-          <div class="metanote" id="statAssignedNote">Đang xử lý hồ sơ giao xe</div>
-        </article>
-
-        <article class="metric" id="kpiCardPo" data-kpi-status="PO_UNASSIGNED" title="Nhấn để lọc xe PO đang chờ về chưa khách">
-          <div class="metric-head">
-            <span class="metriclabel">Tồn PO chưa khách</span>
-            <span class="metric-tag">Đang về</span>
-          </div>
-          <div class="metricvalue"><span id="statPo">0</span><small>xe</small></div>
-          <div class="kpi-bar-track"><div class="kpi-bar-fill" id="barPo" style="width: 38%; background: var(--chart-2)"></div></div>
-          <div class="metanote" id="statAgingNote">0 xe chưa khách tồn ≥ 25 ngày</div>
-        </article>
-      </section>
-
-      <!-- Bento Analytics Panel -->
-      <section class="chart-panel" aria-label="Biểu đồ phân bổ tồn kho theo dòng xe và tuổi tồn">
-        <div class="chart-head">
-          <div class="chart-title-wrap">
-            <h2>Phân bổ theo dòng xe & tuổi tồn kho</h2>
-            <span class="chart-sub">Nhấn trực tiếp vào thanh dòng xe hoặc cột tuổi tồn để lọc</span>
-          </div>
-          <div class="chart-legend">
-            <span class="legend-item"><span class="legend-swatch" style="background:var(--chart-1)"></span>Tồn sẵn kho (chưa khách)</span>
-            <span class="legend-item"><span class="legend-swatch" style="background:var(--chart-2)"></span>Tồn PO (chưa khách)</span>
-            <span class="legend-item"><span class="legend-swatch" style="background:var(--chart-muted)"></span>Đã ghép khách</span>
-            <span class="legend-item"><span class="legend-swatch" style="background:var(--chart-3)"></span>Tồn ≥ 25 ngày</span>
+          <div class="telemetry-grid" role="group" aria-label="Chỉ số trạng thái của dòng xe đang chọn">
+            <article class="telemetry-card" data-kpi-status="UNASSIGNED" title="Nhấn để lọc xe khả dụng chưa khách">
+              <span class="telemetry-label">Khả dụng (chưa khách)</span>
+              <div class="telemetry-val-row">
+                <span class="telemetry-val" id="statAvailable">0</span>
+                <span class="telemetry-tag" id="statAvailableNote">Ưu tiên</span>
+              </div>
+            </article>
+            <article class="telemetry-card" data-kpi-status="INSTOCK" title="Nhấn để lọc xe sẵn tại kho chưa khách">
+              <span class="telemetry-label">Tồn sẵn tại kho</span>
+              <div class="telemetry-val-row">
+                <span class="telemetry-val" id="statInStock">0</span>
+                <span class="telemetry-tag" id="statInStockNote">Giao ngay</span>
+              </div>
+            </article>
+            <article class="telemetry-card" data-kpi-status="PO_UNASSIGNED" title="Nhấn để lọc xe PO đang về chưa khách">
+              <span class="telemetry-label">Tồn PO đang về</span>
+              <div class="telemetry-val-row">
+                <span class="telemetry-val" id="statPo">0</span>
+                <span class="telemetry-tag" id="statPoNote">Chờ về</span>
+              </div>
+            </article>
+            <article class="telemetry-card" data-kpi-status="HAS_CUSTOMER" title="Nhấn để lọc xe đã ghép khách">
+              <span class="telemetry-label">Đã ghép khách</span>
+              <div class="telemetry-val-row">
+                <span class="telemetry-val" id="statAssigned">0</span>
+                <span class="telemetry-tag" id="statAssignedNote">Đã cọc</span>
+              </div>
+            </article>
           </div>
         </div>
-        <div class="chart-canvas" id="stockChart" role="img" aria-label="Biểu đồ phân bổ tồn kho theo dòng xe và tuổi tồn"></div>
+
+        <!-- Right Hub: Stock Breakdown by Color for the Selected Vehicle Model -->
+        <div class="stage-colors-panel">
+          <div class="stage-colors-head">
+            <div class="stage-colors-title-wrap">
+              <h2 id="colorStageHeading">Số lượng tồn theo màu sắc</h2>
+              <span class="stage-colors-sub" id="colorStageSub">Nhấn vào dòng xe bên trái hoặc bên dưới để xem chi tiết tổng & tồn theo từng màu</span>
+            </div>
+          </div>
+
+          <!-- Quick Strip of Models with Stock -->
+          <div class="quick-model-strip" id="quickModelStrip" role="toolbar" aria-label="Chọn nhanh dòng xe đang có tồn"></div>
+
+          <!-- Interactive Color Stock Cards Grid -->
+          <div class="color-matrix-grid" id="colorMatrixGrid"></div>
+        </div>
       </section>
 
       <!-- Unified Inventory Workspace Card -->
-      <section class="workspace-card" aria-label="Bảng dữ liệu tồn kho chi tiết">
+      <section class="workspace-card" id="workspaceCard" aria-label="Bảng dữ liệu tồn kho chi tiết">
         <div class="status-tabs-bar">
           <div class="chips" id="statusChips" role="tablist" aria-label="Lọc theo trạng thái tồn kho"></div>
-          <div class="workspace-meta-right">
-            <div class="results-summary" id="totalRows">Đang tải dữ liệu...</div>
-          </div>
+          <div class="results-summary" id="totalRows">Đang tải dữ liệu...</div>
         </div>
 
-        <!-- Smart Exterior Color Swatch Bar -->
-        <div class="color-swatch-bar" id="colorSwatchBar" aria-label="Lọc nhanh theo màu ngoại thất"></div>
-
-        <!-- Integrated Filter Toolbar -->
         <div class="filter-toolbar" aria-label="Bộ lọc chi tiết">
           <div class="input-icon-wrap">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -2148,7 +2215,7 @@ dialog.modal-dialog::backdrop {
             </svg>
             <input id="advisorSearch" type="search" placeholder="Tư vấn bán hàng (TVBH)..." autocomplete="off">
           </div>
-          <select id="filterA" aria-label="Lọc theo phiên bản"><option value="">Tất cả phiên bản</option></select>
+          <select id="filterModelSelect" aria-label="Chọn dòng xe chuẩn"><option value="">Tất cả 26 dòng xe</option></select>
           <select id="filterB" aria-label="Lọc theo tình trạng"><option value="">Tất cả tình trạng</option></select>
           <div class="dropdown">
             <button type="button" class="btn" id="columnsBtn">
@@ -2162,7 +2229,6 @@ dialog.modal-dialog::backdrop {
           <button type="button" class="btn" id="inlineResetBtn" title="Xoá toàn bộ điều kiện lọc">Xoá lọc</button>
         </div>
 
-        <!-- Active Filter Pills Bar (Appears dynamically when any filter is active) -->
         <div class="active-filters-bar hidden" id="activeFiltersBar">
           <div class="active-filters-list" id="activeFiltersList"></div>
           <button type="button" class="clear-all-link" id="clearAllActiveBtn">Xoá tất cả điều kiện</button>
@@ -2180,13 +2246,13 @@ dialog.modal-dialog::backdrop {
             <tbody id="tableBody"></tbody>
           </table>
           <div id="emptyState" class="empty hidden">
-            <strong>Không có xe phù hợp với điều kiện lọc</strong>
-            Hãy thử gỡ bớt điều kiện trên thanh lọc hoặc nhấn "Đặt lại".
+            <strong id="emptyStateTitle">Không có xe phù hợp với điều kiện lọc</strong>
+            <span id="emptyStateSub">Hãy thử chọn dòng xe khác hoặc nhấn "Đặt lại".</span>
           </div>
         </div>
 
         <div class="bottom">
-          <div class="notice">Dữ liệu đồng bộ trực tiếp từ Google Sheets (Kho S45404). Nhấn vào dòng bất kỳ để xem hồ sơ hoặc nhấn mã VIN để sao chép.</div>
+          <div class="notice">Dữ liệu đồng bộ trực tiếp từ Google Sheets (Kho S45404). Nhấn vào dòng xe bất kỳ để xem tồn theo màu sắc hoặc nhấn mã VIN để sao chép.</div>
           <div class="pagination">
             <span class="notice">Hiển thị</span>
             <select id="rowsPerPage" aria-label="Số dòng mỗi trang">
@@ -2205,10 +2271,8 @@ dialog.modal-dialog::backdrop {
   </div>
 </div>
 
-<!-- Toast Notification -->
 <div class="toast" id="copyToast" role="status" aria-live="polite">Đã sao chép mã VIN</div>
 
-<!-- Detail Modal -->
 <dialog class="modal-dialog" id="modalBg" closedby="any" aria-labelledby="modalTitle">
   <div class="modalhead">
     <div>
@@ -2228,7 +2292,36 @@ const SHEET_ID = '1zoLN2ccadO_0KDBnnTOKrle8xcD_yKEnHKuFdoIDk3o';
 const DATA_RANGE = 'A7:AZ';
 const SHEET_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=responseHandler:hienThiDuLieu&headers=0&range=${encodeURIComponent(DATA_RANGE)}`;
 
-const VISIBLE_SOURCE_INDICES = [1, 2, 3, 5, 6, 8, 10, 13, 14, 15, 16, 11, 17];
+/* Danh mục 26 Dòng xe chuẩn theo yêu cầu */
+const OFFICIAL_26_MODELS = [
+  'MINIO GREEN',
+  'HERIO GREEN',
+  'NERIO GREEN',
+  'LIMO GREEN',
+  'EC VAN TIÊU CHUẨN',
+  'EC VAN NÂNG CAO',
+  'EC VAN NÂNG CAO (Cửa trượt)',
+  'VF2',
+  'VF3 ECO',
+  'VF3 PLUS',
+  'VF5',
+  'VF6 ECO',
+  'VF6 PLUS',
+  'VF7 ECO',
+  'VF7 PLUS TIÊU CHUẨN 2 - TRẦN THÉP',
+  'VF7 PLUS NC TIÊU CHUẨN 3 - TRẦN THÉP',
+  'VF MVP 7',
+  'VF8 ECO TIÊU CHUẨN 1 - 1 CẦU',
+  'VF8 ECO NÂNG CAO - 1 CẦU',
+  'VF8 PLUS TIÊU CHUẨN 1 - 2 CẦU',
+  'VF8 ALL NEW',
+  'VF9 ECO',
+  'VF9 PLUS',
+  'LẠC HỒNG',
+  'LẠC HỒNG (chống đạn)',
+  'VF WILD COMFORT'
+];
+
 const NUMERIC_COLUMN_SLOTS = [5, 10];
 
 const COLOR_HEX_MAP = {
@@ -2240,7 +2333,9 @@ const COLOR_HEX_MAP = {
   'xam nhat': '#94a3b8',
   'xanh duong': '#0284c7',
   'xanh la nhat': '#34d399',
-  'hong': '#f472b6'
+  'hong': '#f472b6',
+  'vang': '#eab308',
+  'cam': '#f97316'
 };
 
 const INITIAL_SNAPSHOT = {"status":"ok","table":{"rows":[{"c":[{"v":"MÃ KHO"},null,{"v":"Loại xe"},{"v":"Phiên bản"},{"v":"Ngoại thất"},{"v":"Ngoại thất (tiếng Việt)"},{"v":"Nội thất"},null,null,null,{"v":" VIN "},{"v":" Khách hàng "},null,{"v":"Ngày dự kiến xuất hoá đơn"},{"v":"Tiến độ xe"},{"v":"Tình trạng xe"},null,{"v":"TVBH"}]},{"c":[{"v":"S45404"},{"v":"27/09/2026"},{"v":"Limo"},{"v":"LIMO_GREEN_VN"},{"v":"De Sat Silver IND12007"},{"v":"Bạc"},{"v":"Black"},null,{"v":"2026"},null,{"v":"RLLVFPNT7TH840000"},null,null,null,{"v":"  "},{"v":" Tồn tại kho "},{"v":"29"},null]},{"c":[{"v":"S45404"},{"v":"27/09/2026"},{"v":"Limo"},{"v":"LIMO_GREEN_VN"},{"v":"Jet Black CLE17038"},{"v":"Đen"},{"v":"Black"},null,{"v":"2026"},null,{"v":"RLLVFPNT8TH810536"},null,null,null,{"v":"  "},{"v":"  Tồn tại kho  "},{"v":"29"},null]},{"c":[{"v":"S45404"},{"v":"27/09/2026"},{"v":"Minivan"},{"v":"MINIVAN_HT_PLANT_VN_Sliding Door_BCO1"},{"v":"Brahminy White IND17001"},{"v":"Trắng"},{"v":"Black"},null,{"v":"2026"},null,{"v":"RNXVGRKK3TT742538"},null,null,null,{"v":"  "},{"v":"  Tồn tại kho  "},{"v":"29"},null]},{"c":[{"v":"S45404"},{"v":"27/09/2026"},{"v":"MPV 7"},{"v":"VF MPV 7"},{"v":"Solar_Ruby"},{"v":"Đỏ Ruby"},{"v":"Black"},{"v":"0"},{"v":"2026"},null,{"v":"RLLVFPTT2TH834902"},null,null,null,{"v":"  "},{"v":"  Tồn tại kho  "},{"v":"29"},null]},{"c":[{"v":"S45404"},{"v":"27/09/2026"},{"v":"MPV 7"},{"v":"VF MPV 7"},{"v":"Brahminy White IND17001"},{"v":"Trắng"},{"v":"Brown"},{"v":"0"},{"v":"2026"},null,{"v":"RLLVFPTT3TH837288"},{"v":"TRIỆU QUỐC KIỆT (PT)"},null,null,{"v":" Có khách "},{"v":"  Tồn tại kho  "},{"v":"29"},{"v":"NGUYỄN ANH QUÂN"}]},{"c":[{"v":"S45404"},{"v":"27/09/2026"},{"v":"VF2"},{"v":"VF2_LHD_VNM"},{"v":"Brahminy White IND17001"},{"v":"Trắng"},{"v":"Grey"},{"v":"0"},{"v":"2026"},null,{"v":"RLNVMNRSXTT710261"},{"v":"NGUYỄN QUANG HUY (PT)"},null,null,{"v":" Có khách "},{"v":"  Tồn tại kho  "},{"v":"29"},{"v":"TỪ QUỐC KHOA"}]},{"c":[{"v":"S45404"},{"v":"27/09/2026"},{"v":"VF3"},{"v":"VF3 Eco"},{"v":"Solar Ruby"},{"v":"Đỏ Ruby"},{"v":"Black"},{"v":"0"},{"v":"2026"},null,{"v":"RLNVBL9KXTT750253"},null,null,null,{"v":"  "},{"v":"  Tồn tại kho  "},{"v":"29"},null]},{"c":[{"v":"S45404"},{"v":"27/09/2026"},{"v":"VF3"},{"v":"VF3 Eco"},{"v":"Solar Ruby"},{"v":"Đỏ Ruby"},{"v":"Black"},null,{"v":"2026"},null,{"v":"RLNVBL9K5TT750340"},null,null,null,{"v":"  "},{"v":"  Tồn tại kho  "},{"v":"29"},null]},{"c":[{"v":"S45404"},{"v":"27/09/2026"},{"v":"VF3"},{"v":"VF3 Eco"},{"v":"Infinity Blanc Roof - Sky"},{"v":"Xanh dương"},{"v":"Black"},null,{"v":"2026"},null,{"v":"RLNVBL9K9TT744217"},null,null,null,{"v":"  "},{"v":"  Tồn tại kho  "},{"v":"29"},null]},{"c":[{"v":"S45404"},{"v":"27/09/2026"},{"v":"VF3"},{"v":"VF3 Eco"},{"v":"Brahminy White IND17001"},{"v":"Trắng"},{"v":"Black"},{"v":"0"},{"v":"2026"},null,{"v":"RLNVBL9K1TT747645"},null,null,null,{"v":"  "},{"v":" Tồn tại kho "},{"v":"29"},null]},{"c":[{"v":"S45404"},{"v":"27/09/2026"},{"v":"VF3"},{"v":"VF3 Plus"},{"v":"Urban Mint_GNG"},{"v":"Xanh lá nhạt"},{"v":"Black"},null,{"v":"2026"},null,{"v":"RLNVBL9KXTT750351"},null,null,null,{"v":"  "},{"v":"  Tồn tại kho  "},{"v":"29"},null]},{"c":[{"v":"S45404"},{"v":"27/09/2026"},{"v":"VF3"},{"v":"VF3 Plus"},{"v":"Zenith Grey_GYC"},{"v":"Xám"},{"v":"Black"},null,{"v":"2026"},null,{"v":"RLNVBL9K4TT750166"},{"v":"NGUYỄN THỊ XUÂN QUÝ (PT)"},null,null,{"v":" Có khách "},{"v":"  Tồn tại kho  "},{"v":"29"},null]},{"c":[{"v":"S45404"},{"v":"27/09/2026"},{"v":"VF5"},{"v":"VF5 PLUS VN BCO2"},{"v":"Zenith Grey_GYC"},{"v":"Xám"},{"v":"Black"},null,{"v":"2026"},null,{"v":"RLNV5JSE4TH845071"},null,null,null,{"v":"  "},{"v":"  Tồn tại kho  "},{"v":"29"},null]},{"c":[{"v":"S45404"},{"v":"27/09/2026"},{"v":"VF5"},{"v":"VF5 PLUS VN BCO2"},{"v":"Solar Ruby"},{"v":"Đỏ Ruby"},{"v":"Black"},null,{"v":"2026"},null,{"v":"RLNV5JSE0TH842619"},null,null,null,{"v":"  "},{"v":"  Tồn tại kho  "},{"v":"29"},null]},{"c":[{"v":"S45404"},{"v":"27/09/2026"},{"v":"VF6"},{"v":"VF6_VN PLUS BCO2"},{"v":"Jet Black CLE17038"},{"v":"Đen"},{"v":"Brown"},{"v":"0"},{"v":"2026"},null,{"v":"RLLVAG8C6TH825238"},null,null,null,{"v":"  "},{"v":"  Tồn tại kho  "},{"v":"29"},null]},{"c":[{"v":"S45404"},{"v":"27/09/2026"},{"v":"VF7"},{"v":"VF7 PLUS3_VN_HP"},{"v":"Solar Ruby"},{"v":"Đỏ Ruby"},{"v":"Beige"},null,{"v":"2026"},null,{"v":"RLLV3FKC9TH838949"},null,null,null,{"v":"  "},{"v":"  Tồn tại kho  "},{"v":"29"},null]},{"c":[{"v":"S45404"},{"v":"27/09/2026"},{"v":"VF8 NP"},{"v":"VF8NP_COMFORT_VN_HP_SVOLT"},{"v":"Jet Black CLE17038"},{"v":"Đen"},{"v":"Black"},{"v":"0"},{"v":"2026"},{"v":"0"},{"v":"RLLV3FUV9TH835578"},null,null,null,null,{"v":"  Tồn tại kho  "},{"v":"29"},null]},{"c":[{"v":"S45404"},{"v":"27/09/2026"},{"v":"VF9"},{"v":"VF9_LHD_ECO_VN_CATL_CPDU_3ZONE"},{"v":"Brahminy White IND17001"},{"v":"Trắng"},{"v":"Black"},{"v":"0"},{"v":"2026"},{"v":"0"},{"v":"RLLV2CVA6TH833641"},null,null,null,{"v":"  "},{"v":"  Tồn tại kho  "},{"v":"29"},null]},{"c":[{"v":"S45404"},{"v":"29/09/2026"},{"v":"VF3"},{"v":"VF3 Plus"},{"v":"Zenith Grey_GYC"},{"v":"Xám"},{"v":"Black"},{"v":"0"},{"v":"2026"},{"v":"0"},{"v":"RLNVBL9K3TT750871"},{"v":"LÊ THỊ HÀ (PT)"},null,null,{"v":" Có khách "},{"v":" Tồn tại kho "},{"v":"27"},{"v":"LÊ LÂM XUÂN VI"}]},{"c":[{"v":"S45404"},{"v":"29/09/2026"},{"v":"VF5"},{"v":"VF5 PLUS VN BCO2"},{"v":"Brahminy White IND17001"},{"v":"Trắng"},{"v":"Black"},{"v":"0"},{"v":"2026"},{"v":"0"},{"v":"RLNV5JSE6TH845766"},{"v":"PHẠM THỊ NHƯ Ý (PT)"},null,null,{"v":" Có khách "},{"v":"  Tồn tại kho  "},{"v":"27"},null]},{"c":[{"v":"S45404"},{"v":"29/09/2026"},{"v":"VF5"},{"v":"VF5 PLUS VN BCO2"},{"v":"Brahminy White IND17001"},{"v":"Trắng"},{"v":"Black"},{"v":"0"},{"v":"2026"},{"v":"0"},{"v":"RLNV5JSE0TH845763"},{"v":"CAO THỊ VĨNH NAM (PT)"},null,null,{"v":" Có khách "},{"v":"  Tồn tại kho  "},{"v":"27"},null]},{"c":[{"v":"S45404"},{"v":"29/09/2026"},{"v":"VF5"},{"v":"VF5 PLUS VN BCO2"},{"v":"Brahminy White IND17001"},{"v":"Trắng"},{"v":"Black"},{"v":"0"},{"v":"2026"},{"v":"0"},{"v":"RLNV5JSE3TH845921"},null,null,null,{"v":"  "},{"v":"  Tồn tại kho  "},{"v":"27"},null]},{"c":[{"v":"S45404"},{"v":"30/09/2026"},{"v":"VF2"},{"v":"VF2_LHD_VNM"},{"v":"De Sat Silver IND12007"},{"v":"Bạc"},{"v":"Grey"},{"v":"0"},{"v":"2026"},{"v":"0"},{"v":"RLNVMNMSXTT710669"},null,null,null,{"v":"  "},{"v":"  Tồn tại kho  "},{"v":"26"},null]},{"c":[{"v":"S45404"},{"v":"30/09/2026"},{"v":"VF2"},{"v":"VF2_LHD_VNM"},{"v":"De Sat Silver IND12007"},{"v":"Bạc"},{"v":"Grey"},{"v":"0"},{"v":"2026"},{"v":"0"},{"v":"RLNVMNMS7TT710614"},{"v":"NGUYỄN HOÀNG QUÂN (PT)"},null,null,{"v":" Có khách "},{"v":"  Tồn tại kho  "},{"v":"26"},{"v":"NGUYỄ THÀNH TUYÊN"}]},{"c":[{"v":"S45404"},{"v":"04/10/2026"},{"v":"VF3"},{"v":"VF3 Plus BCO2"},{"v":"Brahminy White IND17001"},{"v":"Trắng"},{"v":"Black"},{"v":"0"},{"v":"2026"},null,{"v":"RLNVBLVK2TT751564"},{"v":"LÊ VĂN VUI (PT)"},{"v":"06/10/2026"},null,{"v":" Có khách "},{"v":" Tồn tại kho "},{"v":"22"},{"v":"TRƯƠNG VIẾT BÌNH"}]},{"c":[{"v":"S45404"},{"v":"04/10/2026"},{"v":"Limo"},{"v":"LIMO_GREEN_VN"},{"v":"Brahminy White IND17001"},{"v":"Trắng"},{"v":"Black"},{"v":"0"},{"v":"2026"},null,{"v":"RLLVFPNT6TH847438"},{"v":"NGUYỄN VĂN THÀNH (PT)"},null,null,{"v":" Có khách "},{"v":" Tồn tại kho "},{"v":"22"},{"v":"LÊ LÂM XUÂN VI"}]},{"c":[{"v":"S45404"},{"v":"10/10/2026"},{"v":"VF3"},{"v":"VF3 Plus"},{"v":"Brahminy White IND17001"},{"v":"Trắng"},{"v":"Black"},null,{"v":"2026"},null,{"v":"RLNVBL9K4TT751222"},{"v":"HỒ PHAN BẢO NGỌC (PT)"},null,null,{"v":" Có khách "},{"v":"  Tồn PO  "},{"v":"16"},{"v":"MAI THỊ QUỲNH DIỄM"}]},{"c":[{"v":"S45404"},{"v":"10/10/2026"},{"v":"VF6"},{"v":"VF6_ECO_VN_JVCELL_BAT4"},{"v":"Brahminy White IND17001"},{"v":"Trắng"},{"v":"Black"},{"v":"0"},{"v":"2026"},null,{"v":"RLLVAGND6TH816925"},null,null,null,{"v":"  "},{"v":" Tồn tại kho "},{"v":"16"},null]},{"c":[{"v":"S45404"},{"v":"10/10/2026"},{"v":"VF8 NP"},{"v":"VF8NP_COMFORT_VN_HP_SVOLT"},{"v":"Brahminy White IND17001"},{"v":"Trắng"},{"v":"Black"},{"v":"0"},{"v":"2026"},{"v":"0"},{"v":"RLLV3FUV5TH849056"},{"v":"TRẦN MINH TOÀN (PT)"},null,null,{"v":" Có khách "},{"v":"  Tồn PO  "},{"v":"16"},{"v":"ĐỖ NGUYỄN PHƯỚC ĐỨC"}]},{"c":[{"v":"S45404"},{"v":"11/10/2026"},{"v":"Limo"},{"v":"LIMO_GREEN_VN"},{"v":"Brahminy White IND17001"},{"v":"Trắng"},{"v":"Black"},{"v":"0"},{"v":"2026"},null,{"v":"RLLVFPNTXTH851136"},null,null,null,{"v":"  "},{"v":" Tồn tại kho "},{"v":"15"},null]},{"c":[{"v":"S45404"},{"v":"11/10/2026"},{"v":"Limo"},{"v":"LIMO_GREEN_VN"},{"v":"Brahminy White IND17001"},{"v":"Trắng"},{"v":"Black"},{"v":"0"},{"v":"2026"},null,{"v":"RLLVFPNT3TH851186"},{"v":"NGUYỄN THỊ THU NGA (PT)"},null,null,{"v":" Có khách "},{"v":" Tồn tại kho "},{"v":"15"},{"v":"LÊ MINH THƯ"}]},{"c":[{"v":"S45404"},{"v":"11/10/2026"},{"v":"Limo"},{"v":"LIMO_GREEN_VN"},{"v":"Brahminy White IND17001"},{"v":"Trắng"},{"v":"Black"},{"v":"0"},{"v":"2026"},null,{"v":"RLLVFPNT8TH851071"},null,null,null,{"v":"  "},{"v":"  Tồn PO  "},{"v":"15"},null]},{"c":[{"v":"S45404"},{"v":"11/10/2026"},{"v":"Limo"},{"v":"LIMO_GREEN_VN"},{"v":"Brahminy White IND17001"},{"v":"Trắng"},{"v":"Black"},{"v":"0"},{"v":"2026"},null,{"v":"RLLVFPNT6TH851053"},null,null,null,{"v":"  "},{"v":"  Tồn PO  "},{"v":"15"},null]},{"c":[{"v":"S45404"},{"v":"11/10/2026"},{"v":"Limo"},{"v":"LIMO_GREEN_VN"},{"v":"Brahminy White IND17001"},{"v":"Trắng"},{"v":"Black"},{"v":"0"},{"v":"2026"},null,{"v":"RLLVFPNT2TH851177"},null,null,null,{"v":"  "},{"v":"  Tồn PO  "},{"v":"15"},null]},{"c":[{"v":"S45404"},{"v":"11/10/2026"},{"v":"VF3"},{"v":"VF3 Plus"},{"v":"Solar Ruby"},{"v":"Đỏ Ruby"},{"v":"Black"},{"v":"0"},{"v":"2026"},{"v":"0"},{"v":"RLNVBL9K9TT752124"},null,null,null,{"v":"  "},{"v":"  Tồn PO  "},{"v":"15"},null]},{"c":[{"v":"S45404"},{"v":"11/10/2026"},{"v":"VF3"},{"v":"VF3 Plus"},{"v":"Solar Ruby"},{"v":"Đỏ Ruby"},{"v":"Black"},{"v":"0"},{"v":"2026"},{"v":"0"},{"v":"RLNVBL9K3TT752135"},null,null,null,{"v":"  "},{"v":"  Tồn PO  "},{"v":"15"},null]},{"c":[{"v":"S45404"},{"v":"11/10/2026"},{"v":"VF3"},{"v":"VF3 Plus"},{"v":"Brahminy White IND17001"},{"v":"Trắng"},{"v":"Black"},{"v":"0"},{"v":"2026"},null,{"v":"RLNVBL9K9TT752415"},{"v":"PHAN THỊ SINH (PT)"},null,null,{"v":" Có khách "},{"v":"  Tồn PO  "},{"v":"15"},{"v":"PHẠM QUỐC BẢO"}]},{"c":[{"v":"S45404"},{"v":"11/10/2026"},{"v":"VF3"},{"v":"VF3 Plus"},{"v":"Brahminy White IND17001"},{"v":"Trắng"},{"v":"Black"},{"v":"0"},{"v":"2026"},null,{"v":"RLNVBL9K9TT752320"},{"v":"LÊ THANH HUY (PT)"},null,null,{"v":" Có khách "},{"v":"  Tồn PO  "},{"v":"15"},{"v":"PHẠM QUỐC BẢO"}]},{"c":[{"v":"S45404"},{"v":"17/10/2026"},{"v":"VF6"},{"v":"VF6_VN PLUS BCO2"},{"v":"Brahminy White IND17001"},{"v":"Trắng"},{"v":"Brown"},null,{"v":"2026"},null,{"v":"RLLVAG8C6TH853833"},{"v":"PHẠM VĂN ĐÔNG (PT)"},null,null,{"v":" Có khách "},{"v":" Tồn PO  "},{"v":"9"},{"v":"NGUYỄN THANH PHỤNG"}]},{"c":[{"v":"S45404"},{"v":"17/10/2026"},{"v":"Limo"},{"v":"LIMO_GREEN_VN"},{"v":"Solar Ruby"},{"v":"Đỏ Ruby"},{"v":"Black"},null,{"v":"2026"},null,{"v":"RLLVFPNT2TH832483"},null,null,null,{"v":"  "},{"v":" Tồn PO  "},{"v":"9"},null]},{"c":[{"v":"S45404"},{"v":"17/10/2026"},{"v":"VF6"},{"v":"VF6_VN PLUS BCO2"},{"v":"Brahminy White IND17001"},{"v":"Trắng"},{"v":"Brown"},{"v":"0"},{"v":"2026"},null,{"v":"RLLVAG8C6TH853203"},null,null,null,{"v":"  "},{"v":" Tồn PO  "},{"v":"9"},null]},{"c":[{"v":"S45404"},{"v":"17/10/2026"},{"v":"VF6"},{"v":"VF6_VN PLUS BCO2"},{"v":"Brahminy White IND17001"},{"v":"Trắng"},{"v":"Brown"},{"v":"0"},{"v":"2026"},null,{"v":"RLLVAG8C1TH852962"},null,null,null,{"v":"  "},{"v":" Tồn PO  "},{"v":"9"},null]},{"c":[{"v":"S45404"},{"v":"17/10/2026"},{"v":"MPV 7"},{"v":"VF MPV 7"},{"v":"Brahminy White IND17001"},{"v":"Trắng"},{"v":"Brown"},null,{"v":"2026"},null,{"v":"RLLVFPTT1TH834261"},null,null,null,{"v":"  "},{"v":" Tồn PO  "},{"v":"9"},null]},{"c":[{"v":"S45404"},{"v":"17/10/2026"},{"v":"MPV 7"},{"v":"VF MPV 7"},{"v":"Brahminy White IND17001"},{"v":"Trắng"},{"v":"Brown"},null,{"v":"2026"},null,{"v":"RLLVFPTTXTH834260"},null,null,null,{"v":"  "},{"v":" Tồn PO  "},{"v":"9"},null]},{"c":[{"v":"S45404"},{"v":"17/10/2026"},{"v":"MPV 7"},{"v":"VF MPV 7"},{"v":"Brahminy White IND17001"},{"v":"Trắng"},{"v":"Brown"},null,{"v":"2026"},null,{"v":"RLLVFPTT0TH834266"},null,null,null,{"v":"  "},{"v":" Tồn PO  "},{"v":"9"},null]},{"c":[{"v":"S45404"},{"v":"18/10/2026"},{"v":"VF5"},{"v":"VF5 PLUS VN BCO2"},{"v":"Solar Ruby"},{"v":"Đỏ Ruby"},{"v":"Black"},{"v":"0"},{"v":"2026"},null,{"v":"RLNV5JSE3TH850875"},null,null,null,{"v":"  "},{"v":" Tồn PO  "},{"v":"8"},null]},{"c":[{"v":"S45404"},{"v":"18/10/2026"},{"v":"VF2"},{"v":"VF2_LHD_VNM"},{"v":"Rose Pink"},{"v":"Hồng"},{"v":"Grey"},{"v":"0"},{"v":"2026"},null,{"v":"RLNVMNRS7TT712663"},null,null,null,{"v":"  "},{"v":" Tồn PO  "},{"v":"8"},null]},{"c":[{"v":"S45404"},{"v":"18/10/2026"},{"v":"VF2"},{"v":"VF2_LHD_VNM"},{"v":"Urban Mint_GNG"},{"v":"Xanh lá nhạt"},{"v":"Grey"},{"v":"0"},{"v":"2026"},null,{"v":"RLNVMNRS0TT712584"},{"v":"TRẦN ANH DƯƠNG (PT)"},null,null,{"v":" Có khách "},{"v":" Tồn PO  "},{"v":"8"},{"v":"NGUYỄN NHẬT QUỲNH"}]},{"c":[{"v":"S45404"},{"v":"22/10/2026"},{"v":"VF3"},{"v":"VF3 Plus"},{"v":"Brahminy White IND17001"},{"v":"Trắng"},{"v":"Black"},{"v":"0"},{"v":"2026"},null,{"v":"RLNVBL9K2TT755026"},{"v":"LÊ THỊ LI (PT)"},null,null,{"v":" Có khách "},{"v":" Tồn PO  "},{"v":"4"},{"v":"NGUYỄN VĂN PHÒNG"}]},{"c":[{"v":"S45404"},{"v":"22/10/2026"},{"v":"VF3"},{"v":"VF3 Plus"},{"v":"Brahminy White IND17001"},{"v":"Trắng"},{"v":"Black"},{"v":"0"},{"v":"2026"},null,{"v":"RLNVBL9K3TT755083"},null,null,null,{"v":"  "},{"v":" Tồn PO  "},{"v":"4"},null]},{"c":[{"v":"S45404"},{"v":"22/10/2026"},{"v":"VF3"},{"v":"VF3 Plus"},{"v":"Brahminy White IND17001"},{"v":"Trắng"},{"v":"Black"},{"v":"0"},{"v":"2026"},null,{"v":"RLNVBL9K1TT755096"},null,null,null,null,{"v":" Tồn PO  "},{"v":"4"},null]},{"c":[{"v":"S45404"},{"v":"22/10/2026"},{"v":"VF3"},{"v":"VF3 Plus"},{"v":"Zenith Grey_GYC"},{"v":"Xám"},{"v":"Black"},{"v":"0"},{"v":"2026"},null,{"v":"RLNVBL9K7TT755006"},null,null,null,null,{"v":" Tồn PO  "},{"v":"4"},null]},{"c":[{"v":"S45404"},{"v":"22/10/2026"},{"v":"VF8 NP"},{"v":"VF8NP_COMFORT_VN_HP_SVOLT"},{"v":"Solar_Ruby (REH)"},{"v":"Đỏ Ruby"},{"v":"Black"},{"v":"0"},{"v":"2026"},null,{"v":"RLLV3FUV6TH854458"},null,null,null,null,{"v":" Tồn PO  "},{"v":"4"},null]},{"c":[{"v":"S45404"},{"v":"24/10/2026"},{"v":"Minivan"},{"v":"MINIVAN_HT_PLANT_VN"},{"v":"Urban Mint_GNG"},{"v":"Xanh lá nhạt"},{"v":"Black"},{"v":"0"},{"v":"2026"},null,{"v":"RNXVGRPK9TT754735"},{"v":"TRẦN NGỌC MAY (PT)"},null,null,{"v":" Có khách "},{"v":" Tồn PO  "},{"v":"2"},null]},{"c":[{"v":"S45404"},{"v":"24/10/2026"},{"v":"VF3"},{"v":"VF3 Plus"},{"v":"Infinity Blanc Roof - Sky"},{"v":"Xanh dương"},{"v":"Black"},{"v":"0"},{"v":"2026"},null,{"v":"RLNVBL9K7TT754888"},null,null,null,null,{"v":" Tồn PO  "},{"v":"2"},null]},{"c":[{"v":"S45404"},{"v":"24/10/2026"},{"v":"VF3"},{"v":"VF3 Plus"},{"v":"Zenith Grey_GYC"},{"v":"Xám nhạt"},{"v":"Black"},{"v":"0"},{"v":"2026"},null,{"v":"RLNVBL9K4TT754525"},null,null,null,null,{"v":" Tồn PO  "},{"v":"2"},null]},{"c":[{"v":"S45404"},{"v":"24/10/2026"},{"v":"VF3"},{"v":"VF3 Plus"},{"v":"Brahminy White IND17001"},{"v":"Trắng"},{"v":"Black"},{"v":"0"},{"v":"2026"},null,{"v":"RLNVBL9K1TT754899"},null,null,null,null,{"v":" Tồn PO  "},{"v":"2"},null]},{"c":[{"v":"S45404"},{"v":"24/10/2026"},{"v":"VF6"},{"v":"VF6_VN PLUS BCO2"},{"v":"Brahminy White IND17001"},{"v":"Trắng"},{"v":"Brown"},{"v":"0"},{"v":"2026"},null,{"v":"RLLVAG8C1TH854808"},null,null,null,null,{"v":" Tồn PO  "},{"v":"2"},null]},{"c":[{"v":"S45404"},{"v":"24/10/2026"},{"v":"VF6"},{"v":"VF6_VN PLUS BCO2"},{"v":"Brahminy White IND17001"},{"v":"Trắng"},{"v":"Brown"},{"v":"0"},{"v":"2026"},null,{"v":"RLLVAG8C4TH855208"},null,null,null,null,{"v":" Tồn PO  "},{"v":"2"},null]},{"c":[{"v":"S45404"},{"v":"24/10/2026"},{"v":"VF6"},{"v":"VF6_VN PLUS BCO2"},{"v":"Brahminy White IND17001"},{"v":"Trắng"},{"v":"Brown"},{"v":"0"},{"v":"2026"},null,{"v":"RLLVAG8C5TH856657"},null,null,null,null,{"v":" Tồn PO  "},{"v":"2"},null]}]}};
@@ -2248,6 +2343,7 @@ const INITIAL_SNAPSHOT = {"status":"ok","table":{"rows":[{"c":[{"v":"MÃ KHO"},n
 const state = {
   headers: [],
   rows: [],
+  rowModels: [],
   filtered: [],
   visible: [],
   sortCol: -1,
@@ -2256,13 +2352,11 @@ const state = {
   limit: 25,
   status: 'ALL',
   agePreset: 'all',
-  ageBucket: '',
-  filterA: '',
-  filterB: '',
-  selectedVehicles: [],
+  selectedModel: '',
   selectedColors: [],
+  sideListMode: 'all',
   vehicleQuickQuery: '',
-  vehicleCollapsed: false,
+  filterB: '',
   customerQuery: '',
   advisorQuery: '',
   statusColumn: -1,
@@ -2275,7 +2369,7 @@ const state = {
   advisorColumn: -1,
   activeModalRow: null,
   loaded: false,
-  prevStats: { available: 0, total: 0, assigned: 0, po: 0 }
+  prevStageTotal: 0
 };
 
 let loadTimer = null;
@@ -2313,6 +2407,77 @@ function isNumericCol(index) {
   return NUMERIC_COLUMN_SLOTS.includes(index);
 }
 
+/* Chuẩn hoá (Loại xe + Phiên bản) từ Google Sheet về đúng 1 trong 26 Dòng xe chuẩn */
+function resolveCanonicalModel(rawLoaiXe, rawPhienBan) {
+  const lx = norm(rawLoaiXe);
+  const pb = norm(rawPhienBan);
+  const combined = `${lx} ${pb}`.trim();
+
+  for (const m of OFFICIAL_26_MODELS) {
+    if (lx === norm(m) || pb === norm(m)) return m;
+  }
+
+  if (combined.includes('minio')) return 'MINIO GREEN';
+  if (combined.includes('herio')) return 'HERIO GREEN';
+  if (combined.includes('nerio')) return 'NERIO GREEN';
+  if (combined.includes('limo')) return 'LIMO GREEN';
+
+  if (combined.includes('minivan') || combined.includes('ec van') || combined.includes('ecvan')) {
+    if (combined.includes('sliding') || combined.includes('cua truot')) return 'EC VAN NÂNG CAO (Cửa trượt)';
+    if (combined.includes('nang cao') || combined.includes('bco') || combined.includes('plus')) return 'EC VAN NÂNG CAO';
+    return 'EC VAN TIÊU CHUẨN';
+  }
+
+  if (lx === 'vf2' || combined.includes('vf2')) return 'VF2';
+
+  if (lx === 'vf3' || combined.includes('vf3')) {
+    if (combined.includes('eco')) return 'VF3 ECO';
+    return 'VF3 PLUS';
+  }
+
+  if (lx === 'vf5' || combined.includes('vf5')) return 'VF5';
+
+  if (lx === 'vf6' || combined.includes('vf6')) {
+    if (combined.includes('eco')) return 'VF6 ECO';
+    return 'VF6 PLUS';
+  }
+
+  if (lx === 'vf7' || combined.includes('vf7')) {
+    if (combined.includes('eco')) return 'VF7 ECO';
+    if (combined.includes('plus3') || combined.includes('plus 3') || combined.includes('tieu chuan 3') || combined.includes('nc')) {
+      return 'VF7 PLUS NC TIÊU CHUẨN 3 - TRẦN THÉP';
+    }
+    return 'VF7 PLUS TIÊU CHUẨN 2 - TRẦN THÉP';
+  }
+
+  if (combined.includes('mpv 7') || combined.includes('mvp 7') || combined.includes('mpv7') || combined.includes('mvp7')) {
+    return 'VF MVP 7';
+  }
+
+  if (lx.startsWith('vf8') || combined.includes('vf8')) {
+    if (combined.includes('all new') || combined.includes('vf8 np') || combined.includes('vf8np') || combined.includes('comfort')) {
+      return 'VF8 ALL NEW';
+    }
+    if (combined.includes('plus') || combined.includes('2 cau')) return 'VF8 PLUS TIÊU CHUẨN 1 - 2 CẦU';
+    if (combined.includes('nang cao')) return 'VF8 ECO NÂNG CAO - 1 CẦU';
+    return 'VF8 ECO TIÊU CHUẨN 1 - 1 CẦU';
+  }
+
+  if (lx.startsWith('vf9') || combined.includes('vf9')) {
+    if (combined.includes('plus')) return 'VF9 PLUS';
+    return 'VF9 ECO';
+  }
+
+  if (combined.includes('lac hong')) {
+    if (combined.includes('chong dan') || combined.includes('armor')) return 'LẠC HỒNG (chống đạn)';
+    return 'LẠC HỒNG';
+  }
+
+  if (combined.includes('wild')) return 'VF WILD COMFORT';
+
+  return str(rawLoaiXe).trim().toUpperCase() || 'KHÁC';
+}
+
 function showToast(msg) {
   const t = $('copyToast');
   if (!t) return;
@@ -2322,7 +2487,7 @@ function showToast(msg) {
   toastTimer = setTimeout(() => t.classList.remove('show'), 2200);
 }
 
-function animateCount(elNode, startVal, endVal, duration = 520) {
+function animateCount(elNode, startVal, endVal, duration = 420) {
   if (!elNode) return;
   if (startVal === endVal) {
     elNode.textContent = endVal.toLocaleString('vi-VN');
@@ -2339,7 +2504,6 @@ function animateCount(elNode, startVal, endVal, duration = 520) {
   requestAnimationFrame(step);
 }
 
-/* Highlight matching search tokens inside a text cell */
 function appendHighlightedText(container, rawText, queryStr) {
   const text = str(rawText);
   if (!text) {
@@ -2381,7 +2545,6 @@ function initTheme() {
     const next = cur === 'dark' ? 'light' : 'dark';
     setTheme(next);
     localStorage.setItem('autostock_apple_theme', next);
-    if (state.loaded) drawChart();
   });
 }
 
@@ -2427,26 +2590,414 @@ function findColumn(headers, keys, fallback = -1) {
   return fallback;
 }
 
+/* Tính toán thống kê cho toàn bộ 26 dòng xe chuẩn và bảng màu tương ứng */
+function computeCatalogStats() {
+  const catalogMap = new Map();
+  OFFICIAL_26_MODELS.forEach((m, idx) => {
+    catalogMap.set(m, {
+      model: m,
+      order: idx + 1,
+      total: 0,
+      avail: 0,
+      kho: 0,
+      po: 0,
+      khach: 0,
+      aging: 0,
+      colors: new Map()
+    });
+  });
+
+  state.rows.forEach((r, idx) => {
+    const model = state.rowModels[idx] || resolveCanonicalModel(r[state.vehicleColumn], r[state.versionColumn]);
+    if (!catalogMap.has(model)) {
+      catalogMap.set(model, {
+        model,
+        order: catalogMap.size + 1,
+        total: 0,
+        avail: 0,
+        kho: 0,
+        po: 0,
+        khach: 0,
+        aging: 0,
+        colors: new Map()
+      });
+    }
+    const entry = catalogMap.get(model);
+    const color = state.exteriorColumn >= 0 ? str(r[state.exteriorColumn]).trim() || 'Khác' : 'Khác';
+    const cat = state.statusColumn >= 0 ? category(r[state.statusColumn]) : 'OTHER';
+    const cust = hasCustomer(r);
+    const age = getRowAge(r);
+
+    entry.total++;
+    if (cust) {
+      entry.khach++;
+    } else {
+      entry.avail++;
+      if (cat === 'INSTOCK') entry.kho++;
+      else entry.po++;
+      if (!Number.isNaN(age) && age >= 25) entry.aging++;
+    }
+
+    if (!entry.colors.has(color)) {
+      entry.colors.set(color, { color, total: 0, avail: 0, kho: 0, po: 0, khach: 0 });
+    }
+    const cStat = entry.colors.get(color);
+    cStat.total++;
+    if (cust) {
+      cStat.khach++;
+    } else {
+      cStat.avail++;
+      if (cat === 'INSTOCK') cStat.kho++;
+      else cStat.po++;
+    }
+  });
+
+  const catalogList = [...catalogMap.values()];
+  const inStockModels = catalogList.filter((m) => m.total > 0);
+  return { catalogMap, catalogList, inStockModels };
+}
+
+function selectVehicleModel(modelName) {
+  if (state.selectedModel === modelName) {
+    state.selectedModel = '';
+  } else {
+    state.selectedModel = modelName;
+  }
+  state.selectedColors = [];
+  if ($('filterModelSelect')) $('filterModelSelect').value = state.selectedModel;
+  state.page = 1;
+  buildVehicleChecklist();
+  updateCommandStage();
+  applyFilters();
+}
+
+/* Render danh mục 26 Dòng xe chuẩn ở Sidebar bên trái */
+function buildVehicleChecklist() {
+  const wrap = $('vehicleChecklist');
+  const title = $('vehicleFilterTitle');
+  const allModeBtn = $('sideShowAllBtn');
+  const stockModeBtn = $('sideShowStockBtn');
+  if (!wrap) return;
+  wrap.replaceChildren();
+
+  const { catalogList, inStockModels } = computeCatalogStats();
+
+  if (allModeBtn) allModeBtn.textContent = `Tất cả (${catalogList.length})`;
+  if (stockModeBtn) stockModeBtn.textContent = `Có xe (${inStockModels.length})`;
+  if (title) {
+    title.textContent = state.selectedModel
+      ? `Đang chọn: ${state.selectedModel}`
+      : `Danh mục ${catalogList.length} dòng xe`;
+  }
+
+  const quickQ = norm(state.vehicleQuickQuery);
+
+  // Nút "Tất cả 26 dòng xe"
+  const allBtn = el('button', undefined, 'vehicle-nav-btn' + (!state.selectedModel ? ' active' : ''));
+  allBtn.type = 'button';
+  const allLeft = el('span', undefined, 'vehicle-nav-left');
+  allLeft.append(el('span', 'Tất cả 26 dòng xe', 'vehicle-nav-name'));
+  const allRight = el('span', undefined, 'vehicle-nav-right');
+  allRight.append(el('span', String(state.rows.length), 'vehicle-nav-count'));
+  allBtn.append(allLeft, allRight);
+  allBtn.addEventListener('click', () => selectVehicleModel(''));
+  wrap.append(allBtn);
+
+  catalogList
+    .filter((m) => {
+      if (state.sideListMode === 'instock' && m.total === 0 && state.selectedModel !== m.model) return false;
+      if (quickQ && !norm(m.model).includes(quickQ)) return false;
+      return true;
+    })
+    .forEach((m) => {
+      const isSelected = state.selectedModel === m.model;
+      const cls =
+        'vehicle-nav-btn' +
+        (isSelected ? ' active' : '') +
+        (m.total === 0 ? ' zero-stock' : '');
+      const btn = el('button', undefined, cls);
+      btn.type = 'button';
+      btn.title = `${m.model}: Tổng ${m.total} xe (${m.avail} khả dụng, ${m.colors.size} màu)`;
+
+      const left = el('span', undefined, 'vehicle-nav-left');
+      left.append(el('span', m.model, 'vehicle-nav-name'));
+
+      const right = el('span', undefined, 'vehicle-nav-right');
+      if (m.colors.size > 0) {
+        const dots = el('span', undefined, 'mini-color-dots');
+        [...m.colors.keys()].slice(0, 4).forEach((cName) => {
+          const d = el('span', undefined, 'mini-color-dot');
+          d.style.background = COLOR_HEX_MAP[norm(cName)] || '#94a3b8';
+          dots.append(d);
+        });
+        right.append(dots);
+      }
+      right.append(el('span', String(m.total), 'vehicle-nav-count'));
+
+      btn.append(left, right);
+      btn.addEventListener('click', () => selectVehicleModel(m.model));
+      wrap.append(btn);
+    });
+}
+
+/* Cập nhật Command Stage: Tổng số lượng + Số lượng tồn theo từng Màu sắc của dòng xe đang chọn */
+function updateCommandStage() {
+  const { catalogMap, catalogList, inStockModels } = computeCatalogStats();
+
+  // Xác định tập dữ liệu của dòng xe đang chọn (hoặc toàn bộ 26 dòng xe nếu chưa chọn riêng)
+  let stageStat = null;
+  if (state.selectedModel && catalogMap.has(state.selectedModel)) {
+    stageStat = catalogMap.get(state.selectedModel);
+  } else {
+    const mergedColors = new Map();
+    let total = 0, avail = 0, kho = 0, po = 0, khach = 0, aging = 0;
+    catalogList.forEach((m) => {
+      total += m.total;
+      avail += m.avail;
+      kho += m.kho;
+      po += m.po;
+      khach += m.khach;
+      aging += m.aging;
+      m.colors.forEach((cObj, cName) => {
+        if (!mergedColors.has(cName)) {
+          mergedColors.set(cName, { color: cName, total: 0, avail: 0, kho: 0, po: 0, khach: 0 });
+        }
+        const target = mergedColors.get(cName);
+        target.total += cObj.total;
+        target.avail += cObj.avail;
+        target.kho += cObj.kho;
+        target.po += cObj.po;
+        target.khach += cObj.khach;
+      });
+    });
+    stageStat = {
+      model: 'Tất cả 26 dòng xe',
+      total,
+      avail,
+      kho,
+      po,
+      khach,
+      aging,
+      colors: mergedColors
+    };
+  }
+
+  // Cập nhật Left Hub
+  $('stageStatusBadge').textContent = state.selectedModel ? 'ĐANG CHỌN DÒNG XE' : `TOÀN BỘ ${catalogList.length} DÒNG XE`;
+  $('stageResetModelBtn').classList.toggle('hidden', !state.selectedModel);
+  $('stageModelTitle').textContent = state.selectedModel || 'Tất cả dòng xe trong kho';
+
+  animateCount($('stageTotalNum'), state.prevStageTotal, stageStat.total);
+  state.prevStageTotal = stageStat.total;
+
+  $('stageAvailSub').textContent = stageStat.total
+    ? `${stageStat.avail} xe khả dụng chưa khách · ${stageStat.colors.size} màu ngoại thất`
+    : 'Hiện chưa có xe trong kho S45404';
+
+  $('statAvailable').textContent = stageStat.avail.toLocaleString('vi-VN');
+  $('statAvailableNote').textContent = `${stageStat.kho} kho · ${stageStat.po} PO`;
+  $('statInStock').textContent = stageStat.kho.toLocaleString('vi-VN');
+  $('statInStockNote').textContent = 'Sẵn tại kho';
+  $('statPo').textContent = stageStat.po.toLocaleString('vi-VN');
+  $('statPoNote').textContent = 'Đang về';
+  $('statAssigned').textContent = stageStat.khach.toLocaleString('vi-VN');
+  $('statAssignedNote').textContent = `${stageStat.aging} xe ≥25 ngày`;
+
+  document.querySelectorAll('.telemetry-card[data-kpi-status]').forEach((card) => {
+    card.classList.toggle('active', card.dataset.kpiStatus === state.status);
+  });
+
+  // Cập nhật Header & Subtitle tổng quan
+  const globalTotal = state.rows.length;
+  let globalUnassigned = 0, globalAging = 0, globalFresh = 0, globalKho = 0, globalPo = 0, globalAssigned = 0;
+  state.rows.forEach((r) => {
+    const cat = state.statusColumn >= 0 ? category(r[state.statusColumn]) : 'OTHER';
+    const cust = hasCustomer(r);
+    const age = getRowAge(r);
+    if (cust) {
+      globalAssigned++;
+    } else {
+      globalUnassigned++;
+      if (cat === 'INSTOCK') globalKho++;
+      else if (cat === 'PO') globalPo++;
+      if (!Number.isNaN(age)) {
+        if (age >= 25) globalAging++;
+        if (age <= 7) globalFresh++;
+      }
+    }
+  });
+
+  const summaryEl = $('executiveSummary');
+  summaryEl.replaceChildren();
+  summaryEl.append(
+    el('strong', `${globalUnassigned} xe khả dụng chưa khách`),
+    document.createTextNode(` (${globalKho} sẵn tại kho, ${globalPo} chờ PO) trên tổng ${globalTotal} xe thuộc `),
+    el('strong', `${inStockModels.length}/26 dòng xe đang có hàng`)
+  );
+
+  $('agingPresetBtn').textContent = `Tồn ≥ 25 ngày (${globalAging})`;
+  $('freshPresetBtn').textContent = `Mới ≤ 7 ngày (${globalFresh})`;
+
+  // Cập nhật Thanh chọn nhanh các dòng xe đang có tồn (Quick Model Strip)
+  const strip = $('quickModelStrip');
+  strip.replaceChildren();
+  const allQuick = el('button', undefined, 'quick-model-pill' + (!state.selectedModel ? ' active' : ''));
+  allQuick.type = 'button';
+  allQuick.append(el('span', 'Tất cả'), el('span', String(globalTotal), 'quick-model-pill-qty'));
+  allQuick.addEventListener('click', () => selectVehicleModel(''));
+  strip.append(allQuick);
+
+  [...inStockModels]
+    .sort((a, b) => b.total - a.total)
+    .forEach((m) => {
+      const active = state.selectedModel === m.model;
+      const p = el('button', undefined, 'quick-model-pill' + (active ? ' active' : ''));
+      p.type = 'button';
+      p.append(el('span', m.model), el('span', String(m.total), 'quick-model-pill-qty'));
+      p.addEventListener('click', () => selectVehicleModel(m.model));
+      strip.append(p);
+    });
+
+  // Cập nhật Bảng Số Lượng Tồn Theo Màu Sắc (Color Matrix Grid)
+  $('colorStageHeading').textContent = state.selectedModel
+    ? `Số lượng tồn theo màu sắc — ${state.selectedModel}`
+    : 'Số lượng tồn theo màu sắc (Toàn bộ kho)';
+  $('colorStageSub').textContent = state.selectedModel
+    ? `Tổng ${stageStat.total} xe được phân bổ theo ${stageStat.colors.size} màu ngoại thất · Nhấn vào từng màu để lọc`
+    : 'Chọn nhanh dòng xe bên trên hoặc bên trái để xem số lượng tồn theo màu sắc của riêng dòng xe đó';
+
+  const colorGrid = $('colorMatrixGrid');
+  colorGrid.replaceChildren();
+
+  const sortedColors = [...stageStat.colors.values()].sort((a, b) => b.total - a.total);
+  if (!sortedColors.length) {
+    const emptyBox = el('div', undefined, 'zero-model-state');
+    emptyBox.append(
+      el('strong', `${state.selectedModel}: Hiện có 0 xe trong kho`),
+      el('span', 'Dòng xe này nằm trong danh mục 26 dòng xe chuẩn nhưng hiện chưa phát sinh xe tồn hoặc đơn hàng PO tại kho S45404.')
+    );
+    const backBtn = el('button', 'Xem tất cả dòng xe đang có tồn', 'btn primary');
+    backBtn.type = 'button';
+    backBtn.addEventListener('click', () => selectVehicleModel(''));
+    emptyBox.append(backBtn);
+    colorGrid.append(emptyBox);
+  } else {
+    sortedColors.forEach((cObj, idx) => {
+      const isColorActive = state.selectedColors.includes(cObj.color);
+      const card = el('article', undefined, 'color-stock-card' + (isColorActive ? ' active' : ''));
+      card.style.animationDelay = `${Math.min(idx * 30, 210)}ms`;
+      card.title = `Nhấn để lọc màu ${cObj.color} (${cObj.total} xe)`;
+
+      const top = el('div', undefined, 'color-card-top');
+      const idWrap = el('div', undefined, 'color-swatch-identity');
+      const orb = el('span', undefined, 'paint-orb');
+      orb.style.background = COLOR_HEX_MAP[norm(cObj.color)] || '#94a3b8';
+      idWrap.append(orb, el('span', cObj.color, 'color-card-name'));
+
+      const qty = el('div', undefined, 'color-card-qty');
+      qty.append(document.createTextNode(String(cObj.total)), el('small', 'xe'));
+      top.append(idWrap, qty);
+
+      const bar = el('div', undefined, 'color-card-bar');
+      const wKho = cObj.total ? Math.round((cObj.kho / cObj.total) * 100) : 0;
+      const wPo = cObj.total ? Math.round((cObj.po / cObj.total) * 100) : 0;
+      const wKhach = cObj.total ? Math.max(0, 100 - wKho - wPo) : 0;
+      if (wKho > 0) {
+        const s1 = el('div', undefined, 'color-bar-kho');
+        s1.style.width = wKho + '%';
+        bar.append(s1);
+      }
+      if (wPo > 0) {
+        const s2 = el('div', undefined, 'color-bar-po');
+        s2.style.width = wPo + '%';
+        bar.append(s2);
+      }
+      if (wKhach > 0) {
+        const s3 = el('div', undefined, 'color-bar-khach');
+        s3.style.width = wKhach + '%';
+        bar.append(s3);
+      }
+
+      const meta = el('div', undefined, 'color-card-meta');
+      meta.append(
+        el('span', `${cObj.avail} khả dụng`, 'color-card-avail'),
+        el('span', `${cObj.kho} kho · ${cObj.po} PO · ${cObj.khach} cọc`)
+      );
+
+      card.append(top, bar, meta);
+      card.addEventListener('click', () => {
+        if (state.selectedColors.includes(cObj.color)) {
+          state.selectedColors = state.selectedColors.filter((x) => x !== cObj.color);
+        } else {
+          state.selectedColors = [cObj.color];
+        }
+        state.page = 1;
+        updateCommandStage();
+        applyFilters();
+      });
+      colorGrid.append(card);
+    });
+  }
+
+  // Cập nhật Status Tabs dưới bảng
+  const chips = [
+    ['ALL', 'Tất cả', stageStat.total],
+    ['UNASSIGNED', 'Khả dụng (chưa khách)', stageStat.avail],
+    ['INSTOCK', 'Sẵn tại kho', stageStat.kho],
+    ['PO_UNASSIGNED', 'PO chưa khách', stageStat.po],
+    ['HAS_CUSTOMER', 'Đã ghép khách', stageStat.khach]
+  ];
+  const chipWrap = $('statusChips');
+  chipWrap.replaceChildren();
+  chips.forEach(([code, label, count]) => {
+    const b = el('button', undefined, 'chip' + (state.status === code ? ' active' : ''));
+    b.type = 'button';
+    b.setAttribute('role', 'tab');
+    b.setAttribute('aria-selected', state.status === code ? 'true' : 'false');
+    b.append(el('span', label), el('span', count.toLocaleString('vi-VN'), 'chip-count'));
+    b.addEventListener('click', () => {
+      state.status = code;
+      state.page = 1;
+      updateCommandStage();
+      applyFilters();
+    });
+    chipWrap.append(b);
+  });
+}
+
+function populateCanonicalModelSelect() {
+  const sel = $('filterModelSelect');
+  if (!sel) return;
+  const cur = sel.value;
+  sel.replaceChildren();
+  const def = document.createElement('option');
+  def.value = '';
+  def.textContent = 'Tất cả 26 dòng xe';
+  sel.append(def);
+
+  const { catalogList } = computeCatalogStats();
+  catalogList.forEach((m) => {
+    const opt = document.createElement('option');
+    opt.value = m.model;
+    opt.textContent = `${m.model} (${m.total} xe)`;
+    sel.append(opt);
+  });
+  sel.value = state.selectedModel || cur || '';
+}
+
 function fillSelect(id, col, label) {
   const select = $(id);
+  if (!select) return;
   const current = select.value;
   select.replaceChildren();
   const def = document.createElement('option');
   def.value = '';
   def.textContent = label;
   select.append(def);
-  if (col < 0) {
-    select.classList.add('hidden');
-    return;
-  }
+  if (col < 0) return;
   const vals = [...new Set(state.rows.map((r) => str(r[col]).trim()).filter(Boolean))].sort((a, b) =>
     a.localeCompare(b, 'vi', { numeric: true })
   );
-  if (!vals.length) {
-    select.classList.add('hidden');
-    return;
-  }
-  select.classList.remove('hidden');
   vals.forEach((v) => {
     const opt = document.createElement('option');
     opt.value = v;
@@ -2454,142 +3005,6 @@ function fillSelect(id, col, label) {
     select.append(opt);
   });
   if (vals.includes(current)) select.value = current;
-}
-
-/* Build Exterior Color Swatch Filter Bar */
-function buildColorSwatchBar() {
-  const bar = $('colorSwatchBar');
-  if (!bar) return;
-  bar.replaceChildren();
-  const col = state.exteriorColumn;
-  if (col < 0) {
-    bar.classList.add('hidden');
-    return;
-  }
-  const counts = new Map();
-  state.rows.forEach((r) => {
-    const c = str(r[col]).trim();
-    if (!c) return;
-    counts.set(c, (counts.get(c) || 0) + 1);
-  });
-  const colors = [...counts.keys()].sort((a, b) => (counts.get(b) || 0) - (counts.get(a) || 0));
-  if (!colors.length) {
-    bar.classList.add('hidden');
-    return;
-  }
-  bar.classList.remove('hidden');
-  bar.append(el('span', 'Màu ngoại thất:', 'color-bar-label'));
-
-  const allActive = state.selectedColors.length === 0;
-  const allBtn = el('button', 'Tất cả màu', 'color-pill' + (allActive ? ' active' : ''));
-  allBtn.type = 'button';
-  allBtn.addEventListener('click', () => {
-    state.selectedColors = [];
-    state.page = 1;
-    buildColorSwatchBar();
-    applyFilters();
-  });
-  bar.append(allBtn);
-
-  colors.forEach((colorName) => {
-    const active = state.selectedColors.includes(colorName);
-    const btn = el('button', undefined, 'color-pill' + (active ? ' active' : ''));
-    btn.type = 'button';
-    const dot = el('span', undefined, 'color-dot');
-    dot.style.background = COLOR_HEX_MAP[norm(colorName)] || '#94a3b8';
-    btn.append(dot, el('span', colorName), el('span', String(counts.get(colorName) || 0), 'color-pill-count mono'));
-    btn.addEventListener('click', () => {
-      if (state.selectedColors.includes(colorName)) {
-        state.selectedColors = state.selectedColors.filter((x) => x !== colorName);
-      } else {
-        state.selectedColors.push(colorName);
-      }
-      state.page = 1;
-      buildColorSwatchBar();
-      applyFilters();
-    });
-    bar.append(btn);
-  });
-}
-
-function buildVehicleChecklist() {
-  const wrap = $('vehicleChecklist');
-  const box = $('sideVehicleFilterBox');
-  const title = $('vehicleFilterTitle');
-  if (!wrap || !box) return;
-  wrap.replaceChildren();
-  if (state.vehicleColumn < 0) {
-    box.classList.add('hidden');
-    return;
-  }
-  const counts = new Map();
-  state.rows.forEach((r) => {
-    const name = str(r[state.vehicleColumn]).trim();
-    if (!name) return;
-    counts.set(name, (counts.get(name) || 0) + 1);
-  });
-  const models = [...counts.keys()].sort((a, b) => (counts.get(b) || 0) - (counts.get(a) || 0));
-  if (!models.length) {
-    box.classList.add('hidden');
-    return;
-  }
-  box.classList.remove('hidden');
-  state.selectedVehicles = state.selectedVehicles.filter((v) => counts.has(v));
-  title.textContent = state.selectedVehicles.length
-    ? `Dòng xe (${state.selectedVehicles.length}/${models.length})`
-    : `Dòng xe (${models.length})`;
-
-  const quickQ = norm(state.vehicleQuickQuery);
-  const maxCount = Math.max(1, ...counts.values());
-
-  const allSelected = state.selectedVehicles.length === 0;
-  const allItem = el('label', undefined, 'vehicle-check-item' + (allSelected ? ' active' : ''));
-  const allRow = el('div', undefined, 'vehicle-check-row');
-  const allLeft = el('span', undefined, 'vehicle-check-left');
-  const allInput = document.createElement('input');
-  allInput.type = 'checkbox';
-  allInput.checked = allSelected;
-  allInput.addEventListener('change', () => {
-    state.selectedVehicles = [];
-    state.page = 1;
-    buildVehicleChecklist();
-    applyFilters();
-  });
-  allLeft.append(allInput, el('span', 'Tất cả dòng xe', 'vehicle-check-name'));
-  allRow.append(allLeft, el('span', String(state.rows.length), 'vehicle-check-count mono'));
-  allItem.append(allRow);
-  wrap.append(allItem);
-
-  models
-    .filter((m) => !quickQ || norm(m).includes(quickQ))
-    .forEach((model) => {
-      const count = counts.get(model) || 0;
-      const checked = state.selectedVehicles.includes(model);
-      const item = el('label', undefined, 'vehicle-check-item' + (checked ? ' active' : ''));
-      const row = el('div', undefined, 'vehicle-check-row');
-      const left = el('span', undefined, 'vehicle-check-left');
-      const input = document.createElement('input');
-      input.type = 'checkbox';
-      input.checked = checked;
-      input.addEventListener('change', () => {
-        if (input.checked) {
-          if (!state.selectedVehicles.includes(model)) state.selectedVehicles.push(model);
-        } else {
-          state.selectedVehicles = state.selectedVehicles.filter((x) => x !== model);
-        }
-        state.page = 1;
-        buildVehicleChecklist();
-        applyFilters();
-      });
-      left.append(input, el('span', model, 'vehicle-check-name'));
-      row.append(left, el('span', String(count), 'vehicle-check-count mono'));
-      const bar = el('div', undefined, 'vehicle-mini-bar');
-      const fill = el('div', undefined, 'vehicle-mini-fill');
-      fill.style.width = Math.round((count / maxCount) * 100) + '%';
-      bar.append(fill);
-      item.append(row, bar);
-      wrap.append(item);
-    });
 }
 
 function buildColumnsMenu() {
@@ -2630,18 +3045,38 @@ function renderActiveFiltersBar() {
       }
     });
   }
+  if (state.selectedModel) {
+    tags.push({
+      label: `Dòng xe: ${state.selectedModel}`,
+      clear: () => {
+        state.selectedModel = '';
+        $('filterModelSelect').value = '';
+        buildVehicleChecklist();
+        updateCommandStage();
+      }
+    });
+  }
+  state.selectedColors.forEach((c) => {
+    tags.push({
+      label: `Màu sắc: ${c}`,
+      clear: () => {
+        state.selectedColors = state.selectedColors.filter((x) => x !== c);
+        updateCommandStage();
+      }
+    });
+  });
   if (state.status !== 'ALL') {
     const statusNames = {
-      UNASSIGNED: 'Tồn khả dụng (chưa khách)',
+      UNASSIGNED: 'Khả dụng (chưa khách)',
       INSTOCK: 'Tồn sẵn tại kho',
-      PO_UNASSIGNED: 'PO chưa có khách',
+      PO_UNASSIGNED: 'PO chưa khách',
       HAS_CUSTOMER: 'Đã ghép khách'
     };
     tags.push({
       label: `Trạng thái: ${statusNames[state.status] || state.status}`,
       clear: () => {
         state.status = 'ALL';
-        updateStats();
+        updateCommandStage();
       }
     });
   }
@@ -2651,42 +3086,6 @@ function renderActiveFiltersBar() {
       clear: () => {
         state.agePreset = 'all';
         syncAgePresetButtons();
-      }
-    });
-  }
-  if (state.ageBucket) {
-    tags.push({
-      label: `Nhóm tuổi tồn: ${state.ageBucket} ngày`,
-      clear: () => {
-        state.ageBucket = '';
-        syncAgePresetButtons();
-      }
-    });
-  }
-  state.selectedVehicles.forEach((v) => {
-    tags.push({
-      label: `Dòng xe: ${v}`,
-      clear: () => {
-        state.selectedVehicles = state.selectedVehicles.filter((x) => x !== v);
-        buildVehicleChecklist();
-      }
-    });
-  });
-  state.selectedColors.forEach((c) => {
-    tags.push({
-      label: `Màu: ${c}`,
-      clear: () => {
-        state.selectedColors = state.selectedColors.filter((x) => x !== c);
-        buildColorSwatchBar();
-      }
-    });
-  });
-  if (state.filterA) {
-    tags.push({
-      label: `Phiên bản: ${state.filterA}`,
-      clear: () => {
-        state.filterA = '';
-        $('filterA').value = '';
       }
     });
   }
@@ -2740,362 +3139,17 @@ function renderActiveFiltersBar() {
   });
 }
 
-function updateStats() {
-  const total = state.rows.length;
-  let inStockTotal = 0;
-  let poTotal = 0;
-  let assignedTotal = 0;
-  let unassignedTotal = 0;
-  let inStockUnassigned = 0;
-  let poUnassigned = 0;
-  let assignedInStock = 0;
-  let assignedPo = 0;
-  let agingUnassigned = 0;
-  let freshUnassigned = 0;
-
-  state.rows.forEach((r) => {
-    const cat = state.statusColumn >= 0 ? category(r[state.statusColumn]) : 'OTHER';
-    const cust = hasCustomer(r);
-    const age = getRowAge(r);
-
-    if (cat === 'INSTOCK') inStockTotal++;
-    else if (cat === 'PO') poTotal++;
-
-    if (cust) {
-      assignedTotal++;
-      if (cat === 'INSTOCK') assignedInStock++;
-      else if (cat === 'PO') assignedPo++;
-    } else {
-      unassignedTotal++;
-      if (cat === 'INSTOCK') inStockUnassigned++;
-      else if (cat === 'PO') poUnassigned++;
-      if (!Number.isNaN(age)) {
-        if (age >= 25) agingUnassigned++;
-        if (age <= 7) freshUnassigned++;
-      }
-    }
-  });
-
-  animateCount($('statAvailable'), state.prevStats.available, unassignedTotal);
-  animateCount($('statTotal'), state.prevStats.total, total);
-  animateCount($('statAssigned'), state.prevStats.assigned, assignedTotal);
-  animateCount($('statPo'), state.prevStats.po, poUnassigned);
-  state.prevStats = { available: unassignedTotal, total, assigned: assignedTotal, po: poUnassigned };
-
-  const pctAvail = total ? Math.round((unassignedTotal / total) * 100) : 0;
-  const pctAssigned = total ? Math.round((assignedTotal / total) * 100) : 0;
-  const pctPo = total ? Math.round((poUnassigned / total) * 100) : 0;
-  if ($('barAvailable')) $('barAvailable').style.width = pctAvail + '%';
-  if ($('barAssigned')) $('barAssigned').style.width = pctAssigned + '%';
-  if ($('barPo')) $('barPo').style.width = pctPo + '%';
-
-  $('statAvailableNote').textContent = `${inStockUnassigned} sẵn tại kho · ${poUnassigned} PO chờ về`;
-  $('statTotalNote').textContent = `${inStockTotal} xe tại kho · ${poTotal} xe PO`;
-  const assignedPct = total ? ((assignedTotal / total) * 100).toFixed(1).replace('.', ',') : '0';
-  $('statAssignedNote').textContent = `${assignedPct}% tổng xe · ${assignedInStock} tại kho, ${assignedPo} PO`;
-  $('statAgingNote').textContent = `${agingUnassigned} xe chưa khách tồn ≥ 25 ngày`;
-  $('navTotalBadge').textContent = String(total);
-
-  const summaryEl = $('executiveSummary');
-  summaryEl.replaceChildren();
-  const s1 = el('strong', `${unassignedTotal} xe chưa ghép khách`);
-  const s2 = document.createTextNode(` (${inStockUnassigned} sẵn tại kho, ${poUnassigned} chờ PO) · `);
-  const s3 = el('strong', `${agingUnassigned} xe chưa khách đã tồn ≥ 25 ngày`);
-  const s4 = document.createTextNode(' cần ưu tiên tư vấn đẩy bán.');
-  summaryEl.append(s1, s2, s3, s4);
-
-  $('agingPresetBtn').textContent = `Tồn ≥ 25 ngày (${agingUnassigned})`;
-  $('freshPresetBtn').textContent = `Mới ≤ 7 ngày (${freshUnassigned})`;
-
-  document.querySelectorAll('.metric[data-kpi-status]').forEach((card) => {
-    card.classList.toggle('active-filter', card.dataset.kpiStatus === state.status);
-  });
-
-  const chips = [
-    ['ALL', 'Tất cả', total],
-    ['UNASSIGNED', 'Tồn khả dụng (chưa khách)', unassignedTotal],
-    ['INSTOCK', 'Tồn sẵn tại kho', inStockUnassigned],
-    ['PO_UNASSIGNED', 'PO chưa có khách', poUnassigned],
-    ['HAS_CUSTOMER', 'Đã có khách (Tiến độ xe)', assignedTotal]
-  ];
-  const wrap = $('statusChips');
-  wrap.replaceChildren();
-  chips.forEach(([code, label, count]) => {
-    const b = el('button', undefined, 'chip' + (state.status === code ? ' active' : ''));
-    b.type = 'button';
-    b.setAttribute('role', 'tab');
-    b.setAttribute('aria-selected', state.status === code ? 'true' : 'false');
-    b.append(el('span', label), el('span', count.toLocaleString('vi-VN'), 'chip-count'));
-    b.addEventListener('click', () => {
-      state.status = code;
-      state.page = 1;
-      updateStats();
-      applyFilters();
-    });
-    wrap.append(b);
-  });
-}
-
-function drawChart() {
-  const host = $('stockChart');
-  if (!host || !state.loaded) return;
-  host.replaceChildren();
-  const w = Math.max(300, host.clientWidth || 960);
-  const mobile = w < 720;
-  const h = mobile ? 320 : 172;
-  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-  const cText = isDark ? '#f5f5f7' : '#1d1d1f';
-  const cMuted = isDark ? '#a1a1a6' : '#515154';
-  const cGrid = isDark ? '#262629' : '#efeff4';
-  const cBase = isDark ? '#3a3a3e' : '#d2d2d7';
-  const cKho = isDark ? '#2997ff' : '#0066cc';
-  const cPo = isDark ? '#64b5f6' : '#7cc0ff';
-  const cKhach = isDark ? '#323236' : '#e5e5ea';
-  const cWarn = isDark ? '#ff9f0a' : '#d96b27';
-
-  const NS = 'http://www.w3.org/2000/svg';
-  const s = document.createElementNS(NS, 'svg');
-  s.setAttribute('viewBox', `0 0 ${w} ${h}`);
-  s.setAttribute('width', '100%');
-  s.setAttribute('height', String(h));
-  s.setAttribute('role', 'img');
-  s.setAttribute('aria-label', 'Biểu đồ phân bổ tồn kho theo dòng xe và số ngày tồn');
-  s.style.display = 'block';
-
-  const mk = (tag, attrs, parent = s) => {
-    const n = document.createElementNS(NS, tag);
-    for (const [k, v] of Object.entries(attrs)) if (v != null) n.setAttribute(k, String(v));
-    parent.appendChild(n);
-    return n;
-  };
-  const tx = (strText, x, y, opts = {}) => {
-    const n = mk('text', {
-      x,
-      y,
-      fill: opts.fill || cMuted,
-      'font-size': opts.size || 12,
-      'font-weight': opts.weight || 400,
-      'text-anchor': opts.anchor || 'start',
-      'dominant-baseline': opts.base || 'alphabetic',
-      'font-family': "var(--font-sans)"
-    });
-    n.textContent = strText;
-    return n;
-  };
-
-  // Left: Stacked Horizontal Bars by Vehicle Model
-  const byModel = new Map();
-  state.rows.forEach((r) => {
-    const m = state.vehicleColumn >= 0 ? str(r[state.vehicleColumn]).trim() || 'Khác' : 'Khác';
-    if (!byModel.has(m)) byModel.set(m, { kho: 0, po: 0, khach: 0, total: 0 });
-    const item = byModel.get(m);
-    const cat = state.statusColumn >= 0 ? category(r[state.statusColumn]) : 'OTHER';
-    const cust = hasCustomer(r);
-    item.total++;
-    if (cust) item.khach++;
-    else if (cat === 'INSTOCK') item.kho++;
-    else item.po++;
-  });
-
-  const sortedModels = [...byModel.entries()].sort((a, b) => b[1].total - a[1].total);
-  const topModels = sortedModels.slice(0, 6);
-  if (sortedModels.length > 6) {
-    const rest = sortedModels.slice(6).reduce(
-      (acc, [, v]) => {
-        acc.kho += v.kho;
-        acc.po += v.po;
-        acc.khach += v.khach;
-        acc.total += v.total;
-        return acc;
-      },
-      { kho: 0, po: 0, khach: 0, total: 0 }
-    );
-    topModels.push([`Khác (${sortedModels.length - 6})`, rest]);
-  }
-
-  const leftW = mobile ? w : Math.floor(w * 0.57);
-  const labelW = 76;
-  const barMaxW = Math.max(80, leftW - labelW - 44);
-  const maxModelTotal = Math.max(1, ...topModels.map(([, v]) => v.total));
-  const rowH = 21;
-  const startY = 8;
-
-  topModels.forEach(([name, v], idx) => {
-    const y = startY + idx * rowH;
-    const isSelected = state.selectedVehicles.includes(name);
-    const g = mk('g', { class: 'svg-bar-group', style: 'cursor:pointer' });
-    const delay = `${idx * 45}ms`;
-
-    const lbl = tx(name, 0, y + 11, {
-      fill: isSelected ? cKho : cText,
-      weight: isSelected ? 600 : 500,
-      size: 12
-    });
-    g.appendChild(lbl);
-
-    let curX = labelW;
-    const wKho = Math.round((v.kho / maxModelTotal) * barMaxW);
-    const wPo = Math.round((v.po / maxModelTotal) * barMaxW);
-    const wKhach = Math.round((v.khach / maxModelTotal) * barMaxW);
-
-    if (wKho > 0) {
-      mk('rect', { x: curX, y: y + 2, width: wKho, height: 11, fill: cKho, rx: 2, class: 'svg-bar-h', style: `animation-delay:${delay}` }, g);
-      curX += wKho + 1;
-    }
-    if (wPo > 0) {
-      mk('rect', { x: curX, y: y + 2, width: wPo, height: 11, fill: cPo, rx: 2, class: 'svg-bar-h', style: `animation-delay:${delay}` }, g);
-      curX += wPo + 1;
-    }
-    if (wKhach > 0) {
-      mk('rect', { x: curX, y: y + 2, width: wKhach, height: 11, fill: cKhach, rx: 2, class: 'svg-bar-h', style: `animation-delay:${delay}` }, g);
-      curX += wKhach + 1;
-    }
-
-    const totalTxt = tx(String(v.total), labelW + barMaxW + 26, y + 11, {
-      fill: cText,
-      weight: 600,
-      anchor: 'end',
-      size: 12
-    });
-    g.appendChild(totalTxt);
-
-    if (!name.startsWith('Khác (')) {
-      g.addEventListener('click', () => {
-        if (state.selectedVehicles.length === 1 && state.selectedVehicles[0] === name) {
-          state.selectedVehicles = [];
-        } else {
-          state.selectedVehicles = [name];
-        }
-        state.page = 1;
-        buildVehicleChecklist();
-        applyFilters();
-      });
-    }
-  });
-
-  // Divider on desktop
-  if (!mobile) {
-    const divX = leftW + 14;
-    mk('line', { x1: divX, x2: divX, y1: 4, y2: h - 8, stroke: cGrid, 'stroke-width': 1 });
-  }
-
-  // Right: Unassigned Vehicle Age Distribution
-  const rightX = mobile ? 0 : leftW + 34;
-  const rightY = mobile ? 170 : 12;
-  const rightW = mobile ? w : w - rightX - 6;
-  const rightH = mobile ? 142 : h - 22;
-
-  const buckets = [
-    { key: '1-7', label: '1–7 ngày', count: 0, warn: false },
-    { key: '8-14', label: '8–14 ngày', count: 0, warn: false },
-    { key: '15-24', label: '15–24 ngày', count: 0, warn: false },
-    { key: '25+', label: '≥ 25 ngày', count: 0, warn: true }
-  ];
-
-  state.rows.forEach((r) => {
-    if (hasCustomer(r)) return;
-    const age = getRowAge(r);
-    if (Number.isNaN(age)) return;
-    if (age <= 7) buckets[0].count++;
-    else if (age <= 14) buckets[1].count++;
-    else if (age <= 24) buckets[2].count++;
-    else buckets[3].count++;
-  });
-
-  const maxAgeCount = Math.max(5, ...buckets.map((b) => b.count));
-  const chartTop = rightY + 14;
-  const chartBottom = rightY + rightH - 22;
-  const chartH = Math.max(56, chartBottom - chartTop);
-  const plotLeft = rightX + 24;
-  const plotRight = rightX + rightW - 6;
-  const plotW = Math.max(120, plotRight - plotLeft);
-
-  tx('Tuổi tồn xe chưa khách (nhấn cột để lọc)', plotLeft, rightY + 2, {
-    fill: cMuted,
-    size: 12,
-    weight: 500
-  });
-
-  const steps = [0, Math.round(maxAgeCount / 2), maxAgeCount];
-  steps.forEach((tVal) => {
-    const py = chartBottom - (tVal / maxAgeCount) * chartH;
-    mk('line', {
-      x1: plotLeft,
-      x2: plotRight,
-      y1: py,
-      y2: py,
-      stroke: tVal === 0 ? cBase : cGrid,
-      'stroke-width': 1
-    });
-    tx(String(tVal), plotLeft - 6, py + 3, { fill: cMuted, size: 11, anchor: 'end' });
-  });
-
-  const slotW = plotW / buckets.length;
-  const barW = Math.min(36, Math.max(20, slotW * 0.48));
-
-  buckets.forEach((b, i) => {
-    const cx = plotLeft + slotW * i + slotW / 2;
-    const bh = Math.max(2, Math.round((b.count / maxAgeCount) * chartH));
-    const bx = Math.round(cx - barW / 2);
-    const by = chartBottom - bh;
-    const active = state.ageBucket === b.key;
-    const fill = b.warn ? cWarn : cKho;
-
-    const g = mk('g', { class: 'svg-bar-group', style: 'cursor:pointer' });
-    mk(
-      'rect',
-      {
-        x: bx,
-        y: by,
-        width: barW,
-        height: bh,
-        rx: 4,
-        fill,
-        opacity: state.ageBucket && !active ? '0.35' : '1',
-        class: 'svg-bar-v',
-        style: `animation-delay:${120 + i * 65}ms`
-      },
-      g
-    );
-    const valText = tx(String(b.count), cx, by - 5, {
-      fill: b.warn ? cWarn : cText,
-      size: 12,
-      weight: 600,
-      anchor: 'middle'
-    });
-    const lblText = tx(b.label, cx, chartBottom + 15, {
-      fill: active ? cText : cMuted,
-      size: 12,
-      weight: active ? 600 : 400,
-      anchor: 'middle'
-    });
-    g.appendChild(valText);
-    g.appendChild(lblText);
-
-    g.addEventListener('click', () => {
-      state.ageBucket = state.ageBucket === b.key ? '' : b.key;
-      state.agePreset = 'all';
-      syncAgePresetButtons();
-      state.page = 1;
-      applyFilters();
-    });
-  });
-
-  host.appendChild(s);
-}
-
 function syncAgePresetButtons() {
   document.querySelectorAll('[data-age-preset]').forEach((btn) => {
-    btn.classList.toggle('active', btn.dataset.agePreset === state.agePreset && !state.ageBucket);
+    btn.classList.toggle('active', btn.dataset.agePreset === state.agePreset);
   });
 }
 
-/* Multi-token & Operator-aware Smart Filter */
-function matchesSmartQuery(row, rawQuery) {
+function matchesSmartQuery(row, canonicalModel, rawQuery) {
   const q = norm(rawQuery);
   if (!q) return true;
   const tokens = q.split(/\s+/).filter(Boolean);
-  const rowText = row.map((c) => norm(c)).join(' | ');
+  const rowText = norm(canonicalModel) + ' | ' + row.map((c) => norm(c)).join(' | ');
   const age = getRowAge(row);
 
   return tokens.every((tk) => {
@@ -3121,49 +3175,41 @@ function applyFilters() {
 
   $('searchClearBtn').classList.toggle('hidden', !rawQ.trim());
 
-  state.filtered = state.rows.filter((r) => {
+  const paired = [];
+  state.rows.forEach((r, idx) => {
+    const canonical = state.rowModels[idx];
     const cat = state.statusColumn >= 0 ? category(r[state.statusColumn]) : 'OTHER';
     const cust = hasCustomer(r);
     const age = getRowAge(r);
 
-    if (state.status === 'UNASSIGNED' && cust) return false;
-    if (state.status === 'INSTOCK' && (cat !== 'INSTOCK' || cust)) return false;
-    if (state.status === 'PO_UNASSIGNED' && (cat !== 'PO' || cust)) return false;
-    if (state.status === 'HAS_CUSTOMER' && !cust) return false;
+    if (state.selectedModel && canonical !== state.selectedModel) return;
 
-    if (state.agePreset === 'aging' && (cust || Number.isNaN(age) || age < 25)) return false;
-    if (state.agePreset === 'fresh' && (cust || Number.isNaN(age) || age > 7)) return false;
+    if (state.status === 'UNASSIGNED' && cust) return;
+    if (state.status === 'INSTOCK' && (cat !== 'INSTOCK' || cust)) return;
+    if (state.status === 'PO_UNASSIGNED' && (cat !== 'PO' || cust)) return;
+    if (state.status === 'HAS_CUSTOMER' && !cust) return;
 
-    if (state.ageBucket) {
-      if (cust || Number.isNaN(age)) return false;
-      if (state.ageBucket === '1-7' && age > 7) return false;
-      if (state.ageBucket === '8-14' && (age < 8 || age > 14)) return false;
-      if (state.ageBucket === '15-24' && (age < 15 || age > 24)) return false;
-      if (state.ageBucket === '25+' && age < 25) return false;
-    }
+    if (state.agePreset === 'aging' && (cust || Number.isNaN(age) || age < 25)) return;
+    if (state.agePreset === 'fresh' && (cust || Number.isNaN(age) || age > 7)) return;
 
-    if (state.selectedVehicles.length && state.vehicleColumn >= 0) {
-      const model = str(r[state.vehicleColumn]).trim();
-      if (!state.selectedVehicles.includes(model)) return false;
-    }
     if (state.selectedColors.length && state.exteriorColumn >= 0) {
       const ext = str(r[state.exteriorColumn]).trim();
-      if (!state.selectedColors.includes(ext)) return false;
+      if (!state.selectedColors.includes(ext)) return;
     }
-    if (state.filterA && state.versionColumn >= 0 && str(r[state.versionColumn]).trim() !== state.filterA) return false;
-    if (state.filterB && state.statusColumn >= 0 && str(r[state.statusColumn]).trim() !== state.filterB) return false;
-    if (custQ && state.customerColumn >= 0 && !norm(r[state.customerColumn]).includes(custQ)) return false;
-    if (advQ && state.advisorColumn >= 0 && !norm(r[state.advisorColumn]).includes(advQ)) return false;
-    if (!matchesSmartQuery(r, rawQ)) return false;
-    return true;
+    if (state.filterB && state.statusColumn >= 0 && str(r[state.statusColumn]).trim() !== state.filterB) return;
+    if (custQ && state.customerColumn >= 0 && !norm(r[state.customerColumn]).includes(custQ)) return;
+    if (advQ && state.advisorColumn >= 0 && !norm(r[state.advisorColumn]).includes(advQ)) return;
+    if (!matchesSmartQuery(r, canonical, rawQ)) return;
+
+    paired.push({ row: r, canonical });
   });
 
   if (state.sortCol >= 0) {
     const col = state.sortCol;
     const mul = state.sortDir === 'asc' ? 1 : -1;
-    state.filtered.sort((a, b) => {
-      const va = str(a[col]).trim();
-      const vb = str(b[col]).trim();
+    paired.sort((a, b) => {
+      const va = col === state.vehicleColumn ? a.canonical : str(a.row[col]).trim();
+      const vb = col === state.vehicleColumn ? b.canonical : str(b.row[col]).trim();
       const na = parseNum(va);
       const nb = parseNum(vb);
       if (!Number.isNaN(na) && !Number.isNaN(nb)) return (na - nb) * mul;
@@ -3171,10 +3217,10 @@ function applyFilters() {
     });
   }
 
+  state.filtered = paired;
   const maxPage = Math.max(1, Math.ceil(state.filtered.length / state.limit));
   if (state.page > maxPage) state.page = maxPage;
   renderActiveFiltersBar();
-  drawChart();
   drawTable();
 }
 
@@ -3210,12 +3256,11 @@ function drawTable() {
     th.append(b);
     tr.append(th);
   });
-  const actionTh = el('th', 'Hồ sơ', 'n');
-  tr.append(actionTh);
+  tr.append(el('th', 'Hồ sơ', 'n'));
   head.append(tr);
 
   const start = (state.page - 1) * state.limit;
-  state.filtered.slice(start, start + state.limit).forEach((r, rowIdx) => {
+  state.filtered.slice(start, start + state.limit).forEach(({ row: r, canonical }, rowIdx) => {
     const row = el('tr');
     row.style.setProperty('--row-idx', String(Math.min(rowIdx, 18)));
     const cust = hasCustomer(r);
@@ -3223,11 +3268,11 @@ function drawTable() {
       row.classList.add('customer-row');
       row.title = 'Xe đã ghép khách – nhấn để xem hồ sơ chi tiết';
     }
-    row.addEventListener('click', () => showDetail(r));
+    row.addEventListener('click', () => showDetail(r, canonical));
 
     r.forEach((v, i) => {
       if (state.visible[i] === false) return;
-      const val = str(v).trim();
+      const val = i === state.vehicleColumn ? canonical : str(v).trim();
       const isNum = isNumericCol(i) || (val !== '' && numRe.test(val));
       const td = el('td', undefined, isNum ? 'n' : '');
       td.dataset.label = state.headers[i] || `Cột ${i + 1}`;
@@ -3252,6 +3297,14 @@ function drawTable() {
         const wrap = el('span', undefined, 'age-badge mono' + (!cust && ageNum >= 25 ? ' age-warn' : ''));
         wrap.textContent = val || '–';
         td.append(wrap);
+      } else if (i === state.exteriorColumn && val) {
+        const cWrap = el('span', undefined, 'cell-color-wrap');
+        const dot = el('span', undefined, 'table-color-dot');
+        dot.style.background = COLOR_HEX_MAP[norm(val)] || '#94a3b8';
+        const txt = el('span');
+        appendHighlightedText(txt, val, rawQ);
+        cWrap.append(dot, txt);
+        td.append(cWrap);
       } else if (i === 6 && val) {
         td.classList.add('col-vin');
         const chip = el('span', undefined, 'vin-chip');
@@ -3274,8 +3327,7 @@ function drawTable() {
         if (!val) td.classList.add('cell-muted', 'cell-empty');
         appendHighlightedText(td, val, advQ || rawQ);
       } else if (i === state.vehicleColumn) {
-        td.classList.add(val ? 'cell-primary' : 'cell-muted');
-        if (!val) td.classList.add('cell-empty');
+        td.classList.add('col-model', 'cell-primary');
         appendHighlightedText(td, val, rawQ);
       } else {
         if (!val) td.classList.add('cell-muted', 'cell-empty');
@@ -3290,12 +3342,20 @@ function drawTable() {
     b.type = 'button';
     b.addEventListener('click', (e) => {
       e.stopPropagation();
-      showDetail(r);
+      showDetail(r, canonical);
     });
     td.append(b);
     row.append(td);
     body.append(row);
   });
+
+  if (state.selectedModel && state.filtered.length === 0) {
+    $('emptyStateTitle').textContent = `Dòng xe "${state.selectedModel}" hiện không có xe khớp bộ lọc`;
+    $('emptyStateSub').textContent = 'Nhấn "Xem tất cả dòng xe" hoặc "Đặt lại" để quay về danh sách đầy đủ.';
+  } else {
+    $('emptyStateTitle').textContent = 'Không có xe phù hợp với điều kiện lọc';
+    $('emptyStateSub').textContent = 'Hãy thử chọn dòng xe khác hoặc nhấn "Đặt lại".';
+  }
 
   $('dataTable').classList.toggle('hidden', !state.loaded || !state.filtered.length);
   $('emptyState').classList.toggle('hidden', !state.loaded || !!state.filtered.length);
@@ -3303,20 +3363,23 @@ function drawTable() {
   $('totalRows').textContent = `Hiển thị ${state.filtered.length ? start + 1 : 0}–${Math.min(
     start + state.limit,
     state.filtered.length
-  )} / ${state.filtered.length.toLocaleString('vi-VN')} xe (tổng ${state.rows.length.toLocaleString('vi-VN')})`;
+  )} / ${state.filtered.length.toLocaleString('vi-VN')} xe (tổng kho ${state.rows.length.toLocaleString('vi-VN')})`;
   $('pageInfo').textContent = `${state.page} / ${Math.max(1, Math.ceil(state.filtered.length / state.limit))}`;
   $('prevBtn').disabled = state.page <= 1;
   $('nextBtn').disabled = state.page >= Math.ceil(state.filtered.length / state.limit);
 }
 
-function showDetail(r) {
-  state.activeModalRow = r;
+function showDetail(r, canonical) {
+  state.activeModalRow = { row: r, canonical };
   const body = $('detailBody');
   body.replaceChildren();
-  const model = str(r[state.vehicleColumn]).trim() || 'Xe';
-  const ver = str(r[state.versionColumn]).trim();
-  $('modalTitle').textContent = ver ? `${model} · ${ver}` : `Hồ sơ xe ${model}`;
-  $('modalSub').textContent = `VIN: ${str(r[6]).trim() || '–'} · Tình trạng: ${str(r[state.statusColumn]).trim() || '–'}`;
+  const model = canonical || str(r[state.vehicleColumn]).trim() || 'Xe';
+  $('modalTitle').textContent = model;
+  $('modalSub').textContent = `VIN: ${str(r[6]).trim() || '–'} · Màu: ${str(r[state.exteriorColumn]).trim() || '–'} · Tình trạng: ${str(r[state.statusColumn]).trim() || '–'}`;
+
+  const dCanonical = el('div', undefined, 'detailitem');
+  dCanonical.append(el('div', 'Dòng xe chuẩn (26 dòng)', 'label'), el('div', model, 'value'));
+  body.append(dCanonical);
 
   state.headers.forEach((h, i) => {
     const d = el('div', undefined, 'detailitem');
@@ -3361,6 +3424,8 @@ function parseResponse(res) {
   const labelHeaders = selected.map((idx, pos) => {
     const rawH = str(allHeaders[idx]).trim();
     if (pos === 0 && (!rawH || rawH === 'Cột 2')) return 'Ngày ĐH';
+    if (pos === 1) return 'Dòng xe';
+    if (pos === 2) return 'Mã phiên bản';
     if (pos === 3) return 'Ngoại thất';
     if (pos === 5) return 'Năm SX';
     if (pos === 6) return 'VIN';
@@ -3376,23 +3441,27 @@ function parseResponse(res) {
     .map((r) => selected.map((idx) => r[idx] ?? ''))
     .filter((r) => r.some((c) => str(c).trim() !== ''));
 
-  state.visible = state.headers.map((_, i) => i !== 7);
-  state.vehicleColumn = findColumn(state.headers, ['loai xe', 'dong xe'], 1);
-  state.versionColumn = findColumn(state.headers, ['phien ban'], 2);
+  // Ẩn cột Mã phiên bản nhà máy (pos 2) và Ngày DK XHĐ (pos 7) mặc định để bảng cực kỳ gọn gàng, vì cột Dòng xe đã hiển thị đúng 26 Dòng xe chuẩn
+  state.visible = state.headers.map((_, i) => i !== 2 && i !== 7);
+  state.vehicleColumn = 1;
+  state.versionColumn = 2;
   state.exteriorColumn = 3;
   state.progressColumn = findColumn(state.headers, ['tien do'], 8);
   state.statusColumn = findColumn(state.headers, ['tinh trang', 'trang thai'], 9);
   state.ageColumn = findColumn(state.headers, ['ngay ton', 'so ngay ton'], 10);
   state.customerColumn = findColumn(state.headers, ['khach hang', 'ten khach'], 11);
   state.advisorColumn = findColumn(state.headers, ['tvbh', 'tu van'], 12);
+
+  state.rowModels = state.rows.map((r) =>
+    resolveCanonicalModel(r[state.vehicleColumn], r[state.versionColumn])
+  );
   state.loaded = true;
 
-  fillSelect('filterA', state.versionColumn, `Tất cả ${state.headers[state.versionColumn] || 'phiên bản'}`);
-  fillSelect('filterB', state.statusColumn, `Tất cả ${state.headers[state.statusColumn] || 'tình trạng'}`);
+  populateCanonicalModelSelect();
+  fillSelect('filterB', state.statusColumn, 'Tất cả tình trạng');
   buildVehicleChecklist();
-  buildColorSwatchBar();
   buildColumnsMenu();
-  updateStats();
+  updateCommandStage();
   applyFilters();
 
   const now = new Date();
@@ -3444,20 +3513,17 @@ function resetAllFilters() {
   state.advisorQuery = '';
   state.status = 'ALL';
   state.agePreset = 'all';
-  state.ageBucket = '';
-  state.filterA = '';
-  state.filterB = '';
-  state.selectedVehicles = [];
+  state.selectedModel = '';
   state.selectedColors = [];
-  $('filterA').value = '';
+  state.filterB = '';
+  $('filterModelSelect').value = '';
   $('filterB').value = '';
   state.sortCol = -1;
   state.sortDir = 'asc';
   state.page = 1;
   syncAgePresetButtons();
   buildVehicleChecklist();
-  buildColorSwatchBar();
-  updateStats();
+  updateCommandStage();
   applyFilters();
 }
 
@@ -3468,7 +3534,9 @@ function exportCsv() {
     .filter(Boolean);
   const esc = (v) => `"${str(v).replace(/"/g, '""')}"`;
   const lines = [cols.map((c) => esc(c.h)).join(',')];
-  state.filtered.forEach((r) => lines.push(cols.map((c) => esc(r[c.i])).join(',')));
+  state.filtered.forEach(({ row: r, canonical }) =>
+    lines.push(cols.map((c) => esc(c.i === state.vehicleColumn ? canonical : r[c.i])).join(','))
+  );
   const blob = new Blob(['\ufeff' + lines.join('\r\n')], { type: 'text/csv;charset=utf-8;' });
   const a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
@@ -3508,6 +3576,16 @@ document.addEventListener('click', (e) => {
   }
 });
 
+document.querySelectorAll('[data-side-mode]').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    state.sideListMode = btn.dataset.sideMode || 'all';
+    document.querySelectorAll('[data-side-mode]').forEach((b) => b.classList.toggle('active', b === btn));
+    buildVehicleChecklist();
+  });
+});
+
+$('stageResetModelBtn').addEventListener('click', () => selectVehicleModel(''));
+
 $('vehicleQuickSearch').addEventListener('input', (e) => {
   state.vehicleQuickQuery = e.target.value || '';
   buildVehicleChecklist();
@@ -3522,10 +3600,8 @@ $('advisorSearch').addEventListener('input', (e) => {
   state.page = 1;
   applyFilters();
 });
-$('filterA').addEventListener('change', (e) => {
-  state.filterA = e.target.value;
-  state.page = 1;
-  applyFilters();
+$('filterModelSelect').addEventListener('change', (e) => {
+  selectVehicleModel(e.target.value || '');
 });
 $('filterB').addEventListener('change', (e) => {
   state.filterB = e.target.value;
@@ -3561,28 +3637,20 @@ $('densityBtn').addEventListener('click', () => {
 document.querySelectorAll('[data-age-preset]').forEach((btn) => {
   btn.addEventListener('click', () => {
     state.agePreset = btn.dataset.agePreset || 'all';
-    state.ageBucket = '';
     syncAgePresetButtons();
     state.page = 1;
     applyFilters();
   });
 });
 
-document.querySelectorAll('.metric[data-kpi-status]').forEach((card) => {
+document.querySelectorAll('.telemetry-card[data-kpi-status]').forEach((card) => {
   card.addEventListener('click', () => {
     const target = card.dataset.kpiStatus || 'ALL';
-    state.status = state.status === target && target !== 'ALL' ? 'ALL' : target;
+    state.status = state.status === target ? 'ALL' : target;
     state.page = 1;
-    updateStats();
+    updateCommandStage();
     applyFilters();
   });
-});
-
-$('vehicleFilterCollapseBtn').addEventListener('click', () => {
-  state.vehicleCollapsed = !state.vehicleCollapsed;
-  $('vehicleChecklist').classList.toggle('hidden', state.vehicleCollapsed);
-  $('sideSearchWrap').classList.toggle('hidden', state.vehicleCollapsed);
-  $('vehicleFilterCollapseBtn').textContent = state.vehicleCollapsed ? '▸' : '▾';
 });
 
 $('refreshBtn').addEventListener('click', loadSheet);
@@ -3595,10 +3663,11 @@ $('columnsBtn').addEventListener('click', (e) => {
 });
 
 $('copyVehicleSummaryBtn').addEventListener('click', () => {
-  const r = state.activeModalRow;
-  if (!r) return;
+  const active = state.activeModalRow;
+  if (!active) return;
+  const r = active.row;
   const summary = [
-    `Dòng xe: ${str(r[state.vehicleColumn]).trim()} (${str(r[state.versionColumn]).trim()})`,
+    `Dòng xe: ${active.canonical}`,
     `Màu: ${str(r[3]).trim()} / Nội thất: ${str(r[4]).trim()}`,
     `VIN: ${str(r[6]).trim()}`,
     `Tình trạng: ${str(r[state.statusColumn]).trim()} (${str(r[state.ageColumn]).trim()} ngày tồn)`
@@ -3625,14 +3694,6 @@ document.addEventListener('keydown', (e) => {
     e.preventDefault();
     $('searchInput').focus();
   }
-});
-
-let resizeTimer = null;
-window.addEventListener('resize', () => {
-  clearTimeout(resizeTimer);
-  resizeTimer = setTimeout(() => {
-    if (state.loaded) drawChart();
-  }, 120);
 });
 
 initTheme();
