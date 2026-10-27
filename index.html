@@ -16,33 +16,33 @@
 :root[data-theme="light"] {
   --ground: #f5f5f7;
   --surface: #ffffff;
-  --surface-glass: rgba(255, 255, 255, 0.9);
-  --raised: #f4f4f7;
-  --control-bg: #ebebf0;
-  --active: #e2e2e8;
+  --surface-glass: rgba(255, 255, 255, 0.88);
+  --raised: #f5f5f8;
+  --control-bg: #eaeaef;
+  --active: #dfdfe6;
   --border: #e5e5ea;
-  --border-strong: #d2d2d7;
+  --border-strong: #c8c8cf;
   --rule: #efeff4;
   --text: #1d1d1f;
-  --muted: #515154;
-  --faint: #636366;
+  --muted: #4e4e52;
+  --faint: #6e6e73;
   --accent: #0066cc;
-  --accent-soft: #e8f2ff;
+  --accent-soft: #eaf3ff;
   --primary: #1d1d1f;
   --primary-ink: #ffffff;
   --positive: #166534;
-  --negative: #c9190b;
-  --warning: #b25000;
-  --pill-positive-bg: #eaf6ed;
+  --negative: #b91c1c;
+  --warning: #9a3412;
+  --pill-positive-bg: #ecfdf3;
   --pill-positive-ink: #166534;
-  --pill-negative-bg: #fdeceb;
+  --pill-negative-bg: #fef2f2;
   --pill-negative-ink: #991b1b;
-  --pill-warning-bg: #fef3e6;
+  --pill-warning-bg: #fff7ed;
   --pill-warning-ink: #9a3412;
-  --pill-info-bg: #e8f2ff;
-  --pill-info-ink: #004c99;
-  --pill-neutral-bg: #f0f0f5;
-  --pill-neutral-ink: #3a3a3c;
+  --pill-info-bg: #eff6ff;
+  --pill-info-ink: #1e40af;
+  --pill-neutral-bg: #f3f3f6;
+  --pill-neutral-ink: #374151;
   --hl-bg: #fff3b0;
   --hl-ink: #1d1d1f;
   --shadow-card: 0 2px 10px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.02);
@@ -64,43 +64,45 @@
   --radius-control: 8px;
   --radius-card: 14px;
   --ease-apple: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-press: cubic-bezier(0.2, 0, 0, 1);
 }
 
 :root[data-theme="dark"] {
-  --ground: #0b0b0d;
-  --surface: #151518;
-  --surface-glass: rgba(21, 21, 24, 0.9);
-  --raised: #1e1e23;
-  --control-bg: #25252b;
-  --active: #2e2e36;
-  --border: #26262b;
-  --border-strong: #3a3a42;
-  --rule: #1f1f24;
+  --ground: #000000;
+  --surface: #161618;
+  --surface-glass: rgba(22, 22, 24, 0.88);
+  --raised: #202024;
+  --control-bg: #28282e;
+  --active: #32323a;
+  --border: #28282c;
+  --border-strong: #3e3e46;
+  --rule: #1e1e22;
   --text: #f5f5f7;
-  --muted: #a1a1aa;
-  --faint: #8e8e93;
+  --muted: #a1a1a6;
+  --faint: #86868b;
   --accent: #2997ff;
-  --accent-soft: #122840;
+  --accent-soft: #0f2742;
   --primary: #f5f5f7;
-  --primary-ink: #1d1d1f;
-  --positive: #4ae06e;
+  --primary-ink: #000000;
+  --positive: #30d158;
   --negative: #ff453a;
   --warning: #ff9f0a;
-  --pill-positive-bg: #122d1b;
-  --pill-positive-ink: #4ae06e;
-  --pill-negative-bg: #331414;
+  --pill-positive-bg: #0f2918;
+  --pill-positive-ink: #30d158;
+  --pill-negative-bg: #321414;
   --pill-negative-ink: #ff6961;
-  --pill-warning-bg: #33220b;
+  --pill-warning-bg: #302008;
   --pill-warning-ink: #ffb340;
-  --pill-info-bg: #11263c;
+  --pill-info-bg: #0d2238;
   --pill-info-ink: #64b5f6;
-  --pill-neutral-bg: #26262b;
+  --pill-neutral-bg: #242428;
   --pill-neutral-ink: #d1d1d6;
   --hl-bg: #5c4800;
   --hl-ink: #fff8d6;
-  --shadow-card: 0 2px 10px rgba(0, 0, 0, 0.28);
-  --shadow-hover: 0 8px 22px rgba(0, 0, 0, 0.44);
-  --shadow-pop: 0 16px 38px rgba(0, 0, 0, 0.65);
+  --shadow-card: 0 2px 10px rgba(0, 0, 0, 0.35);
+  --shadow-hover: 0 8px 22px rgba(0, 0, 0, 0.5);
+  --shadow-pop: 0 16px 38px rgba(0, 0, 0, 0.7);
 }
 
 *, *::before, *::after {
@@ -306,7 +308,12 @@ mark.hl {
   font-size: var(--fs-small);
   font-weight: 500;
   white-space: nowrap;
-  transition: background-color 150ms ease, color 150ms ease, border-color 150ms ease;
+  transition: background-color 150ms ease, color 150ms ease, border-color 150ms ease, transform 200ms var(--ease-spring);
+}
+
+.side-mode-switch button:active {
+  transform: scale(0.96);
+  transition-duration: 70ms;
 }
 
 .side-mode-switch button.active {
@@ -368,11 +375,16 @@ mark.hl {
   font-size: var(--fs-body);
   font-weight: 500;
   text-align: left;
-  transition: background-color 150ms var(--ease-apple), color 150ms ease, border-color 150ms ease;
+  transition: background-color 150ms var(--ease-apple), color 150ms ease, border-color 150ms ease, transform 220ms var(--ease-spring);
 }
 
 .vehicle-nav-btn:hover {
   background: var(--raised);
+}
+
+.vehicle-nav-btn:active {
+  transform: scale(0.975);
+  transition-duration: 70ms;
 }
 
 .vehicle-nav-btn.active {
@@ -588,7 +600,7 @@ mark.hl {
   font-size: var(--fs-body);
   font-weight: 500;
   white-space: nowrap;
-  transition: background-color 150ms ease, border-color 150ms ease, transform 150ms var(--ease-apple);
+  transition: background-color 150ms ease, border-color 150ms ease, transform 220ms var(--ease-spring);
 }
 
 .btn:hover:not(:disabled) {
@@ -596,7 +608,8 @@ mark.hl {
 }
 
 .btn:active:not(:disabled) {
-  transform: scale(0.98);
+  transform: scale(0.955);
+  transition-duration: 70ms;
 }
 
 .btn:disabled {
@@ -712,12 +725,17 @@ mark.hl {
   justify-content: space-between;
   gap: 6px;
   cursor: pointer;
-  transition: border-color 160ms ease, background-color 160ms ease, transform 160ms var(--ease-apple);
+  transition: border-color 160ms ease, background-color 160ms ease, transform 220ms var(--ease-spring);
 }
 
 .model-kpi-box:hover {
   border-color: var(--border-strong);
   transform: translateY(-1px);
+}
+
+.model-kpi-box:active {
+  transform: scale(0.97);
+  transition-duration: 70ms;
 }
 
 .model-kpi-box.active {
@@ -794,14 +812,15 @@ mark.hl {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-card);
-  padding: 14px 16px;
+  padding: 13px 15px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
   cursor: pointer;
   min-width: 0;
-  transition: transform 180ms var(--ease-apple), border-color 160ms ease, background-color 160ms ease;
+  position: relative;
+  transition: transform 240ms var(--ease-spring), border-color 160ms ease, background-color 160ms ease, box-shadow 160ms ease;
   animation: cardMorph 240ms var(--ease-apple) both;
 }
 
@@ -811,9 +830,15 @@ mark.hl {
   background: var(--raised);
 }
 
+.color-stock-card:active {
+  transform: scale(0.965);
+  transition-duration: 70ms;
+}
+
 .color-stock-card.active {
   border-color: var(--accent);
   background: var(--accent-soft);
+  box-shadow: inset 0 0 0 1px var(--accent); /* taste-skill-ignore */
 }
 
 .color-swatch-left {
@@ -821,14 +846,36 @@ mark.hl {
   align-items: center;
   gap: 12px;
   min-width: 0;
+  flex: 1;
 }
 
 .paint-orb {
   width: 28px;
   height: 28px;
   border-radius: 999px;
-  border: 1px solid var(--border-strong);
+  border: 1px solid rgba(0, 0, 0, 0.14);
   flex: none;
+  position: relative;
+  box-shadow: inset 0 -3px 5px rgba(0, 0, 0, 0.22), 0 2px 6px rgba(0, 0, 0, 0.08); /* taste-skill-ignore */
+  transition: transform 240ms var(--ease-spring);
+}
+
+.paint-orb::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: radial-gradient(circle at 35% 28%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.2) 32%, transparent 60%); /* taste-skill-ignore */
+  pointer-events: none;
+}
+
+:root[data-theme="dark"] .paint-orb {
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: inset 0 -3px 6px rgba(0, 0, 0, 0.6), 0 2px 8px rgba(0, 0, 0, 0.35); /* taste-skill-ignore */
+}
+
+.color-stock-card:hover .paint-orb {
+  transform: scale(1.12);
 }
 
 .color-info {
@@ -836,6 +883,7 @@ mark.hl {
   flex-direction: column;
   gap: 2px;
   min-width: 0;
+  flex: 1;
 }
 
 .color-card-name {
@@ -856,6 +904,27 @@ mark.hl {
 .color-card-avail.soldout {
   color: var(--muted);
   font-weight: 400;
+}
+
+.color-ratio-bar {
+  width: 100%;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--rule);
+  overflow: hidden;
+  margin-top: 4px;
+}
+
+.color-ratio-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: var(--positive);
+  transition: width 300ms var(--ease-apple);
+}
+
+.color-ratio-fill.soldout {
+  background: var(--muted);
+  opacity: 0.35;
 }
 
 .color-card-qty {
@@ -935,12 +1004,17 @@ mark.hl {
   color: var(--muted);
   font-size: var(--fs-body);
   font-weight: 500;
-  transition: background-color 150ms ease, color 150ms ease, border-color 150ms ease;
+  transition: background-color 150ms ease, color 150ms ease, border-color 150ms ease, transform 200ms var(--ease-spring);
 }
 
 .chip:hover {
   color: var(--text);
   border-color: var(--border-strong);
+}
+
+.chip:active {
+  transform: scale(0.94);
+  transition-duration: 70ms;
 }
 
 .chip.active {
@@ -1173,6 +1247,10 @@ tbody tr:hover td {
   background: var(--raised);
 }
 
+tbody tr:active td {
+  background: var(--active);
+}
+
 #dataTable tbody tr.customer-row td:first-child {
   box-shadow: inset 3px 0 var(--accent); /* taste-skill-ignore */
 }
@@ -1193,11 +1271,12 @@ tbody tr:hover td {
 }
 
 .table-color-dot {
-  width: 11px;
-  height: 11px;
+  width: 12px;
+  height: 12px;
   border-radius: 999px;
-  border: 1px solid var(--border-strong);
+  border: 1px solid rgba(0, 0, 0, 0.15);
   flex: none;
+  box-shadow: inset 0 -1px 2px rgba(0, 0, 0, 0.2); /* taste-skill-ignore */
 }
 
 .vin-chip {
@@ -1212,13 +1291,25 @@ tbody tr:hover td {
   font-family: var(--font-mono); /* taste-skill-ignore */
   font-size: var(--fs-num);
   cursor: pointer;
-  transition: border-color 140ms ease, background-color 140ms ease;
+  transition: border-color 140ms ease, background-color 140ms ease, color 140ms ease, transform 200ms var(--ease-spring);
 }
 
 .vin-chip:hover {
   border-color: var(--accent);
   background: var(--accent-soft);
   color: var(--accent);
+}
+
+.vin-chip:active {
+  transform: scale(0.92);
+  transition-duration: 70ms;
+}
+
+.vin-chip.copied {
+  background: var(--pill-positive-bg) !important;
+  border-color: var(--positive) !important;
+  color: var(--pill-positive-ink) !important;
+  font-weight: 600;
 }
 
 .pill {
@@ -1276,13 +1367,18 @@ tbody tr:hover td {
   color: var(--text);
   font-size: var(--fs-small);
   font-weight: 500;
-  transition: background-color 140ms ease, border-color 140ms ease;
+  transition: background-color 140ms ease, border-color 140ms ease, transform 200ms var(--ease-spring);
 }
 
 .detailbutton:hover {
   background: var(--primary);
   border-color: var(--primary);
   color: var(--primary-ink);
+}
+
+.detailbutton:active {
+  transform: scale(0.94);
+  transition-duration: 70ms;
 }
 
 .empty {
@@ -1835,17 +1931,23 @@ const OFFICIAL_26_MODELS = CATALOG_GROUPS.flatMap((g) => g.models);
 const NUMERIC_COLUMN_SLOTS = [5, 10];
 
 const COLOR_HEX_MAP = {
-  'trang': '#f8fafc',
-  'den': '#18181b',
-  'do ruby': '#b91c1c',
-  'bac': '#cbd5e1',
-  'xam': '#64748b',
-  'xam nhat': '#94a3b8',
-  'xanh duong': '#0284c7',
-  'xanh la nhat': '#34d399',
-  'hong': '#f472b6',
-  'vang': '#eab308',
-  'cam': '#f97316'
+  'trang': '#f5f6f8',
+  'den': '#1a1a1d',
+  'do ruby': '#a81b24',
+  'bac': '#c5cbd3',
+  'xam': '#5b6573',
+  'xam nhat': '#8e99a8',
+  'xanh duong': '#026aa7',
+  'xanh la nhat': '#2ca879',
+  'hong': '#e06292',
+  'vang': '#d99b00',
+  'cam': '#e05e00',
+  'do': '#a81b24',
+  'xanh': '#026aa7',
+  'xanh la': '#2ca879',
+  'xanh luc bao': '#166534',
+  'ghi': '#5b6573',
+  'cat': '#c2a67e'
 };
 
 const INITIAL_SNAPSHOT = {"status":"ok","table":{"rows":[{"c":[{"v":"MÃ KHO"},null,{"v":"Loại xe"},{"v":"Phiên bản"},{"v":"Ngoại thất"},{"v":"Ngoại thất (tiếng Việt)"},{"v":"Nội thất"},null,null,null,{"v":" VIN "},{"v":" Khách hàng "},null,{"v":"Ngày dự kiến xuất hoá đơn"},{"v":"Tiến độ xe"},{"v":"Tình trạng xe"},null,{"v":"TVBH"}]},{"c":[{"v":"S45404"},{"v":"27/09/2026"},{"v":"Limo"},{"v":"LIMO_GREEN_VN"},{"v":"De Sat Silver IND12007"},{"v":"Bạc"},{"v":"Black"},null,{"v":"2026"},null,{"v":"RLLVFPNT7TH840000"},null,null,null,{"v":"  "},{"v":" Tồn tại kho "},{"v":"29"},null]},{"c":[{"v":"S45404"},{"v":"27/09/2026"},{"v":"Limo"},{"v":"LIMO_GREEN_VN"},{"v":"Jet Black CLE17038"},{"v":"Đen"},{"v":"Black"},null,{"v":"2026"},null,{"v":"RLLVFPNT8TH810536"},null,null,null,{"v":"  "},{"v":"  Tồn tại kho  "},{"v":"29"},null]},{"c":[{"v":"S45404"},{"v":"27/09/2026"},{"v":"Minivan"},{"v":"MINIVAN_HT_PLANT_VN_Sliding Door_BCO1"},{"v":"Brahminy White IND17001"},{"v":"Trắng"},{"v":"Black"},null,{"v":"2026"},null,{"v":"RNXVGRKK3TT742538"},null,null,null,{"v":"  "},{"v":"  Tồn tại kho  "},{"v":"29"},null]},{"c":[{"v":"S45404"},{"v":"27/09/2026"},{"v":"MPV 7"},{"v":"VF MPV 7"},{"v":"Solar_Ruby"},{"v":"Đỏ Ruby"},{"v":"Black"},{"v":"0"},{"v":"2026"},null,{"v":"RLLVFPTT2TH834902"},null,null,null,{"v":"  "},{"v":"  Tồn tại kho  "},{"v":"29"},null]},{"c":[{"v":"S45404"},{"v":"27/09/2026"},{"v":"MPV 7"},{"v":"VF MPV 7"},{"v":"Brahminy White IND17001"},{"v":"Trắng"},{"v":"Brown"},{"v":"0"},{"v":"2026"},null,{"v":"RLLVFPTT3TH837288"},{"v":"TRIỆU QUỐC KIỆT (PT)"},null,null,{"v":" Có khách "},{"v":"  Tồn tại kho  "},{"v":"29"},{"v":"NGUYỄN ANH QUÂN"}]},{"c":[{"v":"S45404"},{"v":"27/09/2026"},{"v":"VF2"},{"v":"VF2_LHD_VNM"},{"v":"Brahminy White IND17001"},{"v":"Trắng"},{"v":"Grey"},{"v":"0"},{"v":"2026"},null,{"v":"RLNVMNRSXTT710261"},{"v":"NGUYỄN QUANG HUY (PT)"},null,null,{"v":" Có khách "},{"v":"  Tồn tại kho  "},{"v":"29"},{"v":"TỪ QUỐC KHOA"}]},{"c":[{"v":"S45404"},{"v":"27/09/2026"},{"v":"VF3"},{"v":"VF3 Eco"},{"v":"Solar Ruby"},{"v":"Đỏ Ruby"},{"v":"Black"},{"v":"0"},{"v":"2026"},null,{"v":"RLNVBL9KXTT750253"},null,null,null,{"v":"  "},{"v":"  Tồn tại kho  "},{"v":"29"},null]},{"c":[{"v":"S45404"},{"v":"27/09/2026"},{"v":"VF3"},{"v":"VF3 Eco"},{"v":"Solar Ruby"},{"v":"Đỏ Ruby"},{"v":"Black"},null,{"v":"2026"},null,{"v":"RLNVBL9K5TT750340"},null,null,null,{"v":"  "},{"v":"  Tồn tại kho  "},{"v":"29"},null]},{"c":[{"v":"S45404"},{"v":"27/09/2026"},{"v":"VF3"},{"v":"VF3 Eco"},{"v":"Infinity Blanc Roof - Sky"},{"v":"Xanh dương"},{"v":"Black"},null,{"v":"2026"},null,{"v":"RLNVBL9K9TT744217"},null,null,null,{"v":"  "},{"v":"  Tồn tại kho  "},{"v":"29"},null]},{"c":[{"v":"S45404"},{"v":"27/09/2026"},{"v":"VF3"},{"v":"VF3 Eco"},{"v":"Brahminy White IND17001"},{"v":"Trắng"},{"v":"Black"},{"v":"0"},{"v":"2026"},null,{"v":"RLNVBL9K1TT747645"},null,null,null,{"v":"  "},{"v":" Tồn tại kho "},{"v":"29"},null]},{"c":[{"v":"S45404"},{"v":"27/09/2026"},{"v":"VF3"},{"v":"VF3 Plus"},{"v":"Urban Mint_GNG"},{"v":"Xanh lá nhạt"},{"v":"Black"},null,{"v":"2026"},null,{"v":"RLNVBL9KXTT750351"},null,null,null,{"v":"  "},{"v":"  Tồn tại kho  "},{"v":"29"},null]},{"c":[{"v":"S45404"},{"v":"27/09/2026"},{"v":"VF3"},{"v":"VF3 Plus"},{"v":"Zenith Grey_GYC"},{"v":"Xám"},{"v":"Black"},null,{"v":"2026"},null,{"v":"RLNVBL9K4TT750166"},{"v":"NGUYỄN THỊ XUÂN QUÝ (PT)"},null,null,{"v":" Có khách "},{"v":"  Tồn tại kho  "},{"v":"29"},null]},{"c":[{"v":"S45404"},{"v":"27/09/2026"},{"v":"VF5"},{"v":"VF5 PLUS VN BCO2"},{"v":"Zenith Grey_GYC"},{"v":"Xám"},{"v":"Black"},null,{"v":"2026"},null,{"v":"RLNV5JSE4TH845071"},null,null,null,{"v":"  "},{"v":"  Tồn tại kho  "},{"v":"29"},null]},{"c":[{"v":"S45404"},{"v":"27/09/2026"},{"v":"VF5"},{"v":"VF5 PLUS VN BCO2"},{"v":"Solar Ruby"},{"v":"Đỏ Ruby"},{"v":"Black"},null,{"v":"2026"},null,{"v":"RLNV5JSE0TH842619"},null,null,null,{"v":"  "},{"v":"  Tồn tại kho  "},{"v":"29"},null]},{"c":[{"v":"S45404"},{"v":"27/09/2026"},{"v":"VF6"},{"v":"VF6_VN PLUS BCO2"},{"v":"Jet Black CLE17038"},{"v":"Đen"},{"v":"Brown"},{"v":"0"},{"v":"2026"},null,{"v":"RLLVAG8C6TH825238"},null,null,null,{"v":"  "},{"v":"  Tồn tại kho  "},{"v":"29"},null]},{"c":[{"v":"S45404"},{"v":"27/09/2026"},{"v":"VF7"},{"v":"VF7 PLUS3_VN_HP"},{"v":"Solar Ruby"},{"v":"Đỏ Ruby"},{"v":"Beige"},null,{"v":"2026"},null,{"v":"RLLV3FKC9TH838949"},null,null,null,{"v":"  "},{"v":"  Tồn tại kho  "},{"v":"29"},null]},{"c":[{"v":"S45404"},{"v":"27/09/2026"},{"v":"VF8 NP"},{"v":"VF8NP_COMFORT_VN_HP_SVOLT"},{"v":"Jet Black CLE17038"},{"v":"Đen"},{"v":"Black"},{"v":"0"},{"v":"2026"},{"v":"0"},{"v":"RLLV3FUV9TH835578"},null,null,null,null,{"v":"  Tồn tại kho  "},{"v":"29"},null]},{"c":[{"v":"S45404"},{"v":"27/09/2026"},{"v":"VF9"},{"v":"VF9_LHD_ECO_VN_CATL_CPDU_3ZONE"},{"v":"Brahminy White IND17001"},{"v":"Trắng"},{"v":"Black"},{"v":"0"},{"v":"2026"},{"v":"0"},{"v":"RLLV2CVA6TH833641"},null,null,null,{"v":"  "},{"v":"  Tồn tại kho  "},{"v":"29"},null]},{"c":[{"v":"S45404"},{"v":"29/09/2026"},{"v":"VF3"},{"v":"VF3 Plus"},{"v":"Zenith Grey_GYC"},{"v":"Xám"},{"v":"Black"},{"v":"0"},{"v":"2026"},{"v":"0"},{"v":"RLNVBL9K3TT750871"},{"v":"LÊ THỊ HÀ (PT)"},null,null,{"v":" Có khách "},{"v":" Tồn tại kho "},{"v":"27"},{"v":"LÊ LÂM XUÂN VI"}]},{"c":[{"v":"S45404"},{"v":"29/09/2026"},{"v":"VF5"},{"v":"VF5 PLUS VN BCO2"},{"v":"Brahminy White IND17001"},{"v":"Trắng"},{"v":"Black"},{"v":"0"},{"v":"2026"},{"v":"0"},{"v":"RLNV5JSE6TH845766"},{"v":"PHẠM THỊ NHƯ Ý (PT)"},null,null,{"v":" Có khách "},{"v":"  Tồn tại kho  "},{"v":"27"},null]},{"c":[{"v":"S45404"},{"v":"29/09/2026"},{"v":"VF5"},{"v":"VF5 PLUS VN BCO2"},{"v":"Brahminy White IND17001"},{"v":"Trắng"},{"v":"Black"},{"v":"0"},{"v":"2026"},{"v":"0"},{"v":"RLNV5JSE0TH845763"},{"v":"CAO THỊ VĨNH NAM (PT)"},null,null,{"v":" Có khách "},{"v":"  Tồn tại kho  "},{"v":"27"},null]},{"c":[{"v":"S45404"},{"v":"29/09/2026"},{"v":"VF5"},{"v":"VF5 PLUS VN BCO2"},{"v":"Brahminy White IND17001"},{"v":"Trắng"},{"v":"Black"},{"v":"0"},{"v":"2026"},{"v":"0"},{"v":"RLNV5JSE3TH845921"},null,null,null,{"v":"  "},{"v":"  Tồn tại kho  "},{"v":"27"},null]},{"c":[{"v":"S45404"},{"v":"30/09/2026"},{"v":"VF2"},{"v":"VF2_LHD_VNM"},{"v":"De Sat Silver IND12007"},{"v":"Bạc"},{"v":"Grey"},{"v":"0"},{"v":"2026"},{"v":"0"},{"v":"RLNVMNMSXTT710669"},null,null,null,{"v":"  "},{"v":"  Tồn tại kho  "},{"v":"26"},null]},{"c":[{"v":"S45404"},{"v":"30/09/2026"},{"v":"VF2"},{"v":"VF2_LHD_VNM"},{"v":"De Sat Silver IND12007"},{"v":"Bạc"},{"v":"Grey"},{"v":"0"},{"v":"2026"},{"v":"0"},{"v":"RLNVMNMS7TT710614"},{"v":"NGUYỄN HOÀNG QUÂN (PT)"},null,null,{"v":" Có khách "},{"v":"  Tồn tại kho  "},{"v":"26"},{"v":"NGUYỄ THÀNH TUYÊN"}]},{"c":[{"v":"S45404"},{"v":"04/10/2026"},{"v":"VF3"},{"v":"VF3 Plus BCO2"},{"v":"Brahminy White IND17001"},{"v":"Trắng"},{"v":"Black"},{"v":"0"},{"v":"2026"},null,{"v":"RLNVBLVK2TT751564"},{"v":"LÊ VĂN VUI (PT)"},{"v":"06/10/2026"},null,{"v":" Có khách "},{"v":" Tồn tại kho "},{"v":"22"},{"v":"TRƯƠNG VIẾT BÌNH"}]},{"c":[{"v":"S45404"},{"v":"04/10/2026"},{"v":"Limo"},{"v":"LIMO_GREEN_VN"},{"v":"Brahminy White IND17001"},{"v":"Trắng"},{"v":"Black"},{"v":"0"},{"v":"2026"},null,{"v":"RLLVFPNT6TH847438"},{"v":"NGUYỄN VĂN THÀNH (PT)"},null,null,{"v":" Có khách "},{"v":" Tồn tại kho "},{"v":"22"},{"v":"LÊ LÂM XUÂN VI"}]},{"c":[{"v":"S45404"},{"v":"10/10/2026"},{"v":"VF3"},{"v":"VF3 Plus"},{"v":"Brahminy White IND17001"},{"v":"Trắng"},{"v":"Black"},null,{"v":"2026"},null,{"v":"RLNVBL9K4TT751222"},{"v":"HỒ PHAN BẢO NGỌC (PT)"},null,null,{"v":" Có khách "},{"v":"  Tồn PO  "},{"v":"16"},{"v":"MAI THỊ QUỲNH DIỄM"}]},{"c":[{"v":"S45404"},{"v":"10/10/2026"},{"v":"VF6"},{"v":"VF6_ECO_VN_JVCELL_BAT4"},{"v":"Brahminy White IND17001"},{"v":"Trắng"},{"v":"Black"},{"v":"0"},{"v":"2026"},null,{"v":"RLLVAGND6TH816925"},null,null,null,{"v":"  "},{"v":" Tồn tại kho "},{"v":"16"},null]},{"c":[{"v":"S45404"},{"v":"10/10/2026"},{"v":"VF8 NP"},{"v":"VF8NP_COMFORT_VN_HP_SVOLT"},{"v":"Brahminy White IND17001"},{"v":"Trắng"},{"v":"Black"},{"v":"0"},{"v":"2026"},{"v":"0"},{"v":"RLLV3FUV5TH849056"},{"v":"TRẦN MINH TOÀN (PT)"},null,null,{"v":" Có khách "},{"v":"  Tồn PO  "},{"v":"16"},{"v":"ĐỖ NGUYỄN PHƯỚC ĐỨC"}]},{"c":[{"v":"S45404"},{"v":"11/10/2026"},{"v":"Limo"},{"v":"LIMO_GREEN_VN"},{"v":"Brahminy White IND17001"},{"v":"Trắng"},{"v":"Black"},{"v":"0"},{"v":"2026"},null,{"v":"RLLVFPNTXTH851136"},null,null,null,{"v":"  "},{"v":" Tồn tại kho "},{"v":"15"},null]},{"c":[{"v":"S45404"},{"v":"11/10/2026"},{"v":"Limo"},{"v":"LIMO_GREEN_VN"},{"v":"Brahminy White IND17001"},{"v":"Trắng"},{"v":"Black"},{"v":"0"},{"v":"2026"},null,{"v":"RLLVFPNT3TH851186"},{"v":"NGUYỄN THỊ THU NGA (PT)"},null,null,{"v":" Có khách "},{"v":" Tồn tại kho "},{"v":"15"},{"v":"LÊ MINH THƯ"}]},{"c":[{"v":"S45404"},{"v":"11/10/2026"},{"v":"Limo"},{"v":"LIMO_GREEN_VN"},{"v":"Brahminy White IND17001"},{"v":"Trắng"},{"v":"Black"},{"v":"0"},{"v":"2026"},null,{"v":"RLLVFPNT8TH851071"},null,null,null,{"v":"  "},{"v":"  Tồn PO  "},{"v":"15"},null]},{"c":[{"v":"S45404"},{"v":"11/10/2026"},{"v":"Limo"},{"v":"LIMO_GREEN_VN"},{"v":"Brahminy White IND17001"},{"v":"Trắng"},{"v":"Black"},{"v":"0"},{"v":"2026"},null,{"v":"RLLVFPNT6TH851053"},null,null,null,{"v":"  "},{"v":"  Tồn PO  "},{"v":"15"},null]},{"c":[{"v":"S45404"},{"v":"11/10/2026"},{"v":"Limo"},{"v":"LIMO_GREEN_VN"},{"v":"Brahminy White IND17001"},{"v":"Trắng"},{"v":"Black"},{"v":"0"},{"v":"2026"},null,{"v":"RLLVFPNT2TH851177"},null,null,null,{"v":"  "},{"v":"  Tồn PO  "},{"v":"15"},null]},{"c":[{"v":"S45404"},{"v":"11/10/2026"},{"v":"VF3"},{"v":"VF3 Plus"},{"v":"Solar Ruby"},{"v":"Đỏ Ruby"},{"v":"Black"},{"v":"0"},{"v":"2026"},{"v":"0"},{"v":"RLNVBL9K9TT752124"},null,null,null,{"v":"  "},{"v":"  Tồn PO  "},{"v":"15"},null]},{"c":[{"v":"S45404"},{"v":"11/10/2026"},{"v":"VF3"},{"v":"VF3 Plus"},{"v":"Solar Ruby"},{"v":"Đỏ Ruby"},{"v":"Black"},{"v":"0"},{"v":"2026"},{"v":"0"},{"v":"RLNVBL9K3TT752135"},null,null,null,{"v":"  "},{"v":"  Tồn PO  "},{"v":"15"},null]},{"c":[{"v":"S45404"},{"v":"11/10/2026"},{"v":"VF3"},{"v":"VF3 Plus"},{"v":"Brahminy White IND17001"},{"v":"Trắng"},{"v":"Black"},{"v":"0"},{"v":"2026"},null,{"v":"RLNVBL9K9TT752415"},{"v":"PHAN THỊ SINH (PT)"},null,null,{"v":" Có khách "},{"v":"  Tồn PO  "},{"v":"15"},{"v":"PHẠM QUỐC BẢO"}]},{"c":[{"v":"S45404"},{"v":"11/10/2026"},{"v":"VF3"},{"v":"VF3 Plus"},{"v":"Brahminy White IND17001"},{"v":"Trắng"},{"v":"Black"},{"v":"0"},{"v":"2026"},null,{"v":"RLNVBL9K9TT752320"},{"v":"LÊ THANH HUY (PT)"},null,null,{"v":" Có khách "},{"v":"  Tồn PO  "},{"v":"15"},{"v":"PHẠM QUỐC BẢO"}]},{"c":[{"v":"S45404"},{"v":"17/10/2026"},{"v":"VF6"},{"v":"VF6_VN PLUS BCO2"},{"v":"Brahminy White IND17001"},{"v":"Trắng"},{"v":"Brown"},null,{"v":"2026"},null,{"v":"RLLVAG8C6TH853833"},{"v":"PHẠM VĂN ĐÔNG (PT)"},null,null,{"v":" Có khách "},{"v":" Tồn PO  "},{"v":"9"},{"v":"NGUYỄN THANH PHỤNG"}]},{"c":[{"v":"S45404"},{"v":"17/10/2026"},{"v":"Limo"},{"v":"LIMO_GREEN_VN"},{"v":"Solar Ruby"},{"v":"Đỏ Ruby"},{"v":"Black"},null,{"v":"2026"},null,{"v":"RLLVFPNT2TH832483"},null,null,null,{"v":"  "},{"v":" Tồn PO  "},{"v":"9"},null]},{"c":[{"v":"S45404"},{"v":"17/10/2026"},{"v":"VF6"},{"v":"VF6_VN PLUS BCO2"},{"v":"Brahminy White IND17001"},{"v":"Trắng"},{"v":"Brown"},{"v":"0"},{"v":"2026"},null,{"v":"RLLVAG8C6TH853203"},null,null,null,{"v":"  "},{"v":" Tồn PO  "},{"v":"9"},null]},{"c":[{"v":"S45404"},{"v":"17/10/2026"},{"v":"VF6"},{"v":"VF6_VN PLUS BCO2"},{"v":"Brahminy White IND17001"},{"v":"Trắng"},{"v":"Brown"},{"v":"0"},{"v":"2026"},null,{"v":"RLLVAG8C1TH852962"},null,null,null,{"v":"  "},{"v":" Tồn PO  "},{"v":"9"},null]},{"c":[{"v":"S45404"},{"v":"17/10/2026"},{"v":"MPV 7"},{"v":"VF MPV 7"},{"v":"Brahminy White IND17001"},{"v":"Trắng"},{"v":"Brown"},null,{"v":"2026"},null,{"v":"RLLVFPTT1TH834261"},null,null,null,{"v":"  "},{"v":" Tồn PO  "},{"v":"9"},null]},{"c":[{"v":"S45404"},{"v":"17/10/2026"},{"v":"MPV 7"},{"v":"VF MPV 7"},{"v":"Brahminy White IND17001"},{"v":"Trắng"},{"v":"Brown"},null,{"v":"2026"},null,{"v":"RLLVFPTTXTH834260"},null,null,null,{"v":"  "},{"v":" Tồn PO  "},{"v":"9"},null]},{"c":[{"v":"S45404"},{"v":"17/10/2026"},{"v":"MPV 7"},{"v":"VF MPV 7"},{"v":"Brahminy White IND17001"},{"v":"Trắng"},{"v":"Brown"},null,{"v":"2026"},null,{"v":"RLLVFPTT0TH834266"},null,null,null,{"v":"  "},{"v":" Tồn PO  "},{"v":"9"},null]},{"c":[{"v":"S45404"},{"v":"18/10/2026"},{"v":"VF5"},{"v":"VF5 PLUS VN BCO2"},{"v":"Solar Ruby"},{"v":"Đỏ Ruby"},{"v":"Black"},{"v":"0"},{"v":"2026"},null,{"v":"RLNV5JSE3TH850875"},null,null,null,{"v":"  "},{"v":" Tồn PO  "},{"v":"8"},null]},{"c":[{"v":"S45404"},{"v":"18/10/2026"},{"v":"VF2"},{"v":"VF2_LHD_VNM"},{"v":"Rose Pink"},{"v":"Hồng"},{"v":"Grey"},{"v":"0"},{"v":"2026"},null,{"v":"RLNVMNRS7TT712663"},null,null,null,{"v":"  "},{"v":" Tồn PO  "},{"v":"8"},null]},{"c":[{"v":"S45404"},{"v":"18/10/2026"},{"v":"VF2"},{"v":"VF2_LHD_VNM"},{"v":"Urban Mint_GNG"},{"v":"Xanh lá nhạt"},{"v":"Grey"},{"v":"0"},{"v":"2026"},null,{"v":"RLNVMNRS0TT712584"},{"v":"TRẦN ANH DƯƠNG (PT)"},null,null,{"v":" Có khách "},{"v":" Tồn PO  "},{"v":"8"},{"v":"NGUYỄN NHẬT QUỲNH"}]},{"c":[{"v":"S45404"},{"v":"22/10/2026"},{"v":"VF3"},{"v":"VF3 Plus"},{"v":"Brahminy White IND17001"},{"v":"Trắng"},{"v":"Black"},{"v":"0"},{"v":"2026"},null,{"v":"RLNVBL9K2TT755026"},{"v":"LÊ THỊ LI (PT)"},null,null,{"v":" Có khách "},{"v":" Tồn PO  "},{"v":"4"},{"v":"NGUYỄN VĂN PHÒNG"}]},{"c":[{"v":"S45404"},{"v":"22/10/2026"},{"v":"VF3"},{"v":"VF3 Plus"},{"v":"Brahminy White IND17001"},{"v":"Trắng"},{"v":"Black"},{"v":"0"},{"v":"2026"},null,{"v":"RLNVBL9K3TT755083"},null,null,null,{"v":"  "},{"v":" Tồn PO  "},{"v":"4"},null]},{"c":[{"v":"S45404"},{"v":"22/10/2026"},{"v":"VF3"},{"v":"VF3 Plus"},{"v":"Brahminy White IND17001"},{"v":"Trắng"},{"v":"Black"},{"v":"0"},{"v":"2026"},null,{"v":"RLNVBL9K1TT755096"},null,null,null,null,{"v":" Tồn PO  "},{"v":"4"},null]},{"c":[{"v":"S45404"},{"v":"22/10/2026"},{"v":"VF3"},{"v":"VF3 Plus"},{"v":"Zenith Grey_GYC"},{"v":"Xám"},{"v":"Black"},{"v":"0"},{"v":"2026"},null,{"v":"RLNVBL9K7TT755006"},null,null,null,null,{"v":" Tồn PO  "},{"v":"4"},null]},{"c":[{"v":"S45404"},{"v":"22/10/2026"},{"v":"VF8 NP"},{"v":"VF8NP_COMFORT_VN_HP_SVOLT"},{"v":"Solar_Ruby (REH)"},{"v":"Đỏ Ruby"},{"v":"Black"},{"v":"0"},{"v":"2026"},null,{"v":"RLLV3FUV6TH854458"},null,null,null,null,{"v":" Tồn PO  "},{"v":"4"},null]},{"c":[{"v":"S45404"},{"v":"24/10/2026"},{"v":"Minivan"},{"v":"MINIVAN_HT_PLANT_VN"},{"v":"Urban Mint_GNG"},{"v":"Xanh lá nhạt"},{"v":"Black"},{"v":"0"},{"v":"2026"},null,{"v":"RNXVGRPK9TT754735"},{"v":"TRẦN NGỌC MAY (PT)"},null,null,{"v":" Có khách "},{"v":" Tồn PO  "},{"v":"2"},null]},{"c":[{"v":"S45404"},{"v":"24/10/2026"},{"v":"VF3"},{"v":"VF3 Plus"},{"v":"Infinity Blanc Roof - Sky"},{"v":"Xanh dương"},{"v":"Black"},{"v":"0"},{"v":"2026"},null,{"v":"RLNVBL9K7TT754888"},null,null,null,null,{"v":" Tồn PO  "},{"v":"2"},null]},{"c":[{"v":"S45404"},{"v":"24/10/2026"},{"v":"VF3"},{"v":"VF3 Plus"},{"v":"Zenith Grey_GYC"},{"v":"Xám nhạt"},{"v":"Black"},{"v":"0"},{"v":"2026"},null,{"v":"RLNVBL9K4TT754525"},null,null,null,null,{"v":" Tồn PO  "},{"v":"2"},null]},{"c":[{"v":"S45404"},{"v":"24/10/2026"},{"v":"VF3"},{"v":"VF3 Plus"},{"v":"Brahminy White IND17001"},{"v":"Trắng"},{"v":"Black"},{"v":"0"},{"v":"2026"},null,{"v":"RLNVBL9K1TT754899"},null,null,null,null,{"v":" Tồn PO  "},{"v":"2"},null]},{"c":[{"v":"S45404"},{"v":"24/10/2026"},{"v":"VF6"},{"v":"VF6_VN PLUS BCO2"},{"v":"Brahminy White IND17001"},{"v":"Trắng"},{"v":"Brown"},{"v":"0"},{"v":"2026"},null,{"v":"RLLVAG8C1TH854808"},null,null,null,null,{"v":" Tồn PO  "},{"v":"2"},null]},{"c":[{"v":"S45404"},{"v":"24/10/2026"},{"v":"VF6"},{"v":"VF6_VN PLUS BCO2"},{"v":"Brahminy White IND17001"},{"v":"Trắng"},{"v":"Brown"},{"v":"0"},{"v":"2026"},null,{"v":"RLLVAG8C4TH855208"},null,null,null,null,{"v":" Tồn PO  "},{"v":"2"},null]},{"c":[{"v":"S45404"},{"v":"24/10/2026"},{"v":"VF6"},{"v":"VF6_VN PLUS BCO2"},{"v":"Brahminy White IND17001"},{"v":"Trắng"},{"v":"Brown"},{"v":"0"},{"v":"2026"},null,{"v":"RLLVAG8C5TH856657"},null,null,null,null,{"v":" Tồn PO  "},{"v":"2"},null]}]}};
@@ -2333,6 +2435,14 @@ function updateCommandStage() {
       info.append(el('span', cObj.color, 'color-card-name'));
       const availText = cObj.avail > 0 ? `${cObj.avail} xe chưa khách` : 'Đã ghép hết khách';
       info.append(el('span', availText, 'color-card-avail' + (cObj.avail === 0 ? ' soldout' : '')));
+
+      const bar = el('div', undefined, 'color-ratio-bar');
+      const fill = el('div', undefined, 'color-ratio-fill' + (cObj.avail === 0 ? ' soldout' : ''));
+      const pct = cObj.total > 0 ? Math.round((cObj.avail / cObj.total) * 100) : 0;
+      fill.style.width = `${pct}%`;
+      bar.append(fill);
+      info.append(bar);
+
       left.append(orb, info);
 
       const qty = el('div', undefined, 'color-card-qty');
@@ -2618,6 +2728,12 @@ function drawTable() {
         chip.addEventListener('click', (e) => {
           e.stopPropagation();
           if (navigator.clipboard) navigator.clipboard.writeText(val).catch(() => {});
+          chip.classList.add('copied');
+          chip.textContent = 'Đã chép';
+          setTimeout(() => {
+            chip.textContent = val;
+            chip.classList.remove('copied');
+          }, 1200);
           showToast('Đã sao chép mã VIN: ' + val);
         });
         td.append(chip);
